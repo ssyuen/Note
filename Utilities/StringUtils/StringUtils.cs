@@ -56,6 +56,21 @@ public sealed class StringUtils
     }
 
     /// <summary>
+    /// Roughly mimics C style strings in that each character of the specified string is stored in a List
+    /// </summary>
+    /// <param name="str">The string to be used</param>
+    /// <returns>The string represented as a List</returns>
+    public static List<char> ToList(string str)
+    {
+        List<char> strcpy_list = new List<char>(str.Length);
+        foreach (char c in strcpy_list)
+        {
+            strcpy_list.Add(c);
+        }
+        return strcpy_list;
+    }
+
+    /// <summary>
     /// Checks if a given string is a valid date used by System.DateTime
     /// </summary>
     /// <param name="str">The string to be used</param>
@@ -64,7 +79,7 @@ public sealed class StringUtils
     public static bool IsSystemDateTime(string data, string format)
     {
         DateTime dt = default(DateTime);
-        return DateTime.TryParseExact(data, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out dt);  
+        return DateTime.TryParseExact(data, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out dt);
     }
 
     /// <summary>
@@ -98,20 +113,5 @@ public sealed class StringUtils
             if (!(str[i] == str[j])) return false;
         }
         return true;
-    }
-
-    /// <summary>
-    /// Roughly mimics C style strings in that each character of the specified string is stored in a List
-    /// </summary>
-    /// <param name="str">The string to be used</param>
-    /// <returns>The string represented as a List</returns>
-    public static List<char> ToList(string str)
-    {
-        List<char> strcpy_list = new List<char>(str.Length);
-        foreach(char c in strcpy_list)
-        {
-            strcpy_list.Add(c);
-        }
-        return strcpy_list;
     }
 }

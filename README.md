@@ -1,0 +1,3 @@
+# C# String Utilities
+
+Unique string utilities for C#. Currently working on it! Bear with me...

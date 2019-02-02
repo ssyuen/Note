@@ -100,7 +100,11 @@ public sealed class StringUtils
         return true;
     }
 
-
+    /// <summary>
+    /// Roughly mimics C style strings in that each character of the specified string is stored in a List
+    /// </summary>
+    /// <param name="str">The string to be used</param>
+    /// <returns>The string represented as a List</returns>
     public static List<char> ToList(string str)
     {
         List<char> strcpy_list = new List<char>(str.Length);
@@ -110,5 +114,4 @@ public sealed class StringUtils
         }
         return strcpy_list;
     }
-
 }

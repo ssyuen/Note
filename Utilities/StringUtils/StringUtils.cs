@@ -76,7 +76,7 @@ public static class StringUtils
     /// <param name="str">The string to be used</param>
     /// <param name="format">The date format regex</param>
     /// <returns>True if the string is a valid date recognized by System.DateTime</returns>
-    public static bool IsSystemDateTime(this string data, string format)
+    public static bool IsSystemDateTime(this string data, string formattingRegex)
     {
         return DateTime.TryParseExact(data, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dt);
     }

@@ -2,11 +2,10 @@
 
 public class Driver
 {
-    protected static readonly Action<string> say = Console.WriteLine;
-
     public static void Main(string[] args)
     {
-        say(StringUtils.Remove("Manu", 'r'));
+        Console.WriteLine(StringUtils.Remove("Manu", 'r'));
+        Console.WriteLine(StringUtils.isPalindromeIgnoreCase("malayalam"));
         Console.Read();
     }
 }

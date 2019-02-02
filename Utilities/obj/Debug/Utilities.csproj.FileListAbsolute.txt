@@ -1,0 +1,7 @@
+C:\Users\Manu\source\repos\Utilities\Utilities\bin\Debug\StringReverser.exe.config
+C:\Users\Manu\source\repos\Utilities\Utilities\bin\Debug\StringReverser.exe
+C:\Users\Manu\source\repos\Utilities\Utilities\bin\Debug\StringReverser.pdb
+C:\Users\Manu\source\repos\Utilities\Utilities\obj\Debug\Utilities.csprojAssemblyReference.cache
+C:\Users\Manu\source\repos\Utilities\Utilities\obj\Debug\Utilities.csproj.CoreCompileInputs.cache
+C:\Users\Manu\source\repos\Utilities\Utilities\obj\Debug\StringReverser.exe
+C:\Users\Manu\source\repos\Utilities\Utilities\obj\Debug\StringReverser.pdb

@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public sealed class StringUtils
+public static class StringUtils
 {
     /// <summary>
     /// Reverses a string from left to right order while maintaining case sensitivity.
     /// </summary>
     /// <param name="str">The string to be reversed</param>
     /// <returns>The reversed string</returns>
-    public static string Reverse(string str)
+    public static string Reverse(this string str)
     {
         char[] c = str.ToCharArray();
         Array.Reverse(c);
@@ -22,7 +22,7 @@ public sealed class StringUtils
     /// </summary>
     /// <param name="str">The string to be chomped</param>
     /// <returns>The string retaining the first word</returns>
-    public static string Chomp(string str)
+    public static string Chomp(this string str)
     {
         int idx = str.IndexOf(" ");
         return str.Substring(0, idx);
@@ -34,7 +34,7 @@ public sealed class StringUtils
     /// <param name="str">The string to be used</param>
     /// <param name="args">The characters which will be removed</param>
     /// <returns>The string with all characters in args removed</returns>
-    public static string Remove(string str, params char[] args)
+    public static string Remove(this string str, params char[] args)
     {
         StringBuilder sb = new StringBuilder(str);
         foreach (char c in args)
@@ -50,7 +50,7 @@ public sealed class StringUtils
     /// </summary>
     /// <param name="str">The string to be used</param>
     /// <returns>True if the string contains any digits, false otherwise</returns>
-    public static bool ContainsDigits(string str)
+    public static bool ContainsDigits(this string str)
     {
         return str.Any(char.IsDigit);
     }
@@ -60,7 +60,7 @@ public sealed class StringUtils
     /// </summary>
     /// <param name="str">The string to be used</param>
     /// <returns>The string represented as a List</returns>
-    public static List<char> ToList(string str)
+    public static List<char> ToList(this string str)
     {
         List<char> strcpy_list = new List<char>(str.Length);
         foreach (char c in strcpy_list)
@@ -76,7 +76,7 @@ public sealed class StringUtils
     /// <param name="str">The string to be used</param>
     /// <param name="format">The date format regex</param>
     /// <returns>True if the string is a valid date recognized by System.DateTime</returns>
-    public static bool IsSystemDateTime(string data, string format)
+    public static bool IsSystemDateTime(this string data, string format)
     {
         DateTime dt = default(DateTime);
         return DateTime.TryParseExact(data, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out dt);
@@ -87,7 +87,7 @@ public sealed class StringUtils
     /// </summary>
     /// <param name="str">The string to be used</param>
     /// <returns>True if the string is a palindrome</returns>
-    public static bool IsPalindrome(string str)
+    public static bool IsPalindrome(this string str)
     {
         if (str.Length >= Int32.MaxValue) return false;
         for (Int32 i = 0; i < str.Length; i++)
@@ -103,7 +103,7 @@ public sealed class StringUtils
     /// </summary>
     /// <param name="str">The string to be used</param>
     /// <returns>True if the string is a palindrome</returns>
-    public static bool IsPalindromeIgnoreCase(string str)
+    public static bool IsPalindromeIgnoreCase(this string str)
     {
         if (str.Length >= Int32.MaxValue) return false;
         str = str.ToLower();

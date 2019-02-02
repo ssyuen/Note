@@ -88,10 +88,10 @@ public static class StringUtils
     public static bool IsPalindrome(this string str)
     {
         if (str.Length >= Int32.MaxValue) return false;
-        for (Int32 i = 0; i < str.Length; i++)
+        for (Int32 advancing = 0; advancing < str.Length; advancing++)
         {
-            Int32 j = str.Length - 1 - i;
-            if (!(str[i] == str[j])) return false;
+            Int32 retrograding = str.Length - 1 - advancing;
+            if (!(str[advancing] == str[retrograding])) return false;
         }
         return true;
     }
@@ -105,10 +105,10 @@ public static class StringUtils
     {
         if (str.Length >= Int32.MaxValue) return false;
         str = str.ToLower();
-        for(Int32 i = 0; i < str.Length; i++)
+        for(Int32 advancing = 0; advancing < str.Length; advancing++)
         {
-            Int32 j = str.Length - 1 - i;
-            if (!(str[i] == str[j])) return false;
+            Int32 retrograding = str.Length - 1 - advancing;
+            if (!(str[advancing] == str[retrograding])) return false;
         }
         return true;
     }

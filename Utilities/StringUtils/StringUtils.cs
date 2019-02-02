@@ -78,8 +78,7 @@ public static class StringUtils
     /// <returns>True if the string is a valid date recognized by System.DateTime</returns>
     public static bool IsSystemDateTime(this string data, string format)
     {
-        DateTime dt = default(DateTime);
-        return DateTime.TryParseExact(data, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out dt);
+        return DateTime.TryParseExact(data, format, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dt);
     }
 
     /// <summary>

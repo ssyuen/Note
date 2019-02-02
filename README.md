@@ -9,11 +9,11 @@
     <img src="https://forthebadge.com/images/badges/built-with-swag.svg">
   </a>
   
-  <a href="https://github.com/manu-p-1/CSharp-Utilities" target="_blank">
+  <a href="https://github.com/manu-p-1/CSharp-Utilities/graphs/contributors" target="_blank">
     <img src="https://forthebadge.com/images/badges/built-with-love.svg">  
   </a>
   
-  <a href="https://github.com/manu-p-1/CSharp-Utilities" target="_blank">
+  <a href="https://github.com/manu-p-1/CSharp-Utilities/graphs/contributors" target="_blank">
     <img src="https://forthebadge.com/images/badges/built-by-developers.svg">
   </a>
   

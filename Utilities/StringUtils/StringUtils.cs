@@ -74,6 +74,7 @@ public sealed class StringUtils
     /// <returns>True if the string is a palindrome</returns>
     public static bool IsPalindrome(string str)
     {
+        if (str.Length >= Int32.MaxValue) return false;
         for (Int32 i = 0; i < str.Length; i++)
         {
             Int32 j = str.Length - 1 - i;
@@ -89,6 +90,7 @@ public sealed class StringUtils
     /// <returns>True if the string is a palindrome</returns>
     public static bool IsPalindromeIgnoreCase(string str)
     {
+        if (str.Length >= Int32.MaxValue) return false;
         str = str.ToLower();
         for(Int32 i = 0; i < str.Length; i++)
         {

@@ -1,7 +1,0 @@
-C:\Users\Manu\source\repos\StringReverser\StringReverser\bin\x86\Debug\StringReverser.exe.config
-C:\Users\Manu\source\repos\StringReverser\StringReverser\bin\x86\Debug\StringReverser.exe
-C:\Users\Manu\source\repos\StringReverser\StringReverser\bin\x86\Debug\StringReverser.pdb
-C:\Users\Manu\source\repos\StringReverser\StringReverser\obj\x86\Debug\StringReverser.csproj.CoreCompileInputs.cache
-C:\Users\Manu\source\repos\StringReverser\StringReverser\obj\x86\Debug\StringReverser.exe
-C:\Users\Manu\source\repos\StringReverser\StringReverser\obj\x86\Debug\StringReverser.pdb
-C:\Users\Manu\source\repos\StringReverser\StringReverser\obj\x86\Debug\StringReverser.csprojAssemblyReference.cache

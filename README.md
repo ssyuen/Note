@@ -1,3 +1,3 @@
-# C# String Utilities
+# C# Utilities
 
-Unique string utilities for C#. Currently working on it! Bear with me...
+Creating a library of additional and useful C# utilities

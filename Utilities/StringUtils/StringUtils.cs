@@ -41,7 +41,6 @@ public static class StringUtils
         {
             sb.Replace(c.ToString(), "");
         }
-
         return sb.ToString();
     }
 
@@ -76,9 +75,9 @@ public static class StringUtils
     /// <param name="str">The string to be used</param>
     /// <param name="format">The date format regex</param>
     /// <returns>True if the string is a valid date recognized by System.DateTime</returns>
-    public static bool IsSystemDateTime(this string data, string formattingRegex)
+    public static bool IsSystemDateTime(this string date, string formattingRegex)
     {
-        return DateTime.TryParseExact(data, formattingRegex, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dt);
+        return DateTime.TryParseExact(date, formattingRegex, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dt);
     }
 
     /// <summary>

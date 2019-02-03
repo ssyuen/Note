@@ -83,36 +83,130 @@ namespace Utilities
         }
 
         /// <summary>
+        /// Checks if each character in a string is lexicographically greater than the previous character
+        /// </summary>
+        /// <param name="str"> the strig to be used</param>
+        /// <returns>True if the string strictly increases</returns>
+        public static bool IsStrictlyIncreasing(this string str)
+        {
+            uint local_length = Auxilliary32BitHelper.Length(str);
+            String[] str_arr = str.ToCharArray().Select(_char => _char.ToString()).ToArray();
+            for (uint i = 0; i < local_length - 1; i++)
+            {
+                if (Auxilliary32BitHelper.FindCharacterAtIndex(str_arr,i) > 
+                    Auxilliary32BitHelper.FindCharacterAtIndex(str_arr,i + 1)) return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Checks if each character in a string is lexicographically greater than the previous character
+        /// while ignoring case
+        /// </summary>
+        /// <param name="str"> the strig to be used</param>
+        /// <returns>True if the string strictly increases</returns>
+        public static bool IsStrictlyIncreasingIgnoreCase(this string str)
+        {
+            str = str.ToLower();
+            uint local_length = Auxilliary32BitHelper.Length(str);
+            String[] str_arr = str.ToCharArray().Select(_char => _char.ToString()).ToArray();
+            for (uint i = 0; i < local_length - 1; i++)
+            {
+                if (Auxilliary32BitHelper.FindCharacterAtIndex(str_arr, i) >
+                    Auxilliary32BitHelper.FindCharacterAtIndex(str_arr, i + 1)) return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Checks if each character in a string is lexicographically greater than the previous character
+        /// </summary>
+        /// <param name="str"> the strig to be used</param>
+        /// <returns>True if the string strictly increases</returns>
+        public static bool IsStrictlyDecreasing(this string str)
+        {
+            uint local_length = Auxilliary32BitHelper.Length(str);
+            String[] str_arr = str.ToCharArray().Select(_char => _char.ToString()).ToArray();
+            for (uint i = 0; i < local_length - 1; i++)
+            {
+                if (Auxilliary32BitHelper.FindCharacterAtIndex(str_arr, i) <
+                    Auxilliary32BitHelper.FindCharacterAtIndex(str_arr, i + 1)) return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Checks if each character in a string is lexicographically greater than the previous character
+        /// while ignoring case
+        /// </summary>
+        /// <param name="str"> the strig to be used</param>
+        /// <returns>True if the string strictly increases</returns>
+        public static bool IsStrictlyDecreasingIgnoreCase(this string str)
+        {
+            str = str.ToLower();
+            uint local_length = Auxilliary32BitHelper.Length(str);
+            String[] str_arr = str.ToCharArray().Select(_char => _char.ToString()).ToArray();
+            for (uint i = 0; i < local_length - 1; i++)
+            {
+                if (Auxilliary32BitHelper.FindCharacterAtIndex(str_arr, i) <
+                    Auxilliary32BitHelper.FindCharacterAtIndex(str_arr, i + 1)) return false;
+            }
+            return true;
+        }
+
+        /// <summary>
         /// Checks if a given string is a palindrome
         /// </summary>
         /// <param name="str">The string to be used</param>
         /// <returns>True if the string is a palindrome</returns>
         public static bool IsPalindrome(this string str)
         {
-            if (str.Length >= Int32.MaxValue) return false;
-            for (Int32 advancing = 0; advancing < str.Length; advancing++)
+            uint local_length = Auxilliary32BitHelper.Length(str);
+            String[] str_arr = str.ToCharArray().Select(_char => _char.ToString()).ToArray();
+            for (uint advancing = 0; advancing < local_length; advancing++)
             {
-                Int32 retrograding = str.Length - 1 - advancing;
-                if (!(str[advancing] == str[retrograding])) return false;
+                uint retrograding = local_length - 1 - advancing;
+                if (!(Auxilliary32BitHelper.FindCharacterAtIndex(str_arr,advancing) == 
+                    Auxilliary32BitHelper.FindCharacterAtIndex(str_arr,retrograding))) return false;
             }
             return true;
         }
 
         /// <summary>
-        /// Checks if a given string is a palindrom while ignoring casing
+        /// Checks if a given string is a palindrome while ignoring casing
         /// </summary>
         /// <param name="str">The string to be used</param>
         /// <returns>True if the string is a palindrome</returns>
         public static bool IsPalindromeIgnoreCase(this string str)
         {
-            if (str.Length >= Int32.MaxValue) return false;
             str = str.ToLower();
-            for (Int32 advancing = 0; advancing < str.Length; advancing++)
+            uint local_length = Auxilliary32BitHelper.Length(str);
+            String[] str_arr = str.ToCharArray().Select(_char => _char.ToString()).ToArray();
+            for (uint advancing = 0; advancing < local_length; advancing++)
             {
-                Int32 retrograding = str.Length - 1 - advancing;
-                if (!(str[advancing] == str[retrograding])) return false;
+                uint retrograding = local_length - 1 - advancing;
+                if (!(Auxilliary32BitHelper.FindCharacterAtIndex(str_arr, advancing) ==
+                    Auxilliary32BitHelper.FindCharacterAtIndex(str_arr, retrograding))) return false;
             }
             return true;
         }
-    }
+
+        internal static class Auxilliary32BitHelper
+        {
+            public static char FindCharacterAtIndex(String[] str_arr, uint index)
+            {
+                return Char.Parse(str_arr[index]);
+            }
+
+            public static uint Length(string str)
+            {
+                uint x = 0;
+                foreach (char c in str)
+                {
+                    x++;
+                }
+                return x;
+            }
+        }
+    } 
 }

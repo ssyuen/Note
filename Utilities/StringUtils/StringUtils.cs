@@ -15,6 +15,7 @@ namespace Utilities
         /// <returns>The reversed string</returns>
         public static string Reverse(this string str)
         {
+            if (str == null || str.Length == 0) return str;
             char[] c = str.ToCharArray();
             Array.Reverse(c);
             return new string(c);
@@ -26,6 +27,7 @@ namespace Utilities
         /// <returns>The string retaining the first word</returns>
         public static string Chomp(this string str)
         {
+            if (str == null || str.Length == 0) return str;
             int idx = str.IndexOf(" ");
             return str.Substring(0, idx);
         }
@@ -38,6 +40,7 @@ namespace Utilities
         /// <returns>The string with all characters in args removed</returns>
         public static string Remove(this string str, params char[] args)
         {
+            if (str == null || str.Length == 0) return str;
             StringBuilder sb = new StringBuilder(str);
             for(int i = 0; i < args.Length; i++)
             {
@@ -53,6 +56,7 @@ namespace Utilities
         /// <returns>True if the string contains any digits, false otherwise</returns>
         public static bool ContainsDigits(this string str)
         {
+            if (str == null || str.Length == 0) return false;
             return str.Any(char.IsDigit);
         }
 
@@ -63,8 +67,8 @@ namespace Utilities
         /// <returns>The string represented as a List</returns>
         public static List<char> ToList(this string str)
         {
+            if (str == null || str.Length == 0) return new List<char>(0);
             List<char> strcpy_list = new List<char>(str.Length);
-
             for(int i = 0; i < str.Length; i++) //For loop is faster than foreach in almost all scenarios
             {
                 strcpy_list.Add(str[i]);
@@ -80,43 +84,38 @@ namespace Utilities
         /// <returns>True if the string is a valid date recognized by System.DateTime</returns>
         public static bool IsSystemDateTime(this string date, string formattingRegex)
         {
+            if (date == null || date.Length == 0) return false;
             return DateTime.TryParseExact(date, formattingRegex, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime dt);
         }
 
         /// <summary>
         /// Checks if each character in a string is lexicographically greater than the previous character.
-        /// Works for strings lengths for and between 0 and 2 * Int32.MaxValue.
         /// </summary>
         /// <param name="str"> the strig to be used</param>
         /// <returns>True if the string strictly increases</returns>
         public static bool IsStrictlyIncreasing(this string str)
         {
-            uint local_length = Auxilliary32BitHelper.Length(str);
-            string[] str_arr = str.ToCharArray().Select(_char => _char.ToString()).ToArray();
-            for (uint i = 0; i < local_length - 1; i++)
+            if (str == null || str.Length == 0) return false;
+            for (int i = 0; i < str.Length - 1; i++)
             {
-                if (Auxilliary32BitHelper.FindCharacterAtIndex(str_arr,i) > 
-                    Auxilliary32BitHelper.FindCharacterAtIndex(str_arr,i + 1)) return false;
+                if (str[i] > str[i + 1]) return false;
             }
             return true;
         }
 
         /// <summary>
         /// Checks if each character in a string is lexicographically greater than the previous character
-        /// while ignoring case. Works for strings lengths for and between 0 and 2 * Int32.MaxValue.
-        ///
+        /// while ignoring case.
         /// </summary>
         /// <param name="str"> the strig to be used</param>
         /// <returns>True if the string strictly increases</returns>
         public static bool IsStrictlyIncreasingIgnoreCase(this string str)
         {
+            if (str == null || str.Length == 0) return false;
             str = str.ToLower();
-            uint local_length = Auxilliary32BitHelper.Length(str);
-            string[] str_arr = str.ToCharArray().Select(_char => _char.ToString()).ToArray();
-            for (uint i = 0; i < local_length - 1; i++)
+            for (int i = 0; i < str.Length - 1; i++)
             {
-                if (Auxilliary32BitHelper.FindCharacterAtIndex(str_arr, i) >
-                    Auxilliary32BitHelper.FindCharacterAtIndex(str_arr, i + 1)) return false;
+                if (str[i] > str[i + 1]) return false;
             }
             return true;
         }
@@ -129,12 +128,10 @@ namespace Utilities
         /// <returns>True if the string strictly increases</returns>
         public static bool IsStrictlyDecreasing(this string str)
         {
-            uint local_length = Auxilliary32BitHelper.Length(str);
-            string[] str_arr = str.ToCharArray().Select(_char => _char.ToString()).ToArray();
-            for (uint i = 0; i < local_length - 1; i++)
+            if (str == null || str.Length == 0) return false;
+            for (int i = 0; i < str.Length - 1; i++)
             {
-                if (Auxilliary32BitHelper.FindCharacterAtIndex(str_arr, i) <
-                    Auxilliary32BitHelper.FindCharacterAtIndex(str_arr, i + 1)) return false;
+                if (str[i] < str[i + 1]) return false;
             }
             return true;
         }
@@ -147,13 +144,10 @@ namespace Utilities
         /// <returns>True if the string strictly increases</returns>
         public static bool IsStrictlyDecreasingIgnoreCase(this string str)
         {
-            str = str.ToLower();
-            uint local_length = Auxilliary32BitHelper.Length(str);
-            string[] str_arr = str.ToCharArray().Select(_char => _char.ToString()).ToArray();
-            for (uint i = 0; i < local_length - 1; i++)
+            if (str == null || str.Length == 0) return false;
+            for (int i = 0; i < str.Length - 1; i++)
             {
-                if (Auxilliary32BitHelper.FindCharacterAtIndex(str_arr, i) <
-                    Auxilliary32BitHelper.FindCharacterAtIndex(str_arr, i + 1)) return false;
+                if (str[i] > str[i + 1]) return false;
             }
             return true;
         }
@@ -165,11 +159,12 @@ namespace Utilities
         /// <returns>True if the string is a palindrome</returns>
         public static bool IsPalindrome(this string str)
         {
+            if (str == null || str.Length == 0) return true;
             //All palindromes that exist are less than Int32.MaxValue
             for (int advancing = 0; advancing < str.Length; advancing++)
             {
                 int retrograding = str.Length - 1 - advancing;
-                if (!(advancing == retrograding)) return false;
+                if (!(str[advancing] == str[retrograding])) return false;
             }
             return true;
         }
@@ -181,32 +176,21 @@ namespace Utilities
         /// <returns>True if the string is a palindrome</returns>
         public static bool IsPalindromeIgnoreCase(this string str)
         {
+            if (str == null || str.Length == 0) return true;
             //All palindromes that exist are less than Int32.MaxValue
             str = str.ToLower();
             for (int advancing = 0; advancing < str.Length; advancing++)
             {
                 int retrograding = str.Length - 1 - advancing;
-                if (!(advancing == retrograding)) return false;
+                if (!(str[advancing] == str[retrograding])) return false;
             }
             return true;
         }
 
-        internal static class Auxilliary32BitHelper
-        {
-            public static char FindCharacterAtIndex(string[] str_arr, uint index)
-            {
-                return Char.Parse(str_arr[index]);
-            }
-
-            public static uint Length(string str)
-            {
-                uint x = 0;
-                foreach (char c in str)
-                {
-                    x++;
-                }
-                return x;
-            }
-        }
-    } 
+        //removed due to failure to comply with CLR
+        //internal static class Auxilliary32BitHelper
+        //{
+        //
+        //}
+    }
 }

@@ -90,7 +90,7 @@ namespace Utilities
         public static bool IsStrictlyIncreasing(this string str)
         {
             uint local_length = Auxilliary32BitHelper.Length(str);
-            String[] str_arr = str.ToCharArray().Select(_char => _char.ToString()).ToArray();
+            string[] str_arr = str.ToCharArray().Select(_char => _char.ToString()).ToArray();
             for (uint i = 0; i < local_length - 1; i++)
             {
                 if (Auxilliary32BitHelper.FindCharacterAtIndex(str_arr,i) > 
@@ -109,7 +109,7 @@ namespace Utilities
         {
             str = str.ToLower();
             uint local_length = Auxilliary32BitHelper.Length(str);
-            String[] str_arr = str.ToCharArray().Select(_char => _char.ToString()).ToArray();
+            string[] str_arr = str.ToCharArray().Select(_char => _char.ToString()).ToArray();
             for (uint i = 0; i < local_length - 1; i++)
             {
                 if (Auxilliary32BitHelper.FindCharacterAtIndex(str_arr, i) >
@@ -126,7 +126,7 @@ namespace Utilities
         public static bool IsStrictlyDecreasing(this string str)
         {
             uint local_length = Auxilliary32BitHelper.Length(str);
-            String[] str_arr = str.ToCharArray().Select(_char => _char.ToString()).ToArray();
+            string[] str_arr = str.ToCharArray().Select(_char => _char.ToString()).ToArray();
             for (uint i = 0; i < local_length - 1; i++)
             {
                 if (Auxilliary32BitHelper.FindCharacterAtIndex(str_arr, i) <
@@ -145,7 +145,7 @@ namespace Utilities
         {
             str = str.ToLower();
             uint local_length = Auxilliary32BitHelper.Length(str);
-            String[] str_arr = str.ToCharArray().Select(_char => _char.ToString()).ToArray();
+            string[] str_arr = str.ToCharArray().Select(_char => _char.ToString()).ToArray();
             for (uint i = 0; i < local_length - 1; i++)
             {
                 if (Auxilliary32BitHelper.FindCharacterAtIndex(str_arr, i) <
@@ -162,7 +162,7 @@ namespace Utilities
         public static bool IsPalindrome(this string str)
         {
             uint local_length = Auxilliary32BitHelper.Length(str);
-            String[] str_arr = str.ToCharArray().Select(_char => _char.ToString()).ToArray();
+            string[] str_arr = str.ToCharArray().Select(_char => _char.ToString()).ToArray();
             for (uint advancing = 0; advancing < local_length; advancing++)
             {
                 uint retrograding = local_length - 1 - advancing;
@@ -181,7 +181,7 @@ namespace Utilities
         {
             str = str.ToLower();
             uint local_length = Auxilliary32BitHelper.Length(str);
-            String[] str_arr = str.ToCharArray().Select(_char => _char.ToString()).ToArray();
+            string[] str_arr = str.ToCharArray().Select(_char => _char.ToString()).ToArray();
             for (uint advancing = 0; advancing < local_length; advancing++)
             {
                 uint retrograding = local_length - 1 - advancing;
@@ -193,7 +193,7 @@ namespace Utilities
 
         internal static class Auxilliary32BitHelper
         {
-            public static char FindCharacterAtIndex(String[] str_arr, uint index)
+            public static char FindCharacterAtIndex(string[] str_arr, uint index)
             {
                 return Char.Parse(str_arr[index]);
             }

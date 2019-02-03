@@ -36,4 +36,4 @@ considered, etc.
 
 ## Attributions
 Pull request template has been adopted from https://github.com/rabbitmq/rabbitmq-dotnet-client/blob/0ffd443eb1a3de7de8db58ece20b26e379355a73/.github/PULL_REQUEST_TEMPLATE.md
-and modified for our own intent
+and modified for our own intents and purposes.

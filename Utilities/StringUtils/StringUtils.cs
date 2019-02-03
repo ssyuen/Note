@@ -39,9 +39,9 @@ namespace Utilities
         public static string Remove(this string str, params char[] args)
         {
             StringBuilder sb = new StringBuilder(str);
-            foreach (char c in args)
+            for(int i = 0; i < args.Length; i++)
             {
-                sb.Replace(c.ToString(), "");
+                sb.Replace(args[i].ToString(), string.Empty);
             }
             return sb.ToString();
         }
@@ -64,9 +64,10 @@ namespace Utilities
         public static List<char> ToList(this string str)
         {
             List<char> strcpy_list = new List<char>(str.Length);
-            foreach (char c in strcpy_list)
+
+            for(int i = 0; i < str.Length; i++) //For loop is faster than foreach in almost all scenarios
             {
-                strcpy_list.Add(c);
+                strcpy_list.Add(str[i]);
             }
             return strcpy_list;
         }
@@ -83,7 +84,8 @@ namespace Utilities
         }
 
         /// <summary>
-        /// Checks if each character in a string is lexicographically greater than the previous character
+        /// Checks if each character in a string is lexicographically greater than the previous character.
+        /// Works for strings lengths for and between 0 and 2 * Int32.MaxValue.
         /// </summary>
         /// <param name="str"> the strig to be used</param>
         /// <returns>True if the string strictly increases</returns>
@@ -101,7 +103,8 @@ namespace Utilities
 
         /// <summary>
         /// Checks if each character in a string is lexicographically greater than the previous character
-        /// while ignoring case
+        /// while ignoring case. Works for strings lengths for and between 0 and 2 * Int32.MaxValue.
+        ///
         /// </summary>
         /// <param name="str"> the strig to be used</param>
         /// <returns>True if the string strictly increases</returns>
@@ -119,7 +122,8 @@ namespace Utilities
         }
 
         /// <summary>
-        /// Checks if each character in a string is lexicographically greater than the previous character
+        /// Checks if each character in a string is lexicographically smaller than the previous character.
+        /// Works for strings lengths for and between 0 and 2 * Int32.MaxValue.
         /// </summary>
         /// <param name="str"> the strig to be used</param>
         /// <returns>True if the string strictly increases</returns>
@@ -136,8 +140,8 @@ namespace Utilities
         }
 
         /// <summary>
-        /// Checks if each character in a string is lexicographically greater than the previous character
-        /// while ignoring case
+        /// Checks if each character in a string is lexicographically smaller than the previous character
+        /// while ignoring case. Works for strings lengths for and between 0 and 2 * Int32.MaxValue.
         /// </summary>
         /// <param name="str"> the strig to be used</param>
         /// <returns>True if the string strictly increases</returns>
@@ -155,19 +159,17 @@ namespace Utilities
         }
 
         /// <summary>
-        /// Checks if a given string is a palindrome
+        /// Checks if a given string is a palindrome.
         /// </summary>
         /// <param name="str">The string to be used</param>
         /// <returns>True if the string is a palindrome</returns>
         public static bool IsPalindrome(this string str)
         {
-            uint local_length = Auxilliary32BitHelper.Length(str);
-            string[] str_arr = str.ToCharArray().Select(_char => _char.ToString()).ToArray();
-            for (uint advancing = 0; advancing < local_length; advancing++)
+            //All palindromes that exist are less than Int32.MaxValue
+            for (int advancing = 0; advancing < str.Length; advancing++)
             {
-                uint retrograding = local_length - 1 - advancing;
-                if (!(Auxilliary32BitHelper.FindCharacterAtIndex(str_arr,advancing) == 
-                    Auxilliary32BitHelper.FindCharacterAtIndex(str_arr,retrograding))) return false;
+                int retrograding = str.Length - 1 - advancing;
+                if (!(advancing == retrograding)) return false;
             }
             return true;
         }
@@ -179,14 +181,12 @@ namespace Utilities
         /// <returns>True if the string is a palindrome</returns>
         public static bool IsPalindromeIgnoreCase(this string str)
         {
+            //All palindromes that exist are less than Int32.MaxValue
             str = str.ToLower();
-            uint local_length = Auxilliary32BitHelper.Length(str);
-            string[] str_arr = str.ToCharArray().Select(_char => _char.ToString()).ToArray();
-            for (uint advancing = 0; advancing < local_length; advancing++)
+            for (int advancing = 0; advancing < str.Length; advancing++)
             {
-                uint retrograding = local_length - 1 - advancing;
-                if (!(Auxilliary32BitHelper.FindCharacterAtIndex(str_arr, advancing) ==
-                    Auxilliary32BitHelper.FindCharacterAtIndex(str_arr, retrograding))) return false;
+                int retrograding = str.Length - 1 - advancing;
+                if (!(advancing == retrograding)) return false;
             }
             return true;
         }

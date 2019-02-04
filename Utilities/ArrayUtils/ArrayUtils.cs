@@ -17,10 +17,10 @@ namespace Utilities
         /// <summary>
         /// Concatenates two arrays of the same type together.
         /// </summary>
-        /// <param name="array1">The array to be concatenated</param>
-        /// <param name="array2">The string to be concatenated</param>
+        /// <param name="array1">The first array to be concatenated</param>
+        /// <param name="array2">The second array to be concatenated</param>
         /// <returns>The concatenated array</returns>
-        public static T[] Concat<T>(T[] array1, T[] array2)
+        public static T[] Concat <T> (T[] array1, T[] array2)
         { 
             T[] array3 = new T[array1.Length + array2.Length];
 
@@ -36,9 +36,15 @@ namespace Utilities
 
         }//array concat
 
-        public static double FindAvg<T>(T[] array1)
+        
+        /// <summary>
+        /// Finds the average of all values in the array. The array must contain real numbers.
+        /// </summary>
+        /// <param name="array1">The array to be used</param>
+        /// <returns>The the average of all values in the array</returns>
+        public static double FindAvg <T> (T[] array1)
         {
-            if (array1.Equals(typeof(String)) || array1.Equals(typeof(object)))
+            if (array1.Equals(typeof(string)) || array1.Equals(typeof(object)))
             {
                 throw new ArrayAccomodatingNonRealNumberException();
                 return 0;

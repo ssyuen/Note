@@ -23,7 +23,7 @@
     <img src="https://img.shields.io/github/last-commit/manu-p-1/CSharp-Utilities/master.svg?style=for-the-badge">
   </a>
   
-  <a href="https://github.com/manu-p-1/CSharp-Utilities/commits/master" target="_blank">
+  <a href="https://github.com/manu-p-1/CSharp-Utilities/graphs/contributors" target="_blank">
     <img src="https://img.shields.io/github/contributors/manu-p-1/CSharp-Utilities.svg?style=for-the-badge">
   </a>
   

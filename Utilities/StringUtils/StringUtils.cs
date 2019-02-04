@@ -43,7 +43,7 @@ namespace Utilities
             else
             {
                 return str;
-            } 
+            }
         }
 
         /// <summary>
@@ -58,10 +58,10 @@ namespace Utilities
             {
                 return str;
             }
-            int index_of_space = 0;
-            int matching_num_spaces = 0;
             if (spaces != 0)
             {
+                int index_of_space = 0;
+                int matching_num_spaces = 0;
                 for (int i = 0; i < str.Length; i++)
                 {
                     if (char.IsWhiteSpace(str[i]))
@@ -78,7 +78,7 @@ namespace Utilities
             }
             return str;
         }
-        
+
         /// <summary>
         /// Counts the number of words in a string
         /// </summary>
@@ -242,7 +242,7 @@ namespace Utilities
             if (str == null || str.Length == 0)
             {
                 return true;
-            }            
+            }
             //All palindromes that exist are less than Int32.MaxValue
             for (int advancing = 0; advancing < str.Length; advancing++)
             {

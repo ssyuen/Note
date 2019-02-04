@@ -11,11 +11,9 @@ public class Driver
         Console.WriteLine(StringUtils.ChompAfter("A long rainy day is in the midst", 0));
         Console.WriteLine(StringUtils.IsPalindromeIgnoreCase("malayalam"));
         Console.WriteLine(StringUtils.IsStrictlyIncreasing("1234"));
-
         Console.WriteLine(StringUtils.Remove("Manu", 'a'));
-        
         Console.WriteLine(StringUtils.Chomp($"Hello Sam"));
-
+        Console.Read();
         
         //TESTING ARRAYUTILS.CONCAT
         

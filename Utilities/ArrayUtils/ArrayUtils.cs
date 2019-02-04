@@ -36,25 +36,26 @@ namespace Utilities
 
         }//array concat
 
-        //public static double FindAvg<T>(T[] array1)
-        //{
-        //    if (array1.Equals(typeof(object)))
-        //    {
-        //        throw new ArrayAccomodatingNonRealNumberException();
-        //    }
-        //    else
-        //    {
-        //        double sum = 0;
-        //        int denom = array1.Length;
-        //        double avg = 0;
+        public static double FindAvg<T>(T[] array1)
+        {
+            if (array1.Equals(typeof(String)) || array1.Equals(typeof(object)))
+            {
+                throw new ArrayAccomodatingNonRealNumberException();
+                return 0;
+            }
+            else
+            {
+                double sum = 0;
+                int denom = array1.Length;
+                double avg = 0;
 
-        //        for (int i = 0; i < array1.Length; i++)
-        //        {
-        //            sum += array1[i];
-        //        }
+                for (int i = 0; i < array1.Length; i++)
+                {
+                    sum += (dynamic)array1[i];
+                }
 
-        //        return avg = sum / denom;
-        //    }
-        //}
-    }
+                return avg = sum / denom;
+            }
+        }//findavg
+    }//arrayutils
 }

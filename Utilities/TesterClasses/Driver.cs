@@ -20,7 +20,7 @@ public class Driver
         //int array concat
         int[] array1 = {1, 2, 3, 4};
         int[] array2 = {5, 6, 7, 8};
-        int[] array3 = ArrayUtils<int>.Concat(array1, array2);
+        int[] array3 = ArrayUtils.Concat(array1, array2);
         foreach (var e in array3)
         {
             Console.WriteLine(e);
@@ -29,7 +29,7 @@ public class Driver
         //string array concat
         string[] firstName = {"sam", "glen", "lok", "manu"};
         string[] lastName = {"yuen", "george", "kwong", "manuhar"};
-        string[] fullName = ArrayUtils<string>.Concat(firstName, lastName);
+        string[] fullName = ArrayUtils.Concat(firstName, lastName);
         foreach (var e in fullName)
         {
             Console.WriteLine(e);
@@ -38,7 +38,7 @@ public class Driver
         //
         object[] oArray = {array1, array2};
         object[] oArray2 = {firstName, lastName};
-        object[] oArray3 = ArrayUtils<object>.Concat(oArray, oArray2);
+        object[] oArray3 = ArrayUtils.Concat(oArray, oArray2);
         foreach (var e in oArray3)
         {
             Console.WriteLine(e);
@@ -46,7 +46,10 @@ public class Driver
         //END TESTING ARRAYUTILS.CONCAT
         
         //TESTING ARRAYUTILS.FINDAVG
-        Console.WriteLine(ArrayUtils<int>.FindAvg(array1));
+        double[] array4 = {4, 7, 2.3, 5, 7, 3.0};
+        Console.WriteLine(ArrayUtils.FindAvg(array4));
+        string[] array5 = {"hi"};
+        Console.WriteLine(ArrayUtils.FindAvg(array5));
         //END TESTING ARRAYUTILS.FINDAVG
 
         //Console.Read();

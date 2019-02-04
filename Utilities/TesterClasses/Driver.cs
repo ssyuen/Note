@@ -13,7 +13,7 @@ public class Driver
         Console.WriteLine(StringUtils.IsStrictlyIncreasing("1234"));
         Console.WriteLine(StringUtils.Remove("Manu", 'a'));
         Console.WriteLine(StringUtils.Chomp($"Hello Sam"));
-        Console.Read();
+
         
         //TESTING ARRAYUTILS.CONCAT
         
@@ -28,30 +28,19 @@ public class Driver
 
         //string array concat
         string[] firstName = {"sam", "glen", "lok", "manu"};
-        string[] lastName = {"yuen", "george", "kwong", "manuhar"};
+        string[] lastName = {"yuen", "george", "kwong", "puduvalli"};
         string[] fullName = ArrayUtils.Concat(firstName, lastName);
         foreach (var e in fullName)
         {
             Console.WriteLine(e);
         }
         
-        //
-        object[] oArray = {array1, array2};
-        object[] oArray2 = {firstName, lastName};
-        object[] oArray3 = ArrayUtils.Concat(oArray, oArray2);
-        foreach (var e in oArray3)
-        {
-            Console.WriteLine(e);
-        }
-        //END TESTING ARRAYUTILS.CONCAT
-        
         //TESTING ARRAYUTILS.FINDAVG
         double[] array4 = {4, 7, 2.3, 5, 7, 3.0};
         Console.WriteLine(ArrayUtils.FindAvg(array4));
-        string[] array5 = {"hi"};
-        Console.WriteLine(ArrayUtils.FindAvg(array5));
+
         //END TESTING ARRAYUTILS.FINDAVG
 
-        //Console.Read();
+        Console.Read();
     }
 }

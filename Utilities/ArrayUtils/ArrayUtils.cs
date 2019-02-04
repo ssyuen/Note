@@ -11,14 +11,14 @@ using System.Linq.Expressions;
 namespace Utilities
 {
 
-    public class ArrayUtils
+    public static class ArrayUtils
     {
 
         /// <summary>
         /// Concatenates two arrays of the same type together.
         /// </summary>
-        /// <param name="array1">The array to be concatenated</param>
-        /// <param name="array2">The string to be concatenated</param>
+        /// <param name="array1">The first array to be concatenated</param>
+        /// <param name="array2">The second array to be concatenated</param>
         /// <returns>The concatenated array</returns>
         public static T[] Concat<T>(T[] array1, T[] array2)
         { 
@@ -35,6 +35,217 @@ namespace Utilities
             return array3;
 
         }//array concat
+
+        /// <summary>
+        /// Finds the average of all the elements in the array.
+        /// </summary>
+        /// <param name="a">The byte type array</param>
+        /// <returns>The average of all the elements in the array</returns>
+        public static double FindAvg(this byte[] a)
+        {
+            double sum = 0;
+            int denom = a.Length;
+            double avg = 0;
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += a[i];
+            }
+
+            return avg = sum / denom;
+        }
+
+        /// <summary>
+        /// Finds the average of all the elements in the array.
+        /// </summary>
+        /// <param name="a">The sbyte type array</param>
+        /// <returns>The average of all the elements in the array</returns>
+        public static double FindAvg(this sbyte[] a)
+        {
+            double sum = 0;
+            int denom = a.Length;
+            double avg = 0;
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += a[i];
+            }
+
+            return avg = sum / denom;
+        }
+
+        /// <summary>
+        /// Finds the average of all the elements in the array.
+        /// </summary>
+        /// <param name="a">The short type array</param>
+        /// <returns>The average of all the elements in the array</returns>
+        public static double FindAvg(this short[] a)
+        {
+            double sum = 0;
+            int denom = a.Length;
+            double avg = 0;
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += a[i];
+            }
+
+            return avg = sum / denom;
+        }
+
+        /// <summary>
+        /// Finds the average of all the elements in the array.
+        /// </summary>
+        /// <param name="a">The ushort type array</param>
+        /// <returns>The average of all the elements in the array</returns>
+        public static double FindAvg(this ushort[] a)
+        {
+            double sum = 0;
+            int denom = a.Length;
+            double avg = 0;
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += a[i];
+            }
+
+            return avg = sum / denom;
+        }
+
+        /// <summary>
+        /// Finds the average of all the elements in the array.
+        /// </summary>
+        /// <param name="a">The byte type array</param>
+        /// <returns>The average of all the elements in the array</returns>
+        public static double FindAvg(this int[] a)
+        {
+            double sum = 0;
+            int denom = a.Length;
+            double avg = 0;
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += a[i];
+            }
+
+            return avg = sum / denom;
+        }
+
+        /// <summary>
+        /// Finds the average of all the elements in the array.
+        /// </summary>
+        /// <param name="a">The uint type array</param>
+        /// <returns>The average of all the elements in the array</returns>
+        public static double FindAvg(this uint[] a)
+        {
+            double sum = 0;
+            int denom = a.Length;
+            double avg = 0;
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += a[i];
+            }
+
+            return avg = sum / denom;
+        }
+
+        /// <summary>
+        /// Finds the average of all the elements in the array.
+        /// </summary>
+        /// <param name="a">The long type array</param>
+        /// <returns>The average of all the elements in the array</returns>
+        public static double FindAvg(this long[] a)
+        {
+            double sum = 0;
+            int denom = a.Length;
+            double avg = 0;
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += a[i];
+            }
+
+            return avg = sum / denom;
+        }
+
+        /// <summary>
+        /// Finds the average of all the elements in the array.
+        /// </summary>
+        /// <param name="a">The ulong type array</param>
+        /// <returns>The average of all the elements in the array</returns>
+        public static double FindAvg(this ulong[] a)
+        {
+            double sum = 0;
+            int denom = a.Length;
+            double avg = 0;
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += a[i];
+            }
+
+            return avg = sum / denom;
+        }
+
+        /// <summary>
+        /// Finds the average of all the elements in the array.
+        /// </summary>
+        /// <param name="a">The float type array</param>
+        /// <returns>The average of all the elements in the array</returns>
+        public static double FindAvg(this float[] a)
+        {
+            double sum = 0;
+            int denom = a.Length;
+            double avg = 0;
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += a[i];
+            }
+
+            return avg = sum / denom;
+        }
+
+        /// <summary>
+        /// Finds the average of all the elements in the array.
+        /// </summary>
+        /// <param name="a">The double type array</param>
+        /// <returns>The average of all the elements in the array</returns>
+        public static double FindAvg(this double[] a)
+        {
+            double sum = 0;
+            int denom = a.Length;
+            double avg = 0;
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += a[i];
+            }
+
+            return avg = sum / denom;
+        }
+
+        /// <summary>
+        /// Finds the average of all the elements in the array.
+        /// </summary>
+        /// <param name="a">The char array</param>
+        /// <returns>The average of all the elements in the array</returns>
+        public static double FindAvg(this char[] a)
+        {
+            double sum = 0;
+            int denom = a.Length;
+            double avg = 0;
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += a[i];
+            }
+
+            return avg = sum / denom;
+        }
+
+
 
         //public static double FindAvg<T>(T[] array1)
         //{

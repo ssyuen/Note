@@ -36,7 +36,6 @@ namespace Utilities
 
         }//array concat
 
-<<<<<<< HEAD
         /// <summary>
         /// Finds the average of all the elements in the array.
         /// </summary>
@@ -246,8 +245,6 @@ namespace Utilities
             return avg = sum / denom;
         }
 
-
-
         //public static double FindAvg<T>(T[] array1)
         //{
         //    if (array1.Equals(typeof(object)))
@@ -270,34 +267,3 @@ namespace Utilities
         //}
     }
 }
-=======
-        
-        /// <summary>
-        /// Finds the average of all values in the array. The array must contain real numbers.
-        /// </summary>
-        /// <param name="array1">The array to be used</param>
-        /// <returns>The the average of all values in the array</returns>
-        public static double FindAvg <T> (T[] array1)
-        {
-            if (array1.Equals(typeof(string)) || array1.Equals(typeof(object)))
-            {
-                throw new ArrayAccomodatingNonRealNumberException();
-                return 0;
-            }
-            else
-            {
-                double sum = 0;
-                int denom = array1.Length;
-                double avg = 0;
-
-                for (int i = 0; i < array1.Length; i++)
-                {
-                    sum += (dynamic)array1[i];
-                }
-
-                return avg = sum / denom;
-            }
-        }//findavg
-    }//arrayutils
-}
->>>>>>> eb03d58a01220b01ec01a93754a5c14a601f2f90

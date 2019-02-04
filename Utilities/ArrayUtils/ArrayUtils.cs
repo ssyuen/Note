@@ -21,12 +21,7 @@ namespace Utilities
         /// <param name="array2">The string to be concatenated</param>
         /// <returns>The concatenated array</returns>
         public static T[] Concat<T>(T[] array1, T[] array2)
-        {
-            if (!(array1.Equals(array2)))
-            {
-                throw new InvalidOperationException("Array types must be the same");
-            }
-
+        { 
             T[] array3 = new T[array1.Length + array2.Length];
 
             for (int i = 0; i < array1.Length; i++)

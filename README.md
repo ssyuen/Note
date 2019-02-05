@@ -33,10 +33,10 @@
 </p>
 
 # Great! How do I get started?
-Read our CONTRIBUTING guidelines here: [Contributing](https://github.com/manu-p-1/CSharp-Utilities/blob/master/CONTRIBUTING.md)  
-In addition, read our CODE OF CONDUCT guidelines here: [Code of Conduct](https://github.com/manu-p-1/CSharp-Utilities/blob/master/CODE_OF_CONDUCT.md)
+* Read our CONTRIBUTING guidelines here: [Contributing](https://github.com/manu-p-1/CSharp-Utilities/blob/master/CONTRIBUTING.md)  
+* In addition, read our CODE OF CONDUCT guidelines here: [Code of Conduct](https://github.com/manu-p-1/CSharp-Utilities/blob/master/CODE_OF_CONDUCT.md)
 
 
 ## Updates
--We are constantly trying to improve the quality of code we give to the community by working hard. Currently, we are still in pre production creating the base library for the utilties. We would love your help to get this repository to its pre release! 
+* We are constantly trying to improve the quality of code we give to the community by working hard. Currently, we are still in pre production creating the base library for the utilties. We would love your help to get this repository to its pre release! 
 

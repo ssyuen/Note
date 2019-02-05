@@ -3,8 +3,7 @@
   <img src="https://github.com/manu-p-1/CSharp-Utilities/blob/master/Images/C%23%20utilities.png">
 
   <br/>
-  <br/>
-  <br/>
+
   
   <a href="https://docs.microsoft.com/en-us/dotnet/csharp/" target="_blank">
     <img src="https://forthebadge.com/images/badges/made-with-c-sharp.svg">
@@ -32,6 +31,7 @@
     <img src="https://img.shields.io/github/contributors/manu-p-1/CSharp-Utilities.svg?style=for-the-badge">
   </a>
   
+  <br>
   <br>
   
   Creating a core library of additional and useful C# utilities. All and any contributions are welcome :computer: :electric_plug: :open_file_folder:

@@ -10,16 +10,15 @@ using System.Linq.Expressions;
 
 namespace Utilities
 {
-
     public static class ArrayUtils
     {
-
         /// <summary>
         /// Concatenates two arrays of the same type together.
         /// </summary>
         /// <param name="array1">The first array to be concatenated</param>
         /// <param name="array2">The second array to be concatenated</param>
         /// <returns>The concatenated array</returns>
+
         public static T[] Concat <T> (T[] array1, T[] array2)
         {
             T[] array3 = new T[array1.Length + array2.Length];
@@ -28,13 +27,14 @@ namespace Utilities
             {
                 array3[i] = array1[i];
             }
+
             for (int i = 0; i < array2.Length; i++)
             {
                 array3[array1.Length + i] = array2[i];
             }
-            return array3;
 
-        }//array concat
+            return array3;
+        } //array concat
 
         /// <summary>
         /// Finds the average of all the elements in the array.

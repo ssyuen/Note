@@ -1,6 +1,13 @@
 # C# Utilities
 
 <p align="center">
+  
+  <img src="https://github.com/manu-p-1/CSharp-Utilities/blob/master/Images/C%23%20utilities.png">
+
+  <br/>
+  <br/>
+  <br/>
+  
   <a href="https://docs.microsoft.com/en-us/dotnet/csharp/" target="_blank">
     <img src="https://forthebadge.com/images/badges/made-with-c-sharp.svg">
   </a>

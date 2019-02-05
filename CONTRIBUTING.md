@@ -4,11 +4,11 @@
 
 >First off, thank you for considering contributing to the C# Utility class library. We're a work in progress but it's people like you that make this repo such a great tool.
 
-## Why read this?.
+## Why read this?
 
 >Following these guidelines helps to communicate that you respect the time of the developers managing and developing this open source project. In return, they should reciprocate that respect in addressing your issue, assessing changes, and helping you finalize your pull requests.
 
-## Contributions we look for.
+## Contributions we look for
 
 Keep an open mind! Improving documentation, bug triaging, or writing tutorials are all examples of helpful contributions that mean less work for you.
 
@@ -27,7 +27,7 @@ Read the code of conduct: [Code of Conduct](https://github.com/manu-p-1/CSharp-U
 
 ## Getting started
 
-### How to Contribute 101.
+### How to Contribute 101
 1. Start off by downloading a test editor or IDE. Visual Studio is ideal, but JetBrains Rider or Atom are great choices as well.
 Some IDE's come with built in Github integration making your life easier.
 
@@ -56,7 +56,7 @@ Here are a couple of friendly tutorials you can include: http://makeapullrequest
 > Working on your first Pull Request? You can learn how from this *free* series, [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github).
 > If a maintainer asks you to "rebase" your PR, they're saying that a lot of code has changed, and that you need to update your branch so it's easier to merge.
 
-### How to file a bug report.
+### How to file a bug report
 
 > When filing an issue, make sure to answer these five questions:
 > 1. What version of C# are you using?
@@ -64,7 +64,7 @@ Here are a couple of friendly tutorials you can include: http://makeapullrequest
 > 4. What did you expect to see?
 > 5. What did you see instead?
 
-# Suggesting a feature.
+# Suggesting a feature
 > If you find yourself wishing for a feature that doesn't exist in the C# Utilities library, you are probably not alone. There are bound to be others out there with similar needs. Many of the features that Elasticsearch has today have been added because our users saw the need. Simply open an issue on our issues list on GitHub which describes the feature you would like to see, why you need it, and how it should work.
 
 # Code review process

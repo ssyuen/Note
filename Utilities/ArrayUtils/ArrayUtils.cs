@@ -12,13 +12,13 @@ namespace Utilities
 {
     public static class ArrayUtils
     {
+        
         /// <summary>
         /// Concatenates two arrays of the same type together.
         /// </summary>
         /// <param name="array1">The first array to be concatenated</param>
         /// <param name="array2">The second array to be concatenated</param>
         /// <returns>The concatenated array</returns>
-
         public static T[] Concat <T> (T[] array1, T[] array2)
         {
             T[] array3 = new T[array1.Length + array2.Length];
@@ -474,5 +474,5 @@ namespace Utilities
         //        return avg = sum / denom;
         //    }
         //}
-    }
-}
+    }//ArrayUtils
+}//Namespace

@@ -1,5 +1,3 @@
-# C# Utilities
-
 <p align="center">
   
   <img src="https://github.com/manu-p-1/CSharp-Utilities/blob/master/Images/C%23%20utilities.png">

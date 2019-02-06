@@ -6,6 +6,9 @@ using System.Text;
 
 namespace Utilities
 {
+    /// <summary>
+    /// A string Utility class for string manipulation
+    /// </summary>
     public static class StringUtils
     {
 

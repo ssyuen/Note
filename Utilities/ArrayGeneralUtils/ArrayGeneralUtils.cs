@@ -10,6 +10,9 @@ using System.Linq.Expressions;
 
 namespace Utilities
 {
+    /// <summary>
+    /// An array utility class
+    /// </summary>
     public static class ArrayGeneralUtils
     {
         

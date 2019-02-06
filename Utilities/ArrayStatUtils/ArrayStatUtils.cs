@@ -10,10 +10,14 @@ using System.Linq.Expressions;
 
 namespace Utilities
 {
+    /// <summary>
+    /// An Array Utility class for statistical methodology
+    /// </summary>
     public static class ArrayStatUtils
     {
         /// <summary>
         /// Finds the average of all the elements in the array.
+        /// orig. author: @github.com/ssyuen
         /// </summary>
         /// <param name="a">The byte type array</param>
         /// <returns>The average of all the elements in the array</returns>
@@ -222,218 +226,127 @@ namespace Utilities
         }
 
         /// <summary>
-        /// Finds the average of all the elements in the List.
+        /// Finds the median of all the elements in the array.
+        /// orig. author: @github.com/ssyuen
         /// </summary>
-        /// <param name="l">The List of type byte</param>
-        /// <returns>The average of all the elements in the List</returns>
-        public static double Mean(this List<byte> l)
+        /// <param name="a">The array of type byte</param>
+        /// <returns>The median of all the elements in the array</returns>
+        public static double Median(this byte[] a)
         {
-            double sum = 0;
-            int denom = l.Count;
-            double avg = 0;
-
-            foreach(byte b in l)
+            if (a == null)
             {
-                sum += b;
+                throw new NullReferenceException();
             }
-
-            return avg = sum / denom;
-        }
-
-        /// <summary>
-        /// Finds the average of all the elements in the List.
-        /// </summary>
-        /// <param name="l">The List of type sbyte</param>
-        /// <returns>The average of all the elements in the List</returns>
-        public static double Mean(this List<sbyte> l)
-        {
-            double sum = 0;
-            int denom = l.Count;
-            double avg = 0;
-
-            foreach (sbyte sb in l)
+            else switch (a.Length)
             {
-                sum += sb;
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1:
+                    return a[0];
             }
-
-            return avg = sum / denom;
-        }
-
-        /// <summary>
-        /// Finds the average of all the elements in the List.
-        /// </summary>
-        /// <param name="l">The List of type short</param>
-        /// <returns>The average of all the elements in the List</returns>
-        public static double Mean(this List<short> l)
-        {
-            double sum = 0;
-            int denom = l.Count;
-            double avg = 0;
-
-            foreach (short s in l)
+            Array.Sort(a);
+            if (a.Length % 2 == 0)
             {
-                sum += s;
+                int l = a[(a.Length / 2) - 1];
+                int h = a[a.Length / 2];
+                double med = (l + h) / 2.0;
+                return med;
             }
-
-            return avg = sum / denom;
-        }
-
-        /// <summary>
-        /// Finds the average of all the elements in the List.
-        /// </summary>
-        /// <param name="l">The List of type ushort</param>
-        /// <returns>The average of all the elements in the List</returns>
-        public static double Mean(this List<ushort> l)
-        {
-            double sum = 0;
-            int denom = l.Count;
-            double avg = 0;
-
-            foreach (ushort us in l)
-            {
-                sum += us;
-            }
-
-            return avg = sum / denom;
-        }
-
-        /// <summary>
-        /// Finds the average of all the elements in the List.
-        /// </summary>
-        /// <param name="l">The List of type int</param>
-        /// <returns>The average of all the elements in the List</returns>
-        public static double Mean(this List<int> l)
-        {
-            double sum = 0;
-            int denom = l.Count;
-            double avg = 0;
-
-            foreach (int i in l)
-            {
-                sum += i;
-            }
-
-            return avg = sum / denom;
-        }
-
-        /// <summary>
-        /// Finds the average of all the elements in the List.
-        /// </summary>
-        /// <param name="l">The List of type uint</param>
-        /// <returns>The average of all the elements in the List</returns>
-        public static double Mean(this List<uint> l)
-        {
-            double sum = 0;
-            int denom = l.Count;
-            double avg = 0;
-
-            foreach (uint ui in l)
-            {
-                sum += ui;
-            }
-
-            return avg = sum / denom;
-        }
-
-        /// <summary>
-        /// Finds the average of all the elements in the List.
-        /// </summary>
-        /// <param name="l">The List of type long</param>
-        /// <returns>The average of all the elements in the List</returns>
-        public static double Mean(this List<long> l)
-        {
-            double sum = 0;
-            int denom = l.Count;
-            double avg = 0;
-
-            foreach (long lg in l)
-            {
-                sum += lg;
-            }
-
-            return avg = sum / denom;
-        }
-
-        /// <summary>
-        /// Finds the average of all the elements in the List.
-        /// </summary>
-        /// <param name="l">The List of type ulong</param>
-        /// <returns>The average of all the elements in the List</returns>
-        public static double Mean(this List<ulong> l)
-        {
-            double sum = 0;
-            int denom = l.Count;
-            double avg = 0;
-
-            foreach (ulong ul in l)
-            {
-                sum += ul;
-            }
-
-            return avg = sum / denom;
-        }
-
-        /// <summary>
-        /// Finds the average of all the elements in the List.
-        /// </summary>
-        /// <param name="l">The List of type float</param>
-        /// <returns>The average of all the elements in the List</returns>
-        public static double Mean(this List<float> l)
-        {
-            double sum = 0;
-            int denom = l.Count;
-            double avg = 0;
-
-            foreach (float f in l)
-            {
-                sum += f;
-            }
-
-            return avg = sum / denom;
-        }
-
-        /// <summary>
-        /// Finds the average of all the elements in the List.
-        /// </summary>
-        /// <param name="l">The List of type double</param>
-        /// <returns>The average of all the elements in the List</returns>
-        public static double Mean(this List<double> l)
-        {
-            double sum = 0;
-            int denom = l.Count;
-            double avg = 0;
-
-            foreach (double d in l)
-            {
-                sum += d;
-            }
-
-            return avg = sum / denom;
-        }
-
-        /// <summary>
-        /// Finds the average of all the elements in the List.
-        /// </summary>
-        /// <param name="l">The List of type char</param>
-        /// <returns>The average of all the elements in the List</returns>
-        public static double Mean(this List<char> l)
-        {
-            double sum = 0;
-            int denom = l.Count;
-            double avg = 0;
-
-            foreach (char c in l)
-            {
-                sum += c;
-            }
-
-            return avg = sum / denom;
+            return a[a.Length / 2];
         }
 
         /// <summary>
         /// Finds the median of all the elements in the array.
         /// </summary>
-        /// <param name="a">The array of type char</param>
+        /// <param name="a">The array of type sbyte</param>
+        /// <returns>The median of all the elements in the array</returns>
+        public static double Median(this sbyte[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+                {
+                    case 0:
+                        throw new IndexOutOfRangeException("Array is empty.");
+                    case 1:
+                        return a[0];
+                }
+            Array.Sort(a);
+            if (a.Length % 2 == 0)
+            {
+                int l = a[(a.Length / 2) - 1];
+                int h = a[a.Length / 2];
+                double med = (l + h) / 2.0;
+                return med;
+            }
+            return a[a.Length / 2];
+        }
+
+
+        /// <summary>
+        /// Finds the median of all the elements in the array.
+        /// </summary>
+        /// <param name="a">The array of type short</param>
+        /// <returns>The median of all the elements in the array</returns>
+        public static double Median(this short[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+                {
+                    case 0:
+                        throw new IndexOutOfRangeException("Array is empty.");
+                    case 1:
+                        return a[0];
+                }
+            Array.Sort(a);
+            if (a.Length % 2 == 0)
+            {
+                int l = a[(a.Length / 2) - 1];
+                int h = a[a.Length / 2];
+                double med = (l + h) / 2.0;
+                return med;
+            }
+            return a[a.Length / 2];
+        }
+
+        /// <summary>
+        /// Finds the median of all the elements in the array.
+        /// </summary>
+        /// <param name="a">The array of type ushort</param>
+        /// <returns>The median of all the elements in the array</returns>
+        public static double Median(this ushort[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+                {
+                    case 0:
+                        throw new IndexOutOfRangeException("Array is empty.");
+                    case 1:
+                        return a[0];
+                }
+            Array.Sort(a);
+            if (a.Length % 2 == 0)
+            {
+                int l = a[(a.Length / 2) - 1];
+                int h = a[a.Length / 2];
+                double med = (l + h) / 2.0;
+                return med;
+            }
+            return a[a.Length / 2];
+        }
+
+        /// <summary>
+        /// Finds the median of all the elements in the array.
+        /// </summary>
+        /// <param name="a">The array of type int</param>
         /// <returns>The median of all the elements in the array</returns>
         public static double Median(this int[] a)
         {
@@ -458,5 +371,180 @@ namespace Utilities
             }
             return a[a.Length / 2];
         }
-    }
-}
+
+
+        /// <summary>
+        /// Finds the median of all the elements in the array.
+        /// </summary>
+        /// <param name="a">The array of type uint</param>
+        /// <returns>The median of all the elements in the array</returns>
+        public static double Median(this uint[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+                {
+                    case 0:
+                        throw new IndexOutOfRangeException("Array is empty.");
+                    case 1:
+                        return a[0];
+                }
+            Array.Sort(a);
+            if (a.Length % 2 == 0)
+            {
+                uint l = a[(a.Length / 2) - 1];
+                uint h = a[a.Length / 2];
+                double med = (l + h) / 2.0;
+                return med;
+            }
+            return a[a.Length / 2];
+        }
+
+        /// <summary>
+        /// Finds the median of all the elements in the array.
+        /// </summary>
+        /// <param name="a">The array of type long</param>
+        /// <returns>The median of all the elements in the array</returns>
+        public static double Median(this long[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+                {
+                    case 0:
+                        throw new IndexOutOfRangeException("Array is empty.");
+                    case 1:
+                        return a[0];
+                }
+            Array.Sort(a);
+            if (a.Length % 2 == 0)
+            {
+                long l = a[(a.Length / 2) - 1];
+                long h = a[a.Length / 2];
+                double med = (l + h) / 2.0;
+                return med;
+            }
+            return a[a.Length / 2];
+        }
+
+        /// <summary>
+        /// Finds the median of all the elements in the array.
+        /// </summary>
+        /// <param name="a">The array of type ulong</param>
+        /// <returns>The median of all the elements in the array</returns>
+        public static double Median(this ulong[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+                {
+                    case 0:
+                        throw new IndexOutOfRangeException("Array is empty.");
+                    case 1:
+                        return a[0];
+                }
+            Array.Sort(a);
+            if (a.Length % 2 == 0)
+            {
+                ulong l = a[(a.Length / 2) - 1];
+                ulong h = a[a.Length / 2];
+                double med = (l + h) / 2.0;
+                return med;
+            }
+            return a[a.Length / 2];
+        }
+
+        /// <summary>
+        /// Finds the median of all the elements in the array.
+        /// </summary>
+        /// <param name="a">The array of type float</param>
+        /// <returns>The median of all the elements in the array</returns>
+        public static double Median(this float[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+                {
+                    case 0:
+                        throw new IndexOutOfRangeException("Array is empty.");
+                    case 1:
+                        return a[0];
+                }
+            Array.Sort(a);
+            if (a.Length % 2 == 0)
+            {
+                float l = a[(a.Length / 2) - 1];
+                float h = a[a.Length / 2];
+                double med = (l + h) / 2.0;
+                return med;
+            }
+            return a[a.Length / 2];
+        }
+
+        /// <summary>
+        /// Finds the median of all the elements in the array.
+        /// </summary>
+        /// <param name="a">The array of type double</param>
+        /// <returns>The median of all the elements in the array</returns>
+        public static double Median(this double[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+                {
+                    case 0:
+                        throw new IndexOutOfRangeException("Array is empty.");
+                    case 1:
+                        return a[0];
+                }
+            Array.Sort(a);
+            if (a.Length % 2 == 0)
+            {
+                double l = a[(a.Length / 2) - 1];
+                double h = a[a.Length / 2];
+                double med = (l + h) / 2.0;
+                return med;
+            }
+            return a[a.Length / 2];
+        }
+
+        /// <summary>
+        /// Finds the median of all the elements in the array.
+        /// </summary>
+        /// <param name="a">The array of type char</param>
+        /// <returns>The median of all the elements in the array</returns>
+        public static double Median(this char[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+                {
+                    case 0:
+                        throw new IndexOutOfRangeException("Array is empty.");
+                    case 1:
+                        return a[0];
+                }
+            Array.Sort(a);
+            if (a.Length % 2 == 0)
+            {
+                char l = a[(a.Length / 2) - 1];
+                char h = a[a.Length / 2];
+                double med = (l + h) / 2.0;
+                return med;
+            }
+            return a[a.Length / 2];
+        }
+    }//ArrayStatUtils
+}//namespace Utilities

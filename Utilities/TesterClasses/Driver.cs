@@ -37,7 +37,8 @@ public class Driver
         
         //TESTING ARRAYUTILS.FINDAVG
         double[] array4 = {4, 7, 2.3, 5, 7, 3.0};
-        Console.WriteLine(ArrayStatUtils.FindAvg(array4));
+
+        Console.WriteLine(ArrayUtils.Mean(array4));
 
         //END TESTING ARRAYUTILS.FINDAVG
 

@@ -56,6 +56,26 @@ public class Driver
         Console.WriteLine(ArrayStatUtils.Median(arrayl3));
         Console.WriteLine(ArrayStatUtils.Median(arrayl11));
         //END TESTING ARRAYSTATUTILS.MEDIAN
+        
+        
+        
+        //TESTING ARRAYSTATUTILS.MODE
+        Console.WriteLine("Testing Mode");
+        int[] arrmode3 = {3, 2, 3, 3, 4, 6, 8};
+        int[] arrnomode = {3, 3, 2, 2};
+        Console.WriteLine(ArrayStatUtils.Mode(arrmode3));
+        Console.WriteLine(ArrayStatUtils.Mode(arrnomode));
+        
+        Random r = new Random();
+        var x = new int[10];
+        for (var i = 0; i < x.Length; i++)
+        {
+            x[i] = r.Next(0, 10);
+        }
+
+        Console.WriteLine(ArrayStatUtils.Mode(x));
+        
+        //END TESTING ARRAYSTATUTILS.MODE
 
         Console.Read();
     }

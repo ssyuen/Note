@@ -429,5 +429,34 @@ namespace Utilities
 
             return avg = sum / denom;
         }
+
+        /// <summary>
+        /// Finds the median of all the elements in the array.
+        /// </summary>
+        /// <param name="a">The array of type char</param>
+        /// <returns>The median of all the elements in the array</returns>
+        public static double Median(this int[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1:
+                    return a[0];
+            }
+            Array.Sort(a);
+            if (a.Length % 2 == 0)
+            {
+                int l = a[(a.Length / 2) - 1];
+                int h = a[a.Length / 2];
+                double med = (l + h) / 2.0;
+                return med;
+            }
+            return a[a.Length / 2];
+        }
     }
 }

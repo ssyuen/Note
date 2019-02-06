@@ -20,7 +20,7 @@ public class Driver
         //int array concat
         int[] array1 = {1, 2, 3, 4};
         int[] array2 = {5, 6, 7, 8};
-        int[] array3 = ArrayUtils.Concat(array1, array2);
+        int[] array3 = ArrayGeneralUtils.Concat(array1, array2);
         foreach (var e in array3)
         {
             Console.WriteLine(e);
@@ -29,7 +29,7 @@ public class Driver
         //string array concat
         string[] firstName = {"sam", "glen", "lok", "manu"};
         string[] lastName = {"yuen", "george", "kwong", "puduvalli"};
-        string[] fullName = ArrayUtils.Concat(firstName, lastName);
+        string[] fullName = ArrayGeneralUtils.Concat(firstName, lastName);
         foreach (var e in fullName)
         {
             Console.WriteLine(e);
@@ -37,6 +37,7 @@ public class Driver
         
         //TESTING ARRAYUTILS.FINDAVG
         double[] array4 = {4, 7, 2.3, 5, 7, 3.0};
+
         Console.WriteLine(ArrayUtils.Mean(array4));
 
         //END TESTING ARRAYUTILS.FINDAVG

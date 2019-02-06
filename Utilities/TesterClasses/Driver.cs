@@ -16,7 +16,7 @@ public class Driver
         Console.WriteLine(StringUtils.RemoveAll("Manohar Jayakumar Puduvalli", "a", "k", "p"));
          
         
-        //TESTING ARRAYUTILS.CONCAT
+        //TESTING ARRAYGENERALUTILS.CONCAT
         
         //int array concat
         int[] array1 = {1, 2, 3, 4};
@@ -36,12 +36,26 @@ public class Driver
             Console.WriteLine(e);
         }
         
-        //TESTING ARRAYUTILS.FINDAVG
+        //TESTING ARRAYSTATUTILS.MEAN
         double[] array4 = {4, 7, 2.3, 5, 7, 3.0};
 
         Console.WriteLine(ArrayStatUtils.Mean(array4));
 
-        //END TESTING ARRAYUTILS.FINDAVG
+        //END TESTING ARRAYSTATUTILS.MEAN
+        
+        
+        //TESTING ARRAYSTATUTILS.MEDIAN
+        int[] arrayl1 = {1};
+        int[] arrayl0 = { };
+        int[] arrayl2 = {1, 2};
+        int[] arrayl3 = {1, 2, 3};
+        int[] arrayl11 = {14, 4, 6, 51, 7, 25, 81, 3, 9, 68, 73};
+        Console.WriteLine(ArrayStatUtils.Median(arrayl1));
+        //Console.WriteLine(ArrayStatUtils.Median(arrayl0));
+        Console.WriteLine(ArrayStatUtils.Median(arrayl2));
+        Console.WriteLine(ArrayStatUtils.Median(arrayl3));
+        Console.WriteLine(ArrayStatUtils.Median(arrayl11));
+        //END TESTING ARRAYSTATUTILS.MEDIAN
 
         Console.Read();
     }

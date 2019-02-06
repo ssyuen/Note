@@ -41,7 +41,7 @@ namespace Utilities
         /// </summary>
         /// <param name="a">The byte type array</param>
         /// <returns>The average of all the elements in the array</returns>
-        public static double FindAvg(this byte[] a)
+        public static double Mean(this byte[] a)
         {
             double sum = 0;
             int denom = a.Length;
@@ -60,7 +60,7 @@ namespace Utilities
         /// </summary>
         /// <param name="a">The sbyte type array</param>
         /// <returns>The average of all the elements in the array</returns>
-        public static double FindAvg(this sbyte[] a)
+        public static double Mean(this sbyte[] a)
         {
             double sum = 0;
             int denom = a.Length;
@@ -79,7 +79,7 @@ namespace Utilities
         /// </summary>
         /// <param name="a">The short type array</param>
         /// <returns>The average of all the elements in the array</returns>
-        public static double FindAvg(this short[] a)
+        public static double Mean(this short[] a)
         {
             double sum = 0;
             int denom = a.Length;
@@ -98,7 +98,7 @@ namespace Utilities
         /// </summary>
         /// <param name="a">The ushort type array</param>
         /// <returns>The average of all the elements in the array</returns>
-        public static double FindAvg(this ushort[] a)
+        public static double Mean(this ushort[] a)
         {
             double sum = 0;
             int denom = a.Length;
@@ -117,7 +117,7 @@ namespace Utilities
         /// </summary>
         /// <param name="a">The byte type array</param>
         /// <returns>The average of all the elements in the array</returns>
-        public static double FindAvg(this int[] a)
+        public static double Mean(this int[] a)
         {
             double sum = 0;
             int denom = a.Length;
@@ -136,7 +136,7 @@ namespace Utilities
         /// </summary>
         /// <param name="a">The uint type array</param>
         /// <returns>The average of all the elements in the array</returns>
-        public static double FindAvg(this uint[] a)
+        public static double Mean(this uint[] a)
         {
             double sum = 0;
             int denom = a.Length;
@@ -155,7 +155,7 @@ namespace Utilities
         /// </summary>
         /// <param name="a">The long type array</param>
         /// <returns>The average of all the elements in the array</returns>
-        public static double FindAvg(this long[] a)
+        public static double Mean(this long[] a)
         {
             double sum = 0;
             int denom = a.Length;
@@ -174,7 +174,7 @@ namespace Utilities
         /// </summary>
         /// <param name="a">The ulong type array</param>
         /// <returns>The average of all the elements in the array</returns>
-        public static double FindAvg(this ulong[] a)
+        public static double Mean(this ulong[] a)
         {
             double sum = 0;
             int denom = a.Length;
@@ -193,7 +193,7 @@ namespace Utilities
         /// </summary>
         /// <param name="a">The float type array</param>
         /// <returns>The average of all the elements in the array</returns>
-        public static double FindAvg(this float[] a)
+        public static double Mean(this float[] a)
         {
             double sum = 0;
             int denom = a.Length;
@@ -212,7 +212,7 @@ namespace Utilities
         /// </summary>
         /// <param name="a">The double type array</param>
         /// <returns>The average of all the elements in the array</returns>
-        public static double FindAvg(this double[] a)
+        public static double Mean(this double[] a)
         {
             double sum = 0;
             int denom = a.Length;
@@ -231,7 +231,7 @@ namespace Utilities
         /// </summary>
         /// <param name="a">The char array</param>
         /// <returns>The average of all the elements in the array</returns>
-        public static double FindAvg(this char[] a)
+        public static double Mean(this char[] a)
         {
             double sum = 0;
             int denom = a.Length;
@@ -250,7 +250,7 @@ namespace Utilities
         /// </summary>
         /// <param name="l">The List of type byte</param>
         /// <returns>The average of all the elements in the List</returns>
-        public static double FindAvg(this List<byte> l)
+        public static double Mean(this List<byte> l)
         {
             double sum = 0;
             int denom = l.Count;
@@ -269,7 +269,7 @@ namespace Utilities
         /// </summary>
         /// <param name="l">The List of type sbyte</param>
         /// <returns>The average of all the elements in the List</returns>
-        public static double FindAvg(this List<sbyte> l)
+        public static double Mean(this List<sbyte> l)
         {
             double sum = 0;
             int denom = l.Count;
@@ -288,7 +288,7 @@ namespace Utilities
         /// </summary>
         /// <param name="l">The List of type short</param>
         /// <returns>The average of all the elements in the List</returns>
-        public static double FindAvg(this List<short> l)
+        public static double Mean(this List<short> l)
         {
             double sum = 0;
             int denom = l.Count;
@@ -307,7 +307,7 @@ namespace Utilities
         /// </summary>
         /// <param name="l">The List of type ushort</param>
         /// <returns>The average of all the elements in the List</returns>
-        public static double FindAvg(this List<ushort> l)
+        public static double Mean(this List<ushort> l)
         {
             double sum = 0;
             int denom = l.Count;
@@ -326,7 +326,7 @@ namespace Utilities
         /// </summary>
         /// <param name="l">The List of type int</param>
         /// <returns>The average of all the elements in the List</returns>
-        public static double FindAvg(this List<int> l)
+        public static double Mean(this List<int> l)
         {
             double sum = 0;
             int denom = l.Count;
@@ -345,7 +345,7 @@ namespace Utilities
         /// </summary>
         /// <param name="l">The List of type uint</param>
         /// <returns>The average of all the elements in the List</returns>
-        public static double FindAvg(this List<uint> l)
+        public static double Mean(this List<uint> l)
         {
             double sum = 0;
             int denom = l.Count;
@@ -364,7 +364,7 @@ namespace Utilities
         /// </summary>
         /// <param name="l">The List of type long</param>
         /// <returns>The average of all the elements in the List</returns>
-        public static double FindAvg(this List<long> l)
+        public static double Mean(this List<long> l)
         {
             double sum = 0;
             int denom = l.Count;
@@ -383,7 +383,7 @@ namespace Utilities
         /// </summary>
         /// <param name="l">The List of type ulong</param>
         /// <returns>The average of all the elements in the List</returns>
-        public static double FindAvg(this List<ulong> l)
+        public static double Mean(this List<ulong> l)
         {
             double sum = 0;
             int denom = l.Count;
@@ -402,7 +402,7 @@ namespace Utilities
         /// </summary>
         /// <param name="l">The List of type float</param>
         /// <returns>The average of all the elements in the List</returns>
-        public static double FindAvg(this List<float> l)
+        public static double Mean(this List<float> l)
         {
             double sum = 0;
             int denom = l.Count;
@@ -421,7 +421,7 @@ namespace Utilities
         /// </summary>
         /// <param name="l">The List of type double</param>
         /// <returns>The average of all the elements in the List</returns>
-        public static double FindAvg(this List<double> l)
+        public static double Mean(this List<double> l)
         {
             double sum = 0;
             int denom = l.Count;
@@ -440,7 +440,7 @@ namespace Utilities
         /// </summary>
         /// <param name="l">The List of type char</param>
         /// <returns>The average of all the elements in the List</returns>
-        public static double FindAvg(this List<char> l)
+        public static double Mean(this List<char> l)
         {
             double sum = 0;
             int denom = l.Count;

@@ -8,6 +8,25 @@ namespace Utilities
 {
     public static class StringUtils
     {
+
+        /*
+         * A string for a space character.
+         *
+         */
+        public const string SPACE = " ";
+
+        /**
+         * A string for linefeed LF ("\n").
+         *
+         */
+        public const string LINE_FEED = "\n";
+
+        /**
+         * A string for carriage return CR ("\r").
+         *
+         */
+        public const string CARRIAGE_RET = "\r";
+
         /// <summary>
         /// Reverses a string from left to right order while maintaining case sensitivity.
         /// </summary>
@@ -15,9 +34,13 @@ namespace Utilities
         /// <returns>The reversed string</returns>
         public static string Reverse(this string str)
         {
-            if (str == null || str.Length == 0)
+            if (str == null)
             {
-                return str;
+                throw new NullReferenceException();
+            }
+            if(str.Length == 0)
+            {
+                return string.Empty;
             }
             char[] c = str.ToCharArray();
             Array.Reverse(c);
@@ -31,9 +54,13 @@ namespace Utilities
         /// <returns>The string retaining the first word</returns>
         public static string Chomp(this string str)
         {
-            if (str == null || str.Length == 0)
+            if (str == null)
             {
-                return str;
+                throw new NullReferenceException();
+            }
+            if (str.Length == 0)
+            {
+                return string.Empty;
             }
             int idx = str.IndexOf(" ");
             if(idx >= 0)
@@ -54,9 +81,13 @@ namespace Utilities
         /// <returns>The string retaining the chomped word</returns>
         public static string ChompAfter(this string str, int spaces)
         {
-            if (str == null || str.Length == 0)
+            if (str == null)
             {
-                return str;
+                throw new NullReferenceException();
+            }
+            if (str.Length == 0)
+            {
+                return string.Empty;
             }
             if (spaces != 0)
             {
@@ -86,25 +117,144 @@ namespace Utilities
         /// <returns>The number of words in the string</returns>
         public static int CountWords(this string str)
         {
+            if (str == null)
+            {
+                throw new NullReferenceException();
+            }
+            if (str.Length == 0)
+            {
+                return 0;
+            }
             return str.Split().Length;
         }
 
         /// <summary>
-        /// Removes all instances of any number of characters from a string.
+        /// Removes all instances of any number of characters from a specified string.
         /// </summary>
         /// <param name="str">The string to be used</param>
         /// <param name="args">The characters which will be removed</param>
         /// <returns>The string with all characters in args removed</returns>
-        public static string Remove(this string str, params char[] args)
+        public static string RemoveAll(this string str, params char[] args)
         {
-            if (str == null || str.Length == 0)
+            if (str == null || args == null)
+            {
+                throw new NullReferenceException();
+            }
+            if (args.Length == 0)
             {
                 return str;
+            }
+            if (str.Length == 0)
+            {
+                return string.Empty;
             }
             StringBuilder sb = new StringBuilder(str);
             for(int i = 0; i < args.Length; i++)
             {
                 sb.Replace(args[i].ToString(), string.Empty);
+            }
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Removes all instances of any number of strings from a specified string.
+        /// </summary>
+        /// <param name="str">The string to be used</param>
+        /// <param name="args">The characters which will be removed</param>
+        /// <returns>The string with all characters in args removed</returns>
+        public static string RemoveAll(this string str, params string[] args)
+        {
+            if (str == null || args == null)
+            {
+                throw new NullReferenceException();
+            }
+            if (args.Length == 0)
+            {
+                return str;
+            }
+            if (str.Length == 0)
+            {
+                return string.Empty;
+            }
+            StringBuilder sb = new StringBuilder(str);
+            
+            for (int i = 0; i < args.Length; i++)
+            {
+                if(args[i].Length == 1)
+                {
+                    sb.Replace(args[i].ToString(), string.Empty);
+                }
+                else
+                {
+                    int idxOfWord = sb.ToString().IndexOf(args[i]);
+                    sb.Remove(idxOfWord, args[i].Length);
+                }
+            }
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Removes all instances of any number of characters from a specified string while ignoring case.
+        /// </summary>
+        /// <param name="str">The string to be used</param>
+        /// <param name="args">The characters which will be removed</param>
+        /// <returns>The string with all characters in args removed</returns>
+        public static string RemoveAllIgnoreCase(this string str, params char[] args)
+        {
+            if (str == null || args == null)
+            {
+                throw new NullReferenceException();
+            }
+            if (args.Length == 0)
+            {
+                return str;
+            }
+            if (str.Length == 0)
+            {
+                return string.Empty;
+            }
+            str += str.ToLower();
+            StringBuilder sb = new StringBuilder(str);
+            for (int i = 0; i < args.Length; i++)
+            {
+                sb.Replace(args[i].ToString(), string.Empty);
+            }
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Removes all instances of any number of strings from a specified string while ignoring case.
+        /// </summary>
+        /// <param name="str">The string to be used</param>
+        /// <param name="args">The characters which will be removed</param>
+        /// <returns>The string with all characters in args removed</returns>
+        public static string RemoveAllIgnoreCase(this string str, params string[] args)
+        {
+            if (str == null || args == null)
+            {
+                throw new NullReferenceException();
+            }
+            if(args.Length == 0)
+            {
+                return str;
+            }
+            if (str.Length == 0)
+            {
+                return string.Empty;
+            }
+            str += str.ToLower();
+            StringBuilder sb = new StringBuilder(str);
+            for (int i = 0; i < args.Length; i++)
+            {
+                if (args[i].Length == 1)
+                {
+                    sb.Replace(args[i].ToString(), string.Empty);
+                }
+                else
+                {
+                    int idxOfWord = sb.ToString().IndexOf(args[i]);
+                    sb.Remove(idxOfWord, args[i].Length);
+                }
             }
             return sb.ToString();
         }
@@ -116,7 +266,11 @@ namespace Utilities
         /// <returns>True if the string contains any digits, false otherwise</returns>
         public static bool ContainsDigits(this string str)
         {
-            if (str == null || str.Length == 0)
+            if (str == null)
+            {
+                throw new NullReferenceException();
+            }
+            if (str.Length == 0)
             {
                 return false;
             }
@@ -130,7 +284,11 @@ namespace Utilities
         /// <returns>The string represented as a List</returns>
         public static List<char> ToList(this string str)
         {
-            if (str == null || str.Length == 0)
+            if (str == null)
+            {
+                throw new NullReferenceException();
+            }
+            if (str.Length == 0)
             {
                 return new List<char>(0);
             }
@@ -150,7 +308,11 @@ namespace Utilities
         /// <returns>True if the string is a valid date recognized by System.DateTime</returns>
         public static bool IsSystemDateTime(this string date, string formattingRegex)
         {
-            if (date == null || date.Length == 0)
+            if (date == null)
+            {
+                throw new NullReferenceException();
+            }
+            if (date.Length == 0)
             {
                 return false;
             }
@@ -164,7 +326,11 @@ namespace Utilities
         /// <returns>True if the string strictly increases</returns>
         public static bool IsStrictlyIncreasing(this string str)
         {
-            if (str == null || str.Length == 0)
+            if (str == null)
+            {
+                throw new NullReferenceException();
+            }
+            if (str.Length == 0)
             {
                 return false;
             }
@@ -183,7 +349,11 @@ namespace Utilities
         /// <returns>True if the string strictly increases</returns>
         public static bool IsStrictlyIncreasingIgnoreCase(this string str)
         {
-            if (str == null || str.Length == 0)
+            if (str == null)
+            {
+                throw new NullReferenceException();
+            }
+            if (str.Length == 0)
             {
                 return false;
             }
@@ -196,13 +366,17 @@ namespace Utilities
 
         /// <summary>
         /// Checks if each character in a string is lexicographically smaller than the previous character.
-        /// Works for strings lengths for and between 0 and 2 * Int32.MaxValue.
+        /// 
         /// </summary>
         /// <param name="str">The string to be used</param>
         /// <returns>True if the string strictly increases</returns>
         public static bool IsStrictlyDecreasing(this string str)
         {
-            if (str == null || str.Length == 0)
+            if (str == null)
+            {
+                throw new NullReferenceException();
+            }
+            if (str.Length == 0)
             {
                 return false;
             }
@@ -215,13 +389,17 @@ namespace Utilities
 
         /// <summary>
         /// Checks if each character in a string is lexicographically smaller than the previous character
-        /// while ignoring case. Works for strings lengths for and between 0 and 2 * Int32.MaxValue.
+        /// while ignoring case.
         /// </summary>
         /// <param name="str">The string to be used</param>
         /// <returns>True if the string strictly increases</returns>
         public static bool IsStrictlyDecreasingIgnoreCase(this string str)
         {
-            if (str == null || str.Length == 0)
+            if (str == null)
+            {
+                throw new NullReferenceException();
+            }
+            if (str.Length == 0)
             {
                 return false;
             }
@@ -239,9 +417,13 @@ namespace Utilities
         /// <returns>True if the string is a palindrome</returns>
         public static bool IsPalindrome(this string str)
         {
-            if (str == null || str.Length == 0)
+            if (str == null)
             {
-                return true;
+                throw new NullReferenceException();
+            }
+            if (str.Length == 0)
+            {
+                return true; //empty string is a palindrome!
             }
             //All palindromes that exist are less than Int32.MaxValue
             for (int advancing = 0; advancing < str.Length; advancing++)
@@ -262,7 +444,11 @@ namespace Utilities
         /// <returns>True if the string is a palindrome</returns>
         public static bool IsPalindromeIgnoreCase(this string str)
         {
-            if (str == null || str.Length == 0)
+            if (str == null)
+            {
+                throw new NullReferenceException();
+            }
+            if (str.Length == 0)
             {
                 return true;
             }

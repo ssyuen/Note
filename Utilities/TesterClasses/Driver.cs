@@ -6,14 +6,15 @@ public class Driver
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine(StringUtils.Remove("Manu", 'u', 'M'));
+        Console.WriteLine(StringUtils.RemoveAll("Manu", 'u', 'M'));
         Console.WriteLine(StringUtils.Chomp("Manu Puduvalli"));
         Console.WriteLine(StringUtils.ChompAfter("A long rainy day is in the midst", 0));
         Console.WriteLine(StringUtils.IsPalindromeIgnoreCase("malayalam"));
         Console.WriteLine(StringUtils.IsStrictlyIncreasing("1234"));
-        Console.WriteLine(StringUtils.Remove("Manu", 'a'));
+        Console.WriteLine(StringUtils.RemoveAll("Manu", 'a'));
         Console.WriteLine(StringUtils.Chomp($"Hello Sam"));
-
+        Console.WriteLine(StringUtils.RemoveAll("Manohar Jayakumar Puduvalli", "a", "k", "p"));
+         
         
         //TESTING ARRAYUTILS.CONCAT
         

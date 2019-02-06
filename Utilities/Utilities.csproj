@@ -66,8 +66,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArrayUtils\ArrayUtils.cs" />
-    <Compile Include="ArrayUtils\ArrayAccomodatingNonRealNumberException.cs" />
+    <Compile Include="ArrayGeneralUtils\ArrayAccomodatingNonRealNumberException.cs" />
+    <Compile Include="ArrayGeneralUtils\ArrayGeneralUtils.cs" />
+    <Compile Include="ArrayStatUtils\ArrayStatUtils.cs" />
     <Compile Include="TesterClasses\Driver.cs" />
     <Compile Include="StringUtils\StringUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

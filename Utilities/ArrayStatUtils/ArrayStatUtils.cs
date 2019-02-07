@@ -19,7 +19,6 @@ namespace Utilities
     {
         /// <summary>
         /// Finds the average of all the elements in the array.
-        /// orig. author: @github.com/ssyuen
         /// </summary>
         /// <param name="a">The byte type array</param>
         /// <returns>The average of all the elements in the array</returns>
@@ -229,7 +228,6 @@ namespace Utilities
 
         /// <summary>
         /// Finds the median of all the elements in the array.
-        /// orig. author: @github.com/ssyuen
         /// </summary>
         /// <param name="a">The array of type byte</param>
         /// <returns>The median of all the elements in the array</returns>
@@ -551,7 +549,6 @@ namespace Utilities
         
         /// <summary>
         /// Finds the mode of all the elements in the array.
-        /// orig. author: @github.com/ssyuen
         /// </summary>
         /// <param name="a">The array of type byte</param>
         /// <returns>The median of all the elements in the array</returns>
@@ -599,7 +596,6 @@ namespace Utilities
         }
         /// <summary>
         /// Finds the mode of all the elements in the array.
-        /// orig. author: @github.com/ssyuen
         /// </summary>
         /// <param name="a">The array of type byte</param>
         /// <returns>The median of all the elements in the array</returns>
@@ -647,7 +643,6 @@ namespace Utilities
         }
         /// <summary>
         /// Finds the mode of all the elements in the array.
-        /// orig. author: @github.com/ssyuen
         /// </summary>
         /// <param name="a">The array of type byte</param>
         /// <returns>The median of all the elements in the array</returns>
@@ -695,7 +690,6 @@ namespace Utilities
         }
         /// <summary>
         /// Finds the mode of all the elements in the array.
-        /// orig. author: @github.com/ssyuen
         /// </summary>
         /// <param name="a">The array of type byte</param>
         /// <returns>The median of all the elements in the array</returns>
@@ -743,7 +737,6 @@ namespace Utilities
         }
         /// <summary>
         /// Finds the mode of all the elements in the array.
-        /// orig. author: @github.com/ssyuen
         /// </summary>
         /// <param name="a">The array of type byte</param>
         /// <returns>The median of all the elements in the array</returns>
@@ -791,7 +784,6 @@ namespace Utilities
         }
         /// <summary>
         /// Finds the mode of all the elements in the array.
-        /// orig. author: @github.com/ssyuen
         /// </summary>
         /// <param name="a">The array of type byte</param>
         /// <returns>The median of all the elements in the array</returns>
@@ -839,7 +831,6 @@ namespace Utilities
         }
         /// <summary>
         /// Finds the mode of all the elements in the array.
-        /// orig. author: @github.com/ssyuen
         /// </summary>
         /// <param name="a">The array of type byte</param>
         /// <returns>The median of all the elements in the array</returns>
@@ -887,7 +878,6 @@ namespace Utilities
         }
         /// <summary>
         /// Finds the mode of all the elements in the array.
-        /// orig. author: @github.com/ssyuen
         /// </summary>
         /// <param name="a">The array of type byte</param>
         /// <returns>The median of all the elements in the array</returns>
@@ -935,7 +925,6 @@ namespace Utilities
         }
         /// <summary>
         /// Finds the mode of all the elements in the array.
-        /// orig. author: @github.com/ssyuen
         /// </summary>
         /// <param name="a">The array of type byte</param>
         /// <returns>The median of all the elements in the array</returns>
@@ -983,7 +972,6 @@ namespace Utilities
         }
         /// <summary>
         /// Finds the mode of all the elements in the array.
-        /// orig. author: @github.com/ssyuen
         /// </summary>
         /// <param name="a">The array of type byte</param>
         /// <returns>The median of all the elements in the array</returns>
@@ -1031,7 +1019,6 @@ namespace Utilities
         }
         /// <summary>
         /// Finds the mode of all the elements in the array.
-        /// orig. author: @github.com/ssyuen
         /// </summary>
         /// <param name="a">The array of type byte</param>
         /// <returns>The median of all the elements in the array</returns>

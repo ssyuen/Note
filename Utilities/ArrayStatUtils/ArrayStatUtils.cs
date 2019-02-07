@@ -584,7 +584,11 @@ namespace Utilities
             var allEqual = 0;
             for (var i = 0; i < hash.Count; i++)
             {
-                if (max < numOfMode[i])index = i;
+                if (max < numOfMode[i])
+                {
+                    max = numOfMode[i];
+                    index = i;
+                }
                 if (max == numOfMode[i]) allEqual++;
             }
 
@@ -628,7 +632,11 @@ namespace Utilities
             var allEqual = 0;
             for (var i = 0; i < hash.Count; i++)
             {
-                if (max < numOfMode[i])index = i;
+                if (max < numOfMode[i])
+                {
+                    max = numOfMode[i];
+                    index = i;
+                }
                 if (max == numOfMode[i]) allEqual++;
             }
 
@@ -672,7 +680,11 @@ namespace Utilities
             var allEqual = 0;
             for (var i = 0; i < hash.Count; i++)
             {
-                if (max < numOfMode[i])index = i;
+                if (max < numOfMode[i])
+                {
+                    max = numOfMode[i];
+                    index = i;
+                }
                 if (max == numOfMode[i]) allEqual++;
             }
 
@@ -716,7 +728,11 @@ namespace Utilities
             var allEqual = 0;
             for (var i = 0; i < hash.Count; i++)
             {
-                if (max < numOfMode[i])index = i;
+                if (max < numOfMode[i])
+                {
+                    max = numOfMode[i];
+                    index = i;
+                }
                 if (max == numOfMode[i]) allEqual++;
             }
 
@@ -760,7 +776,11 @@ namespace Utilities
             var allEqual = 0;
             for (var i = 0; i < hash.Count; i++)
             {
-                if (max < numOfMode[i])index = i;
+                if (max < numOfMode[i])
+                {
+                    max = numOfMode[i];
+                    index = i;
+                }
                 if (max == numOfMode[i]) allEqual++;
             }
 
@@ -804,7 +824,11 @@ namespace Utilities
             var allEqual = 0;
             for (var i = 0; i < hash.Count; i++)
             {
-                if (max < numOfMode[i])index = i;
+                if (max < numOfMode[i])
+                {
+                    max = numOfMode[i];
+                    index = i;
+                }
                 if (max == numOfMode[i]) allEqual++;
             }
 
@@ -848,7 +872,11 @@ namespace Utilities
             var allEqual = 0;
             for (var i = 0; i < hash.Count; i++)
             {
-                if (max < numOfMode[i])index = i;
+                if (max < numOfMode[i])
+                {
+                    max = numOfMode[i];
+                    index = i;
+                }
                 if (max == numOfMode[i]) allEqual++;
             }
 
@@ -892,7 +920,11 @@ namespace Utilities
             var allEqual = 0;
             for (var i = 0; i < hash.Count; i++)
             {
-                if (max < numOfMode[i])index = i;
+                if (max < numOfMode[i])
+                {
+                    max = numOfMode[i];
+                    index = i;
+                }
                 if (max == numOfMode[i]) allEqual++;
             }
 
@@ -936,7 +968,11 @@ namespace Utilities
             var allEqual = 0;
             for (var i = 0; i < hash.Count; i++)
             {
-                if (max < numOfMode[i])index = i;
+                if (max < numOfMode[i])
+                {
+                    max = numOfMode[i];
+                    index = i;
+                }
                 if (max == numOfMode[i]) allEqual++;
             }
 
@@ -980,7 +1016,11 @@ namespace Utilities
             var allEqual = 0;
             for (var i = 0; i < hash.Count; i++)
             {
-                if (max < numOfMode[i])index = i;
+                if (max < numOfMode[i])
+                {
+                    max = numOfMode[i];
+                    index = i;
+                }
                 if (max == numOfMode[i]) allEqual++;
             }
 
@@ -1024,7 +1064,11 @@ namespace Utilities
             var allEqual = 0;
             for (var i = 0; i < hash.Count; i++)
             {
-                if (max < numOfMode[i])index = i;
+                if (max < numOfMode[i])
+                {
+                    max = numOfMode[i];
+                    index = i;
+                }
                 if (max == numOfMode[i]) allEqual++;
             }
 

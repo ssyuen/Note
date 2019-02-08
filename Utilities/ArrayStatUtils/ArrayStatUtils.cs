@@ -11,7 +11,6 @@ using System.Linq.Expressions;
 
 namespace Utilities 
 {
-    /// <inheritdoc />
     /// <summary>
     /// An Array Utility class for statistical methodology
     /// </summary>
@@ -1063,6 +1062,46 @@ namespace Utilities
             
             Console.WriteLine("No Mode Present");
             return 0;
+        }
+
+        /// <summary>
+        /// Finds the sample standard deviation of the array.
+        /// </summary>
+        /// <param name="a">The array of type int</param>
+        /// <returns>The median of all the elements in the array</returns>
+        public static double SampleStdDev(this int[] a)
+        {
+            double mean = Mean(a);
+            double sum = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += Math.Pow((a[i] - mean), 2);
+            }
+            sum /= (a.Length - 1); //n-1 denoted as bessel's correction for sample standard dev
+            sum = Math.Sqrt(sum);
+            
+            
+            return Math.Round(sum, 2);
+        }
+        
+        /// <summary>
+        /// Finds the population standard deviation of the array.
+        /// </summary>
+        /// <param name="a">The array of type int</param>
+        /// <returns>The median of all the elements in the array</returns>
+        public static double PopStdDev(this int[] a)
+        {
+            double mean = Mean(a);
+            double sum = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += Math.Pow((a[i] - mean), 2);
+            }
+            sum /= (a.Length); 
+            sum = Math.Sqrt(sum);
+            
+            
+            return Math.Round(sum, 2);
         }
         
     }//ArrayStatUtils

@@ -1304,7 +1304,7 @@ namespace Utilities
         /// </summary>
         /// <param name="a">The array of type int</param>
         /// <returns>Returns whether if the data set is normally distributed for a proportion.</returns>
-        public static boolean IsNormalProp<T>(this T[] a, double samstat)
+        public static bool IsNormalProp<T>(this T[] a, double samstat)
         {
             if (a is string) return false;
             else
@@ -1320,7 +1320,7 @@ namespace Utilities
         /// </summary>
         /// <param name="a">The array of type int</param>
         /// <returns>Returns whether if the data set is normally distributed for a mean.</returns>
-        public static boolean IsNormalMean(this byte[] a, double samstat)
+        public static bool IsNormalMean(this byte[] a, double samstat)
         {
             const double tolerance = 0.00000000000000000000000;
             return !(Math.Abs(Mode(a)) > tolerance);

@@ -1358,5 +1358,29 @@ namespace Utilities
             return t;
         }
 
+        /// <summary>
+        /// Returns whether if the data set is qualitative.
+        /// </summary>
+        /// <param name="a">The array of type int</param>
+        /// <returns>Returns whether if the data set is qualitative.</returns>
+        public static bool IsQualitative<T>(this T[] a)
+        {
+            return a is string;
+        }
+        
+        /// <summary>
+        /// Returns whether if the data set is quantitative.
+        /// </summary>
+        /// <param name="a">The array of type int</param>
+        /// <returns>Returns whether if the data set is quantitative.</returns>
+        public static bool IsQuantitative<T>(this T[] a)
+        {
+            return !(a is string);
+        }
+        
+        
+        
+        
+
     }//ArrayStatUtils
 }//namespace Utilities

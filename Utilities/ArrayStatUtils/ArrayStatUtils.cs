@@ -1300,10 +1300,10 @@ namespace Utilities
         }
         
         /// <summary>
-        /// Finds the inter-quartile range of the array.
+        /// Returns whether if the data set is normally distributed for a proportion.
         /// </summary>
         /// <param name="a">The array of type int</param>
-        /// <returns>The inter-quartile range of all the elements in the array</returns>
+        /// <returns>Returns whether if the data set is normally distributed for a proportion.</returns>
         public static boolean IsNormalProp<T>(this T[] a, double samstat)
         {
             if (a is string) return false;
@@ -1316,14 +1316,46 @@ namespace Utilities
         }
         
         /// <summary>
-        /// Finds the inter-quartile range of the array.
+        /// Returns whether if the data set is normally distributed for a mean.
         /// </summary>
         /// <param name="a">The array of type int</param>
-        /// <returns>The inter-quartile range of all the elements in the array</returns>
+        /// <returns>Returns whether if the data set is normally distributed for a mean.</returns>
         public static boolean IsNormalMean(this byte[] a, double samstat)
         {
             const double tolerance = 0.00000000000000000000000;
             return !(Math.Abs(Mode(a)) > tolerance);
+        }
+
+        /// <summary>
+        /// Creates confidence interval for the given data set
+        /// </summary>
+        /// <param name="mean">The mean of the data set</param>
+        /// <param name="cv">The critical value of the data set</param>
+        /// <param name="se">The standard error of the data set</param>
+        /// <returns>Returns a confidence interval of the data set.</returns>
+        public static double[] CreateConfidenceInterval(double mean, double cv, double se)
+        {
+            var ci = new double[2];
+            var lowBound = mean - (cv * se);
+            var upperBound = mean + (cv * se);
+            ci[0] = lowBound;
+            ci[1] = upperBound;
+            
+            return ci;
+        }
+
+        /// <summary>
+        /// Returns whether if the data set is normally distributed for a mean.
+        /// </summary>
+        /// <param name="mean">The mean of the data set</param>
+        /// <param name="popMean">The population mean</param>
+        /// <param name="stdDev">The standard deviation of the data set</param>
+        /// <param name="size">The size of the data set</param>
+        /// <returns>Constructs the t-critical value</returns>
+        public static double ConstructTValue(double mean, double popMean, double stdDev, double size)
+        {
+            var t = ((mean - popMean) / (stdDev / Math.Sqrt(size)));
+            return t;
         }
 
     }//ArrayStatUtils

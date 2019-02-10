@@ -76,6 +76,22 @@ public class Driver
         Console.WriteLine(ArrayStatUtils.Mode(x));
         
         //END TESTING ARRAYSTATUTILS.MODE
+        
+        
+        //TESTING ARRAYSTATUTILS.STDDEV
+        Console.WriteLine("Testing StdDev");
+        int[] arrdev = {600, 470, 170, 430, 300};
+        int[] arrdev2 = {1,2,3};
+        int[] arrdev3 = { 4,9,11,12,17,5,8,12,14};
+        Console.WriteLine(ArrayStatUtils.SampleStdDev(arrdev) + " is the sample std dev");
+        Console.WriteLine(ArrayStatUtils.SampleStdDev(arrdev2) + " is the sample std dev");
+        Console.WriteLine(ArrayStatUtils.SampleStdDev(arrdev3) + " is the sample std dev");
+        
+        Console.WriteLine(ArrayStatUtils.PopStdDev(arrdev) + " is the pop std dev");
+        Console.WriteLine(ArrayStatUtils.PopStdDev(arrdev2) + " is the pop std dev");
+        Console.WriteLine(ArrayStatUtils.PopStdDev(arrdev3) + " is the pop std dev");
+
+        //END TESTING ARRAYSTATUTILS.STDDEV
 
         Console.Read();
     }

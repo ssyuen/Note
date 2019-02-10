@@ -11,7 +11,6 @@ using System.Linq.Expressions;
 
 namespace Utilities 
 {
-    /// <inheritdoc />
     /// <summary>
     /// An Array Utility class for statistical methodology
     /// </summary>
@@ -1012,6 +1011,7 @@ namespace Utilities
                 if (max == numOfMode[i]) allEqual++;
             }
 
+            //if # of mode not all equal
             if (allEqual != numOfMode.Length) return keysInDict[index];
             
             Console.WriteLine("No Mode Present");
@@ -1063,6 +1063,240 @@ namespace Utilities
             
             Console.WriteLine("No Mode Present");
             return 0;
+        }
+
+        /// <summary>
+        /// Finds the sample standard deviation of the array.
+        /// </summary>
+        /// <param name="a">The array of type int</param>
+        /// <returns>The median of all the elements in the array</returns>
+        public static double SampleStdDev(this int[] a)
+        {
+            var variance = SampleVariance(a);
+            return Math.Round(variance, 2);
+        }
+        
+        /// <summary>
+        /// Finds the population standard deviation of the array.
+        /// </summary>
+        /// <param name="a">The array of type int</param>
+        /// <returns>The median of all the elements in the array</returns>
+        public static double PopStdDev(this int[] a)
+        {
+            var variance = PopVariance(a);
+            return Math.Round(variance, 2);
+        }
+
+        /// <summary>
+        /// Finds the standard error of the array.
+        /// </summary>
+        /// <param name="a">The array of type int</param>
+        /// <returns>The standard error of all the elements in the array</returns>
+        public static double StdErr(this int[] a)
+        {
+            var stdDev = SampleStdDev(a);
+            return stdDev/(Math.Sqrt(a.Length));
+        }
+
+        /// <summary>
+        /// Finds the sample variance of the array.
+        /// </summary>
+        /// <param name="a">The array of type int</param>
+        /// <returns>The sample variance of all the elements in the array</returns>
+        public static double SampleVariance(this int[] a)
+        {
+            double mean = Mean(a);
+            double sum = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += Math.Pow((a[i] - mean), 2);
+            }
+            sum /= (a.Length - 1); //n-1 denoted as bessel's correction for sample standard dev
+            
+            return sum;
+        }
+        
+        /// <summary>
+        /// Finds the population variance of the array.
+        /// </summary>
+        /// <param name="a">The array of type int</param>
+        /// <returns>The population variance of all the elements in the array</returns>
+        public static double PopVariance(this int[] a)
+        {
+            double mean = Mean(a);
+            double sum = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += Math.Pow((a[i] - mean), 2);
+            }
+            sum /= (a.Length); 
+            
+            return sum;
+        }
+
+        /// <summary>
+        /// Finds the minimum of the array.
+        /// </summary>
+        /// <param name="a">The array of type int</param>
+        /// <returns>The minimum of all the elements in the array</returns>
+        public static double Minimum(this int[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1:
+                    return a[0];
+            }
+            Array.Sort(a);
+            var min = a[0];
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (min > a[i])
+                {
+                    min = a[i];
+                }
+            }
+            return min;
+        }
+
+        /// <summary>
+        /// Finds the maximum of the array.
+        /// </summary>
+        /// <param name="a">The array of type int</param>
+        /// <returns>The maximum of all the elements in the array</returns>
+        public static double Maximum(this int[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1:
+                    return a[0];
+            }
+            Array.Sort(a);
+            var max = a[0];
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (max > a[i])
+                {
+                    max = a[i];
+                }
+            }
+            return max;
+        }
+
+        /// <summary>
+        /// Finds the range of the array.
+        /// </summary>
+        /// <param name="a">The array of type int</param>
+        /// <returns>The range of all the elements in the array</returns>
+        public static double Range(this int[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1:
+                    return a[0];
+            }
+
+            var range = a[a.Length - 1] - a[0];
+            return range;
+        }
+
+        /// <summary>
+        /// Finds the lower quartile of the array.
+        /// </summary>
+        /// <param name="a">The array of type int</param>
+        /// <returns>The lower quartile of all the elements in the array</returns>
+        public static double LowerQuart(this int[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1:
+                    Console.WriteLine("Data set not large enough to calculate an lower quartile.");
+                    break;
+                case 2:
+                    Console.WriteLine("Data set not large enough to calculate an lower quartile.");
+                    break;
+            }
+            var lowerHalf = new int[a.Length / 2];
+            
+            return Median(lowerHalf);
+        }
+        
+        /// <summary>
+        /// Finds the upper quartile of the array.
+        /// </summary>
+        /// <param name="a">The array of type int</param>
+        /// <returns>The upper quartile of all the elements in the array</returns>
+        public static double UpperQuart(this int[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1:
+                    Console.WriteLine("Data set not large enough to calculate an upper quartile.");
+                    break;
+                case 2:
+                    Console.WriteLine("Data set not large enough to calculate an upper quartile.");
+                    break;
+            }
+            var upperHalf = new int[a.Length / 2];
+            
+            return Median(upperHalf);
+        }
+        
+        /// <summary>
+        /// Finds the inter-quartile range of the array.
+        /// </summary>
+        /// <param name="a">The array of type int</param>
+        /// <returns>The inter-quartile range of all the elements in the array</returns>
+        public static double InterQuartileRange(this int[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1:
+                    Console.WriteLine("Data set not large enough to calculate an inter-quartile range.");
+                    break;
+                case 2:
+                    Console.WriteLine("Data set not large enough to calculate an inter-quartile range.");
+                    break;
+            }
+
+            var lowerQuart = LowerQuart(a);
+            var upperQuart = UpperQuart(a);
+            return upperQuart - lowerQuart;
         }
         
     }//ArrayStatUtils

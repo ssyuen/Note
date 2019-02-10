@@ -1299,5 +1299,32 @@ namespace Utilities
             return upperQuart - lowerQuart;
         }
         
+        /// <summary>
+        /// Finds the inter-quartile range of the array.
+        /// </summary>
+        /// <param name="a">The array of type int</param>
+        /// <returns>The inter-quartile range of all the elements in the array</returns>
+        public static boolean IsNormalProp<T>(this T[] a, double samstat)
+        {
+            if (a is string) return false;
+            else
+            {
+                if ((a.Length * samstat) <= 15) return false;
+                if ((a.Length * (1 - samstat)) <= 15) return false;
+            }
+            return true;
+        }
+        
+        /// <summary>
+        /// Finds the inter-quartile range of the array.
+        /// </summary>
+        /// <param name="a">The array of type int</param>
+        /// <returns>The inter-quartile range of all the elements in the array</returns>
+        public static boolean IsNormalMean(this byte[] a, double samstat)
+        {
+            const double tolerance = 0.00000000000000000000000;
+            return !(Math.Abs(Mode(a)) > tolerance);
+        }
+
     }//ArrayStatUtils
 }//namespace Utilities

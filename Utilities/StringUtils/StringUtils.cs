@@ -16,19 +16,7 @@ namespace Utilities
          * A string for a space character.
          *
          */
-        public const string SPACE = " ";
-
-        /**
-         * A string for linefeed LF ("\n").
-         *
-         */
-        public const string LINE_FEED = "\n";
-
-        /**
-         * A string for carriage return CR ("\r").
-         *
-         */
-        public const string CARRIAGE_RET = "\r";
+        private const string SPACE = " ";
 
         /// <summary>
         /// Reverses a string from left to right order while maintaining case sensitivity.
@@ -65,7 +53,7 @@ namespace Utilities
             {
                 return string.Empty;
             }
-            int idx = str.IndexOf(" ");
+            int idx = str.IndexOf(SPACE);
             if(idx >= 0)
             {
                 return str.Substring(0, idx);
@@ -467,11 +455,5 @@ namespace Utilities
             }
             return true;
         }
-
-        //removed due to failure to comply with CLR
-        //internal static class Auxilliary32BitHelper
-        //{
-
-        //}
     }
 }

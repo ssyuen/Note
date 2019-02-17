@@ -1,46 +1,27 @@
 using System;
-using System.Collections;
-using System.Globalization;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Text;
-using UtilExceptions;
-using System.Linq.Expressions;
+using Utilities.UtilExceptions;
 
-namespace Utilities 
+namespace Utilities
 {
     /// <summary>
     /// An Array Utility class for statistical methodology
     /// </summary>
     public static class ArrayStatUtils
     {
+
+        /*
+         * The tolerance level (upper and lower limits)
+         */ 
+        private const double TOLERANCE = 0.00000000000000000000000;
+
         /// <summary>
         /// Finds the average of all the elements in the array.
         /// </summary>
         /// <param name="a">The byte type array</param>
         /// <returns>The average of all the elements in the array</returns>
         public static double Mean(this byte[] a)
-        {
-            double sum = 0;
-            int denom = a.Length;
-            double avg = 0;
-
-            for (int i = 0; i < a.Length; i++)
-            {
-                sum += a[i];
-            }
-
-            return avg = sum / denom;
-        }
-
-        /// <summary>
-        /// Finds the average of all the elements in the array.
-        /// </summary>
-        /// <param name="a">The sbyte type array</param>
-        /// <returns>The average of all the elements in the array</returns>
-        public static double Mean(this sbyte[] a)
         {
             double sum = 0;
             int denom = a.Length;
@@ -76,25 +57,6 @@ namespace Utilities
         /// <summary>
         /// Finds the average of all the elements in the array.
         /// </summary>
-        /// <param name="a">The ushort type array</param>
-        /// <returns>The average of all the elements in the array</returns>
-        public static double Mean(this ushort[] a)
-        {
-            double sum = 0;
-            int denom = a.Length;
-            double avg = 0;
-
-            for (int i = 0; i < a.Length; i++)
-            {
-                sum += a[i];
-            }
-
-            return avg = sum / denom;
-        }
-
-        /// <summary>
-        /// Finds the average of all the elements in the array.
-        /// </summary>
         /// <param name="a">The byte type array</param>
         /// <returns>The average of all the elements in the array</returns>
         public static double Mean(this int[] a)
@@ -114,47 +76,9 @@ namespace Utilities
         /// <summary>
         /// Finds the average of all the elements in the array.
         /// </summary>
-        /// <param name="a">The uint type array</param>
-        /// <returns>The average of all the elements in the array</returns>
-        public static double Mean(this uint[] a)
-        {
-            double sum = 0;
-            int denom = a.Length;
-            double avg = 0;
-
-            for (int i = 0; i < a.Length; i++)
-            {
-                sum += a[i];
-            }
-
-            return avg = sum / denom;
-        }
-
-        /// <summary>
-        /// Finds the average of all the elements in the array.
-        /// </summary>
         /// <param name="a">The long type array</param>
         /// <returns>The average of all the elements in the array</returns>
         public static double Mean(this long[] a)
-        {
-            double sum = 0;
-            int denom = a.Length;
-            double avg = 0;
-
-            for (int i = 0; i < a.Length; i++)
-            {
-                sum += a[i];
-            }
-
-            return avg = sum / denom;
-        }
-
-        /// <summary>
-        /// Finds the average of all the elements in the array.
-        /// </summary>
-        /// <param name="a">The ulong type array</param>
-        /// <returns>The average of all the elements in the array</returns>
-        public static double Mean(this ulong[] a)
         {
             double sum = 0;
             int denom = a.Length;
@@ -207,25 +131,6 @@ namespace Utilities
         }
 
         /// <summary>
-        /// Finds the average of all the elements in the array.
-        /// </summary>
-        /// <param name="a">The char array</param>
-        /// <returns>The average of all the elements in the array</returns>
-        public static double Mean(this char[] a)
-        {
-            double sum = 0;
-            int denom = a.Length;
-            double avg = 0;
-
-            for (int i = 0; i < a.Length; i++)
-            {
-                sum += a[i];
-            }
-
-            return avg = sum / denom;
-        }
-
-        /// <summary>
         /// Finds the median of all the elements in the array.
         /// </summary>
         /// <param name="a">The array of type byte</param>
@@ -257,36 +162,6 @@ namespace Utilities
         /// <summary>
         /// Finds the median of all the elements in the array.
         /// </summary>
-        /// <param name="a">The array of type sbyte</param>
-        /// <returns>The median of all the elements in the array</returns>
-        public static double Median(this sbyte[] a)
-        {
-            if (a == null)
-            {
-                throw new NullReferenceException();
-            }
-            else switch (a.Length)
-                {
-                    case 0:
-                        throw new IndexOutOfRangeException("Array is empty.");
-                    case 1:
-                        return a[0];
-                }
-            Array.Sort(a);
-            if (a.Length % 2 == 0)
-            {
-                int l = a[(a.Length / 2) - 1];
-                int h = a[a.Length / 2];
-                double med = (l + h) / 2.0;
-                return med;
-            }
-            return a[a.Length / 2];
-        }
-
-
-        /// <summary>
-        /// Finds the median of all the elements in the array.
-        /// </summary>
         /// <param name="a">The array of type short</param>
         /// <returns>The median of all the elements in the array</returns>
         public static double Median(this short[] a)
@@ -296,41 +171,12 @@ namespace Utilities
                 throw new NullReferenceException();
             }
             else switch (a.Length)
-                {
+            {
                     case 0:
                         throw new IndexOutOfRangeException("Array is empty.");
                     case 1:
                         return a[0];
-                }
-            Array.Sort(a);
-            if (a.Length % 2 == 0)
-            {
-                int l = a[(a.Length / 2) - 1];
-                int h = a[a.Length / 2];
-                double med = (l + h) / 2.0;
-                return med;
             }
-            return a[a.Length / 2];
-        }
-
-        /// <summary>
-        /// Finds the median of all the elements in the array.
-        /// </summary>
-        /// <param name="a">The array of type ushort</param>
-        /// <returns>The median of all the elements in the array</returns>
-        public static double Median(this ushort[] a)
-        {
-            if (a == null)
-            {
-                throw new NullReferenceException();
-            }
-            else switch (a.Length)
-                {
-                    case 0:
-                        throw new IndexOutOfRangeException("Array is empty.");
-                    case 1:
-                        return a[0];
-                }
             Array.Sort(a);
             if (a.Length % 2 == 0)
             {
@@ -371,36 +217,6 @@ namespace Utilities
             return a[a.Length / 2];
         }
 
-
-        /// <summary>
-        /// Finds the median of all the elements in the array.
-        /// </summary>
-        /// <param name="a">The array of type uint</param>
-        /// <returns>The median of all the elements in the array</returns>
-        public static double Median(this uint[] a)
-        {
-            if (a == null)
-            {
-                throw new NullReferenceException();
-            }
-            else switch (a.Length)
-                {
-                    case 0:
-                        throw new IndexOutOfRangeException("Array is empty.");
-                    case 1:
-                        return a[0];
-                }
-            Array.Sort(a);
-            if (a.Length % 2 == 0)
-            {
-                uint l = a[(a.Length / 2) - 1];
-                uint h = a[a.Length / 2];
-                double med = (l + h) / 2.0;
-                return med;
-            }
-            return a[a.Length / 2];
-        }
-
         /// <summary>
         /// Finds the median of all the elements in the array.
         /// </summary>
@@ -424,35 +240,6 @@ namespace Utilities
             {
                 long l = a[(a.Length / 2) - 1];
                 long h = a[a.Length / 2];
-                double med = (l + h) / 2.0;
-                return med;
-            }
-            return a[a.Length / 2];
-        }
-
-        /// <summary>
-        /// Finds the median of all the elements in the array.
-        /// </summary>
-        /// <param name="a">The array of type ulong</param>
-        /// <returns>The median of all the elements in the array</returns>
-        public static double Median(this ulong[] a)
-        {
-            if (a == null)
-            {
-                throw new NullReferenceException();
-            }
-            else switch (a.Length)
-                {
-                    case 0:
-                        throw new IndexOutOfRangeException("Array is empty.");
-                    case 1:
-                        return a[0];
-                }
-            Array.Sort(a);
-            if (a.Length % 2 == 0)
-            {
-                ulong l = a[(a.Length / 2) - 1];
-                ulong h = a[a.Length / 2];
                 double med = (l + h) / 2.0;
                 return med;
             }
@@ -518,35 +305,6 @@ namespace Utilities
         }
 
         /// <summary>
-        /// Finds the median of all the elements in the array.
-        /// </summary>
-        /// <param name="a">The array of type char</param>
-        /// <returns>The median of all the elements in the array</returns>
-        public static double Median(this char[] a)
-        {
-            if (a == null)
-            {
-                throw new NullReferenceException();
-            }
-            else switch (a.Length)
-                {
-                    case 0:
-                        throw new IndexOutOfRangeException("Array is empty.");
-                    case 1:
-                        return a[0];
-                }
-            Array.Sort(a);
-            if (a.Length % 2 == 0)
-            {
-                char l = a[(a.Length / 2) - 1];
-                char h = a[a.Length / 2];
-                double med = (l + h) / 2.0;
-                return med;
-            }
-            return a[a.Length / 2];
-        }
-        
-        /// <summary>
         /// Finds the mode of all the elements in the array.
         /// </summary>
         /// <param name="a">The array of type byte</param>
@@ -574,7 +332,7 @@ namespace Utilities
 
             var keysInDict = hash.Keys.ToArray();
             var numOfMode = hash.Values.ToArray();
-            
+
             var max = numOfMode[0];
             var index = 0;
             var allEqual = 0;
@@ -589,57 +347,10 @@ namespace Utilities
             }
 
             if (allEqual != numOfMode.Length) return keysInDict[index];
-            
-            Console.WriteLine("No Mode Present");
-            return 0;
-        }
-        /// <summary>
-        /// Finds the mode of all the elements in the array.
-        /// </summary>
-        /// <param name="a">The array of type byte</param>
-        /// <returns>The median of all the elements in the array</returns>
-        public static double Mode(this sbyte[]a)
-        {
-            if (a == null)
-            {
-                throw new NullReferenceException();
-            }
-            else switch (a.Length)
-            {
-                case 0:
-                    throw new IndexOutOfRangeException("Array is empty.");
-                case 1:
-                    return a[0];
-            }
-            Array.Sort(a);
-            Dictionary<sbyte, int> hash = new Dictionary<sbyte, int>();
-            foreach (var t in a)
-            {
-                if (hash.ContainsKey(t))hash[t] += 1;
-                else hash.Add(t, 1);
-            }
 
-            var keysInDict = hash.Keys.ToArray();
-            var numOfMode = hash.Values.ToArray();
-            
-            var max = numOfMode[0];
-            var index = 0;
-            var allEqual = 0;
-            for (var i = 0; i < hash.Count; i++)
-            {
-                if (max < numOfMode[i])
-                {
-                    max = numOfMode[i];
-                    index = i;
-                }
-                if (max == numOfMode[i]) allEqual++;
-            }
-
-            if (allEqual != numOfMode.Length) return keysInDict[index];
-            
-            Console.WriteLine("No Mode Present");
-            return 0;
+            throw new NoModeException("No Mode Present");
         }
+
         /// <summary>
         /// Finds the mode of all the elements in the array.
         /// </summary>
@@ -668,7 +379,7 @@ namespace Utilities
 
             var keysInDict = hash.Keys.ToArray();
             var numOfMode = hash.Values.ToArray();
-            
+
             var max = numOfMode[0];
             var index = 0;
             var allEqual = 0;
@@ -683,57 +394,11 @@ namespace Utilities
             }
 
             if (allEqual != numOfMode.Length) return keysInDict[index];
-            
-            Console.WriteLine("No Mode Present");
-            return 0;
-        }
-        /// <summary>
-        /// Finds the mode of all the elements in the array.
-        /// </summary>
-        /// <param name="a">The array of type byte</param>
-        /// <returns>The median of all the elements in the array</returns>
-        public static double Mode(this ushort[]a)
-        {
-            if (a == null)
-            {
-                throw new NullReferenceException();
-            }
-            else switch (a.Length)
-            {
-                case 0:
-                    throw new IndexOutOfRangeException("Array is empty.");
-                case 1:
-                    return a[0];
-            }
-            Array.Sort(a);
-            Dictionary<ushort, int> hash = new Dictionary<ushort, int>();
-            foreach (var t in a)
-            {
-                if (hash.ContainsKey(t))hash[t] += 1;
-                else hash.Add(t, 1);
-            }
 
-            var keysInDict = hash.Keys.ToArray();
-            var numOfMode = hash.Values.ToArray();
-            
-            var max = numOfMode[0];
-            var index = 0;
-            var allEqual = 0;
-            for (var i = 0; i < hash.Count; i++)
-            {
-                if (max < numOfMode[i])
-                {
-                    max = numOfMode[i];
-                    index = i;
-                }
-                if (max == numOfMode[i]) allEqual++;
-            }
+            throw new NoModeException("No Mode Present");
 
-            if (allEqual != numOfMode.Length) return keysInDict[index];
-            
-            Console.WriteLine("No Mode Present");
-            return 0;
         }
+        
         /// <summary>
         /// Finds the mode of all the elements in the array.
         /// </summary>
@@ -762,7 +427,7 @@ namespace Utilities
 
             var keysInDict = hash.Keys.ToArray();
             var numOfMode = hash.Values.ToArray();
-            
+
             var max = numOfMode[0];
             var index = 0;
             var allEqual = 0;
@@ -777,57 +442,11 @@ namespace Utilities
             }
 
             if (allEqual != numOfMode.Length) return keysInDict[index];
-            
-            Console.WriteLine("No Mode Present");
-            return 0;
-        }
-        /// <summary>
-        /// Finds the mode of all the elements in the array.
-        /// </summary>
-        /// <param name="a">The array of type byte</param>
-        /// <returns>The median of all the elements in the array</returns>
-        public static double Mode(this uint[]a)
-        {
-            if (a == null)
-            {
-                throw new NullReferenceException();
-            }
-            else switch (a.Length)
-            {
-                case 0:
-                    throw new IndexOutOfRangeException("Array is empty.");
-                case 1:
-                    return a[0];
-            }
-            Array.Sort(a);
-            Dictionary<uint, int> hash = new Dictionary<uint, int>();
-            foreach (var t in a)
-            {
-                if (hash.ContainsKey(t))hash[t] += 1;
-                else hash.Add(t, 1);
-            }
 
-            var keysInDict = hash.Keys.ToArray();
-            var numOfMode = hash.Values.ToArray();
-            
-            var max = numOfMode[0];
-            var index = 0;
-            var allEqual = 0;
-            for (var i = 0; i < hash.Count; i++)
-            {
-                if (max < numOfMode[i])
-                {
-                    max = numOfMode[i];
-                    index = i;
-                }
-                if (max == numOfMode[i]) allEqual++;
-            }
-
-            if (allEqual != numOfMode.Length) return keysInDict[index];
-            
-            Console.WriteLine("No Mode Present");
-            return 0;
+            throw new NoModeException("No Mode Present");
         }
+
+        
         /// <summary>
         /// Finds the mode of all the elements in the array.
         /// </summary>
@@ -856,7 +475,7 @@ namespace Utilities
 
             var keysInDict = hash.Keys.ToArray();
             var numOfMode = hash.Values.ToArray();
-            
+
             var max = numOfMode[0];
             var index = 0;
             var allEqual = 0;
@@ -871,57 +490,11 @@ namespace Utilities
             }
 
             if (allEqual != numOfMode.Length) return keysInDict[index];
-            
-            Console.WriteLine("No Mode Present");
-            return 0;
-        }
-        /// <summary>
-        /// Finds the mode of all the elements in the array.
-        /// </summary>
-        /// <param name="a">The array of type byte</param>
-        /// <returns>The median of all the elements in the array</returns>
-        public static double Mode(this ulong[]a)
-        {
-            if (a == null)
-            {
-                throw new NullReferenceException();
-            }
-            else switch (a.Length)
-            {
-                case 0:
-                    throw new IndexOutOfRangeException("Array is empty.");
-                case 1:
-                    return a[0];
-            }
-            Array.Sort(a);
-            Dictionary<ulong, int> hash = new Dictionary<ulong, int>();
-            foreach (var t in a)
-            {
-                if (hash.ContainsKey(t))hash[t] += 1;
-                else hash.Add(t, 1);
-            }
 
-            var keysInDict = hash.Keys.ToArray();
-            var numOfMode = hash.Values.ToArray();
+            throw new NoModeException("No Mode Present");
             
-            var max = numOfMode[0];
-            var index = 0;
-            var allEqual = 0;
-            for (var i = 0; i < hash.Count; i++)
-            {
-                if (max < numOfMode[i])
-                {
-                    max = numOfMode[i];
-                    index = i;
-                }
-                if (max == numOfMode[i]) allEqual++;
-            }
-
-            if (allEqual != numOfMode.Length) return keysInDict[index];
-            
-            Console.WriteLine("No Mode Present");
-            return 0;
         }
+        
         /// <summary>
         /// Finds the mode of all the elements in the array.
         /// </summary>
@@ -950,7 +523,7 @@ namespace Utilities
 
             var keysInDict = hash.Keys.ToArray();
             var numOfMode = hash.Values.ToArray();
-            
+
             var max = numOfMode[0];
             var index = 0;
             var allEqual = 0;
@@ -965,10 +538,11 @@ namespace Utilities
             }
 
             if (allEqual != numOfMode.Length) return keysInDict[index];
-            
-            Console.WriteLine("No Mode Present");
-            return 0;
+
+            throw new NoModeException("No Mode Present");
+
         }
+
         /// <summary>
         /// Finds the mode of all the elements in the array.
         /// </summary>
@@ -997,7 +571,7 @@ namespace Utilities
 
             var keysInDict = hash.Keys.ToArray();
             var numOfMode = hash.Values.ToArray();
-            
+
             var max = numOfMode[0];
             var index = 0;
             var allEqual = 0;
@@ -1013,56 +587,30 @@ namespace Utilities
 
             //if # of mode not all equal
             if (allEqual != numOfMode.Length) return keysInDict[index];
-            
-            Console.WriteLine("No Mode Present");
-            return 0;
+
+            throw new NoModeException("No Mode Present");
         }
+
         /// <summary>
-        /// Finds the mode of all the elements in the array.
+        /// Finds the sample standard deviation of the array.
         /// </summary>
         /// <param name="a">The array of type byte</param>
         /// <returns>The median of all the elements in the array</returns>
-        public static double Mode(this char[]a)
+        public static double SampleStdDev(this byte[] a)
         {
-            if (a == null)
-            {
-                throw new NullReferenceException();
-            }
-            else switch (a.Length)
-            {
-                case 0:
-                    throw new IndexOutOfRangeException("Array is empty.");
-                case 1:
-                    return a[0];
-            }
-            Array.Sort(a);
-            Dictionary<char, int> hash = new Dictionary<char, int>();
-            foreach (var t in a)
-            {
-                if (hash.ContainsKey(t))hash[t] += 1;
-                else hash.Add(t, 1);
-            }
+            var variance = SampleVariance(a);
+            return Math.Round(variance, 2);
+        }
 
-            var keysInDict = hash.Keys.ToArray();
-            var numOfMode = hash.Values.ToArray();
-            
-            var max = numOfMode[0];
-            var index = 0;
-            var allEqual = 0;
-            for (var i = 0; i < hash.Count; i++)
-            {
-                if (max < numOfMode[i])
-                {
-                    max = numOfMode[i];
-                    index = i;
-                }
-                if (max == numOfMode[i]) allEqual++;
-            }
-
-            if (allEqual != numOfMode.Length) return keysInDict[index];
-            
-            Console.WriteLine("No Mode Present");
-            return 0;
+        /// <summary>
+        /// Finds the sample standard deviation of the array.
+        /// </summary>
+        /// <param name="a">The array of type short</param>
+        /// <returns>The median of all the elements in the array</returns>
+        public static double SampleStdDev(this short[] a)
+        {
+            var variance = SampleVariance(a);
+            return Math.Round(variance, 2);
         }
 
         /// <summary>
@@ -1075,7 +623,62 @@ namespace Utilities
             var variance = SampleVariance(a);
             return Math.Round(variance, 2);
         }
-        
+
+        /// <summary>
+        /// Finds the sample standard deviation of the array.
+        /// </summary>
+        /// <param name="a">The array of type long</param>
+        /// <returns>The median of all the elements in the array</returns>
+        public static double SampleStdDev(this long[] a)
+        {
+            var variance = SampleVariance(a);
+            return Math.Round(variance, 2);
+        }
+
+        /// <summary>
+        /// Finds the sample standard deviation of the array.
+        /// </summary>
+        /// <param name="a">The array of type float</param>
+        /// <returns>The median of all the elements in the array</returns>
+        public static double SampleStdDev(this float[] a)
+        {
+            var variance = SampleVariance(a);
+            return Math.Round(variance, 2);
+        }
+
+        /// <summary>
+        /// Finds the sample standard deviation of the array.
+        /// </summary>
+        /// <param name="a">The array of type double</param>
+        /// <returns>The median of all the elements in the array</returns>
+        public static double SampleStdDev(this double[] a)
+        {
+            var variance = SampleVariance(a);
+            return Math.Round(variance, 2);
+        }
+
+        /// <summary>
+        /// Finds the population standard deviation of the array.
+        /// </summary>
+        /// <param name="a">The array of type byte</param>
+        /// <returns>The median of all the elements in the array</returns>
+        public static double PopStdDev(this byte[] a)
+        {
+            var variance = PopVariance(a);
+            return Math.Round(variance, 2);
+        }
+
+        /// <summary>
+        /// Finds the population standard deviation of the array.
+        /// </summary>
+        /// <param name="a">The array of type short</param>
+        /// <returns>The median of all the elements in the array</returns>
+        public static double PopStdDev(this short[] a)
+        {
+            var variance = PopVariance(a);
+            return Math.Round(variance, 2);
+        }
+
         /// <summary>
         /// Finds the population standard deviation of the array.
         /// </summary>
@@ -1088,6 +691,61 @@ namespace Utilities
         }
 
         /// <summary>
+        /// Finds the population standard deviation of the array.
+        /// </summary>
+        /// <param name="a">The array of type long</param>
+        /// <returns>The median of all the elements in the array</returns>
+        public static double PopStdDev(this long[] a)
+        {
+            var variance = PopVariance(a);
+            return Math.Round(variance, 2);
+        }
+
+        /// <summary>
+        /// Finds the population standard deviation of the array.
+        /// </summary>
+        /// <param name="a">The array of type float</param>
+        /// <returns>The median of all the elements in the array</returns>
+        public static double PopStdDev(this float[] a)
+        {
+            var variance = PopVariance(a);
+            return Math.Round(variance, 2);
+        }
+
+        /// <summary>
+        /// Finds the population standard deviation of the array.
+        /// </summary>
+        /// <param name="a">The array of type sbyte</param>
+        /// <returns>The median of all the elements in the array</returns>
+        public static double PopStdDev(this double[] a)
+        {
+            var variance = PopVariance(a);
+            return Math.Round(variance, 2);
+        }
+
+        /// <summary>
+        /// Finds the standard error of the array.
+        /// </summary>
+        /// <param name="a">The array of type byte</param>
+        /// <returns>The standard error of all the elements in the array</returns>
+        public static double StdErr(this byte[] a)
+        {
+            var stdDev = SampleStdDev(a);
+            return stdDev/(Math.Sqrt(a.Length));
+        }
+
+        /// <summary>
+        /// Finds the standard error of the array.
+        /// </summary>
+        /// <param name="a">The array of type short</param>
+        /// <returns>The standard error of all the elements in the array</returns>
+        public static double StdErr(this short[] a)
+        {
+            var stdDev = SampleStdDev(a);
+            return stdDev/(Math.Sqrt(a.Length));
+        }
+
+        /// <summary>
         /// Finds the standard error of the array.
         /// </summary>
         /// <param name="a">The array of type int</param>
@@ -1096,6 +754,64 @@ namespace Utilities
         {
             var stdDev = SampleStdDev(a);
             return stdDev/(Math.Sqrt(a.Length));
+        }
+
+        /// <summary>
+        /// Finds the standard error of the array.
+        /// </summary>
+        /// <param name="a">The array of type float</param>
+        /// <returns>The standard error of all the elements in the array</returns>
+        public static double StdErr(this float[] a)
+        {
+            var stdDev = SampleStdDev(a);
+            return stdDev/(Math.Sqrt(a.Length));
+        }
+
+        /// <summary>
+        /// Finds the standard error of the array.
+        /// </summary>
+        /// <param name="a">The array of type double</param>
+        /// <returns>The standard error of all the elements in the array</returns>
+        public static double StdErr(this double[] a)
+        {
+            var stdDev = SampleStdDev(a);
+            return stdDev/(Math.Sqrt(a.Length));
+        }
+
+        /// <summary>
+        /// Finds the sample variance of the array.
+        /// </summary>
+        /// <param name="a">The array of type byte</param>
+        /// <returns>The sample variance of all the elements in the array</returns>
+        public static double SampleVariance(this byte[] a)
+        {
+            double mean = Mean(a);
+            double sum = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += Math.Pow((a[i] - mean), 2);
+            }
+            sum /= (a.Length - 1); //n-1 denoted as bessel's correction for sample standard dev
+
+            return sum;
+        }
+
+        /// <summary>
+        /// Finds the sample variance of the array.
+        /// </summary>
+        /// <param name="a">The array of type short</param>
+        /// <returns>The sample variance of all the elements in the array</returns>
+        public static double SampleVariance(this short[] a)
+        {
+            double mean = Mean(a);
+            double sum = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += Math.Pow((a[i] - mean), 2);
+            }
+            sum /= (a.Length - 1); //n-1 denoted as bessel's correction for sample standard dev
+
+            return sum;
         }
 
         /// <summary>
@@ -1112,10 +828,100 @@ namespace Utilities
                 sum += Math.Pow((a[i] - mean), 2);
             }
             sum /= (a.Length - 1); //n-1 denoted as bessel's correction for sample standard dev
-            
+
             return sum;
         }
-        
+
+        /// <summary>
+        /// Finds the sample variance of the array.
+        /// </summary>
+        /// <param name="a">The array of type long</param>
+        /// <returns>The sample variance of all the elements in the array</returns>
+        public static double SampleVariance(this long[] a)
+        {
+            double mean = Mean(a);
+            double sum = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += Math.Pow((a[i] - mean), 2);
+            }
+            sum /= (a.Length - 1); //n-1 denoted as bessel's correction for sample standard dev
+
+            return sum;
+        }
+
+        /// <summary>
+        /// Finds the sample variance of the array.
+        /// </summary>
+        /// <param name="a">The array of type float</param>
+        /// <returns>The sample variance of all the elements in the array</returns>
+        public static double SampleVariance(this float[] a)
+        {
+            double mean = Mean(a);
+            double sum = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += Math.Pow((a[i] - mean), 2);
+            }
+            sum /= (a.Length - 1); //n-1 denoted as bessel's correction for sample standard dev
+
+            return sum;
+        }
+
+        /// <summary>
+        /// Finds the sample variance of the array.
+        /// </summary>
+        /// <param name="a">The array of type double</param>
+        /// <returns>The sample variance of all the elements in the array</returns>
+        public static double SampleVariance(this double[] a)
+        {
+            double mean = Mean(a);
+            double sum = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += Math.Pow((a[i] - mean), 2);
+            }
+            sum /= (a.Length - 1); //n-1 denoted as bessel's correction for sample standard dev
+
+            return sum;
+        }
+
+        /// <summary>
+        /// Finds the population variance of the array.
+        /// </summary>
+        /// <param name="a">The array of type byte</param>
+        /// <returns>The population variance of all the elements in the array</returns>
+        public static double PopVariance(this byte[] a)
+        {
+            double mean = Mean(a);
+            double sum = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += Math.Pow((a[i] - mean), 2);
+            }
+            sum /= (a.Length);
+
+            return sum;
+        }
+
+        /// <summary>
+        /// Finds the population variance of the array.
+        /// </summary>
+        /// <param name="a">The array of type short</param>
+        /// <returns>The population variance of all the elements in the array</returns>
+        public static double PopVariance(this short[] a)
+        {
+            double mean = Mean(a);
+            double sum = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += Math.Pow((a[i] - mean), 2);
+            }
+            sum /= (a.Length);
+
+            return sum;
+        }
+
         /// <summary>
         /// Finds the population variance of the array.
         /// </summary>
@@ -1129,13 +935,139 @@ namespace Utilities
             {
                 sum += Math.Pow((a[i] - mean), 2);
             }
-            sum /= (a.Length); 
-            
+            sum /= (a.Length);
+
             return sum;
         }
 
         /// <summary>
-        /// Finds the minimum of the array.
+        /// Finds the population variance of the array.
+        /// </summary>
+        /// <param name="a">The array of type long</param>
+        /// <returns>The population variance of all the elements in the array</returns>
+        public static double PopVariance(this long[] a)
+        {
+            double mean = Mean(a);
+            double sum = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += Math.Pow((a[i] - mean), 2);
+            }
+            sum /= (a.Length);
+
+            return sum;
+        }
+
+        /// <summary>
+        /// Finds the population variance of the array.
+        /// </summary>
+        /// <param name="a">The array of type float</param>
+        /// <returns>The population variance of all the elements in the array</returns>
+        public static double PopVariance(this float[] a)
+        {
+            double mean = Mean(a);
+            double sum = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += Math.Pow((a[i] - mean), 2);
+            }
+            sum /= (a.Length);
+
+            return sum;
+        }
+
+        /// <summary>
+        /// Finds the population variance of the array.
+        /// </summary>
+        /// <param name="a">The array of type double</param>
+        /// <returns>The population variance of all the elements in the array</returns>
+        public static double PopVariance(this double[] a)
+        {
+            double mean = Mean(a);
+            double sum = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                sum += Math.Pow((a[i] - mean), 2);
+            }
+            sum /= (a.Length);
+
+            return sum;
+        }
+
+        /// <summary>
+        /// Finds the smallest element in the array.
+        /// </summary>
+        /// <param name="a">The array of type byte</param>
+        /// <returns>The minimum of all the elements in the array</returns>
+        public static double Minimum(this byte[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1:
+                    return a[0];
+            }         
+            byte min;
+            if(a[0] > a[1])
+            {
+                min = a[1];
+            }
+            else
+            {
+                min = a[0];
+            }
+            for(int i = 2; i < a.Length; i++){
+                if(a[i] < min)
+                {
+                    min = a[i];
+                }
+            }
+            return min;
+        }
+
+        /// <summary>
+        /// Finds the smallest element in the array.
+        /// </summary>
+        /// <param name="a">The array of type byte</param>
+        /// <returns>The minimum of all the elements in the array</returns>
+        public static double Minimum(this short[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1:
+                    return a[0];
+            }    
+            short min;
+            if(a[0] > a[1])
+            {
+                min = a[1];
+            }
+            else
+            {
+                min = a[0];
+            }
+            for(int i = 2; i < a.Length; i++){
+                if(a[i] < min)
+                {
+                    min = a[i];
+                }
+            }
+            return min;
+        }
+
+        /// <summary>
+        /// Finds the smallest element of the array.
         /// </summary>
         /// <param name="a">The array of type int</param>
         /// <returns>The minimum of all the elements in the array</returns>
@@ -1152,11 +1084,17 @@ namespace Utilities
                 case 1:
                     return a[0];
             }
-            Array.Sort(a);
-            var min = a[0];
-            for (int i = 0; i < a.Length; i++)
+            int min;
+            if(a[0] > a[1])
             {
-                if (min > a[i])
+                min = a[1];
+            }
+            else
+            {
+                min = a[0];
+            }
+            for(int i = 2; i < a.Length; i++){
+                if(a[i] < min)
                 {
                     min = a[i];
                 }
@@ -1165,7 +1103,187 @@ namespace Utilities
         }
 
         /// <summary>
-        /// Finds the maximum of the array.
+        /// Finds the smallest element of the array.
+        /// </summary>
+        /// <param name="a">The array of type long</param>
+        /// <returns>The minimum of all the elements in the array</returns>
+        public static double Minimum(this long[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1:
+                    return a[0];
+            }
+            long min;
+            if(a[0] > a[1])
+            {
+                min = a[1];
+            }
+            else
+            {
+                min = a[0];
+            }
+            for(int i = 2; i < a.Length; i++){
+                if(a[i] < min)
+                {
+                    min = a[i];
+                }
+            }
+            return min;
+        }
+
+        /// <summary>
+        /// Finds the smallest element of the array.
+        /// </summary>
+        /// <param name="a">The array of type float</param>
+        /// <returns>The minimum of all the elements in the array</returns>
+        public static double Minimum(this float[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1:
+                    return a[0];
+            }
+            float min;
+            if(a[0] > a[1])
+            {
+                min = a[1];
+            }
+            else
+            {
+                min = a[0];
+            }
+            for(int i = 2; i < a.Length; i++){
+                if(a[i] < min)
+                {
+                    min = a[i];
+                }
+            }
+            return min;
+        }
+
+        /// <summary>
+        /// Finds the smallest element of the array.
+        /// </summary>
+        /// <param name="a">The array of type double</param>
+        /// <returns>The minimum of all the elements in the array</returns>
+        public static double Minimum(this double[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1:
+                    return a[0];
+            }
+            double min;
+            if(a[0] > a[1])
+            {
+                min = a[1];
+            }
+            else
+            {
+                min = a[0];
+            }
+            for(int i = 2; i < a.Length; i++){
+                if(a[i] < min)
+                {
+                    min = a[i];
+                }
+            }
+            return min;
+        }
+
+        /// <summary>
+        /// Finds the largest element in the array.
+        /// </summary>
+        /// <param name="a">The array of type byte</param>
+        /// <returns>The maximum of all the elements in the array</returns>
+        public static double Maximum(this byte[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1:
+                    return a[0];
+            }
+            byte max;
+            if(a[0] > a[1])
+            {
+                max = a[0];
+            }
+            else
+            {
+                max = a[1];
+            }
+            for(int i = 2; i < a.Length; i++){
+                if(a[i] > max)
+                {
+                    max = a[i];
+                }
+            }
+            return max;
+        }
+
+        /// <summary>
+        /// Finds the largest element in the array.
+        /// </summary>
+        /// <param name="a">The array of type short</param>
+        /// <returns>The maximum of all the elements in the array</returns>
+        public static double Maximum(this short[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1:
+                    return a[0];
+            }
+            short max;
+            if(a[0] > a[1])
+            {
+                max = a[0];
+            }
+            else
+            {
+                max = a[1];
+            }
+            for(int i = 2; i < a.Length; i++){
+                if(a[i] > max)
+                {
+                    max = a[i];
+                }
+            }
+            return max;
+        }
+
+        /// <summary>
+        /// Finds the largest element in the array.
         /// </summary>
         /// <param name="a">The array of type int</param>
         /// <returns>The maximum of all the elements in the array</returns>
@@ -1182,16 +1300,174 @@ namespace Utilities
                 case 1:
                     return a[0];
             }
-            Array.Sort(a);
-            var max = a[0];
-            for (int i = 0; i < a.Length; i++)
+            int max;
+            if(a[0] > a[1])
             {
-                if (max > a[i])
+                max = a[0];
+            }
+            else
+            {
+                max = a[1];
+            }
+            for(int i = 2; i < a.Length; i++){
+                if(a[i] > max)
                 {
                     max = a[i];
                 }
             }
             return max;
+        }
+
+        /// <summary>
+        /// Finds the largest element in the array.
+        /// </summary>
+        /// <param name="a">The array of type long</param>
+        /// <returns>The maximum of all the elements in the array</returns>
+        public static double Maximum(this long[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1:
+                    return a[0];
+            }
+            long max;
+            if(a[0] > a[1])
+            {
+                max = a[0];
+            }
+            else
+            {
+                max = a[1];
+            }
+            for(int i = 2; i < a.Length; i++){
+                if(a[i] > max)
+                {
+                    max = a[i];
+                }
+            }
+            return max;
+        }
+
+        /// <summary>
+        /// Finds the largest element in the array.
+        /// </summary>
+        /// <param name="a">The array of type float</param>
+        /// <returns>The maximum of all the elements in the array</returns>
+        public static double Maximum(this float[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1:
+                    return a[0];
+            }
+            float max;
+            if(a[0] > a[1])
+            {
+                max = a[0];
+            }
+            else
+            {
+                max = a[1];
+            }
+            for(int i = 2; i < a.Length; i++){
+                if(a[i] > max)
+                {
+                    max = a[i];
+                }
+            }
+            return max;
+        }
+
+        /// <summary>
+        /// Finds the largest element in the array.
+        /// </summary>
+        /// <param name="a">The array of type double</param>
+        /// <returns>The maximum of all the elements in the array</returns>
+        public static double Maximum(this double[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1:
+                    return a[0];
+            }
+            double max;
+            if(a[0] > a[1])
+            {
+                max = a[0];
+            }
+            else
+            {
+                max = a[1];
+            }
+            for(int i = 2; i < a.Length; i++){
+                if(a[i] > max)
+                {
+                    max = a[i];
+                }
+            }
+            return max;
+        }
+
+        /// <summary>
+        /// Finds the range of the array.
+        /// </summary>
+        /// <param name="a">The array of type byte</param>
+        /// <returns>The range of all the elements in the array</returns>
+        public static double Range(this byte[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1:
+                    return a[0];
+            }
+            var range = a[a.Length - 1] - a[0];
+            return range;
+        }
+
+        /// <summary>
+        /// Finds the range of the array.
+        /// </summary>
+        /// <param name="a">The array of type short</param>
+        /// <returns>The range of all the elements in the array</returns>
+        public static double Range(this short[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1:
+                    return a[0];
+            }
+            var range = a[a.Length - 1] - a[0];
+            return range;
         }
 
         /// <summary>
@@ -1212,7 +1488,72 @@ namespace Utilities
                 case 1:
                     return a[0];
             }
+            var range = a[a.Length - 1] - a[0];
+            return range;
+        }
 
+        /// <summary>
+        /// Finds the range of the array.
+        /// </summary>
+        /// <param name="a">The array of type long</param>
+        /// <returns>The range of all the elements in the array</returns>
+        public static double Range(this long[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1:
+                    return a[0];
+            }
+            var range = a[a.Length - 1] - a[0];
+            return range;
+        }
+
+        /// <summary>
+        /// Finds the range of the array.
+        /// </summary>
+        /// <param name="a">The array of type float</param>
+        /// <returns>The range of all the elements in the array</returns>
+        public static double Range(this float[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1:
+                    return a[0];
+            }
+            var range = a[a.Length - 1] - a[0];
+            return range;
+        }
+
+        /// <summary>
+        /// Finds the range of the array.
+        /// </summary>
+        /// <param name="a">The array of type double</param>
+        /// <returns>The range of all the elements in the array</returns>
+        public static double Range(this double[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1:
+                    return a[0];
+            }
             var range = a[a.Length - 1] - a[0];
             return range;
         }
@@ -1220,9 +1561,9 @@ namespace Utilities
         /// <summary>
         /// Finds the lower quartile of the array.
         /// </summary>
-        /// <param name="a">The array of type int</param>
+        /// <param name="a">The array of type byte</param>
         /// <returns>The lower quartile of all the elements in the array</returns>
-        public static double LowerQuart(this int[] a)
+        public static double LowerQuartile(this byte[] a)
         {
             if (a == null)
             {
@@ -1232,24 +1573,178 @@ namespace Utilities
             {
                 case 0:
                     throw new IndexOutOfRangeException("Array is empty.");
-                case 1:
-                    Console.WriteLine("Data set not large enough to calculate an lower quartile.");
-                    break;
-                case 2:
-                    Console.WriteLine("Data set not large enough to calculate an lower quartile.");
-                    break;
+                case 1: case 2:
+                    throw new InsufficientDataSetException("Data set not large enough to calculate an lower quartile");        
             }
             var lowerHalf = new int[a.Length / 2];
-            
             return Median(lowerHalf);
         }
-        
+
+        /// <summary>
+        /// Finds the lower quartile of the array.
+        /// </summary>
+        /// <param name="a">The array of type short</param>
+        /// <returns>The lower quartile of all the elements in the array</returns>
+        public static double LowerQuartile(this short[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1: case 2:
+                    throw new InsufficientDataSetException("Data set not large enough to calculate an lower quartile");        
+            }
+            var lowerHalf = new int[a.Length / 2];
+            return Median(lowerHalf);
+        }
+
+
+        /// <summary>
+        /// Finds the lower quartile of the array.
+        /// </summary>
+        /// <param name="a">The array of type int</param>
+        /// <returns>The lower quartile of all the elements in the array</returns>
+        public static double LowerQuartile(this int[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1: case 2:
+                    throw new InsufficientDataSetException("Data set not large enough to calculate an lower quartile");        
+            }
+            var lowerHalf = new int[a.Length / 2];
+            return Median(lowerHalf);
+        }
+
+
+        /// <summary>
+        /// Finds the lower quartile of the array.
+        /// </summary>
+        /// <param name="a">The array of type long</param>
+        /// <returns>The lower quartile of all the elements in the array</returns>
+        public static double LowerQuartile(this long[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1: case 2:
+                    throw new InsufficientDataSetException("Data set not large enough to calculate an lower quartile");        
+            }
+            var lowerHalf = new int[a.Length / 2];
+            return Median(lowerHalf);
+        }
+
+
+        /// <summary>
+        /// Finds the lower quartile of the array.
+        /// </summary>
+        /// <param name="a">The array of type float</param>
+        /// <returns>The lower quartile of all the elements in the array</returns>
+        public static double LowerQuartile(this float[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1: case 2:
+                    throw new InsufficientDataSetException("Data set not large enough to calculate an lower quartile");        
+            }
+            var lowerHalf = new int[a.Length / 2];
+            return Median(lowerHalf);
+        }
+
+        /// <summary>
+        /// Finds the lower quartile of the array.
+        /// </summary>
+        /// <param name="a">The array of type double</param>
+        /// <returns>The lower quartile of all the elements in the array</returns>
+        public static double LowerQuartile(this double[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1: case 2:
+                    throw new InsufficientDataSetException("Data set not large enough to calculate an lower quartile");        
+            }
+            var lowerHalf = new int[a.Length / 2];
+            return Median(lowerHalf);
+        }
+
+        /// <summary>
+        /// Finds the upper quartile of the array.
+        /// </summary>
+        /// <param name="a">The array of type byte</param>
+        /// <returns>The upper quartile of all the elements in the array</returns>
+        public static double UpperQuartile(this byte[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1: case 2:
+                    throw new InsufficientDataSetException("Data set not large enough to calculate an upper quartile");
+            }
+            var upperHalf = new int[a.Length / 2];
+
+            return Median(upperHalf);
+        }
+
+        /// <summary>
+        /// Finds the upper quartile of the array.
+        /// </summary>
+        /// <param name="a">The array of type short</param>
+        /// <returns>The upper quartile of all the elements in the array</returns>
+        public static double UpperQuartile(this short[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1: case 2:
+                    throw new InsufficientDataSetException("Data set not large enough to calculate an upper quartile");
+            }
+            var upperHalf = new int[a.Length / 2];
+
+            return Median(upperHalf);
+        }
+
         /// <summary>
         /// Finds the upper quartile of the array.
         /// </summary>
         /// <param name="a">The array of type int</param>
         /// <returns>The upper quartile of all the elements in the array</returns>
-        public static double UpperQuart(this int[] a)
+        public static double UpperQuartile(this int[] a)
         {
             if (a == null)
             {
@@ -1259,18 +1754,131 @@ namespace Utilities
             {
                 case 0:
                     throw new IndexOutOfRangeException("Array is empty.");
-                case 1:
-                    Console.WriteLine("Data set not large enough to calculate an upper quartile.");
-                    break;
-                case 2:
-                    Console.WriteLine("Data set not large enough to calculate an upper quartile.");
-                    break;
+                case 1: case 2:
+                    throw new InsufficientDataSetException("Data set not large enough to calculate an upper quartile");
             }
             var upperHalf = new int[a.Length / 2];
-            
+
             return Median(upperHalf);
         }
-        
+
+        /// <summary>
+        /// Finds the upper quartile of the array.
+        /// </summary>
+        /// <param name="a">The array of type long</param>
+        /// <returns>The upper quartile of all the elements in the array</returns>
+        public static double UpperQuartile(this long[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1: case 2:
+                    throw new InsufficientDataSetException("Data set not large enough to calculate an upper quartile");
+            }
+            var upperHalf = new int[a.Length / 2];
+
+            return Median(upperHalf);
+        }
+
+        /// <summary>
+        /// Finds the upper quartile of the array.
+        /// </summary>
+        /// <param name="a">The array of type float</param>
+        /// <returns>The upper quartile of all the elements in the array</returns>
+        public static double UpperQuartile(this float[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1: case 2:
+                    throw new InsufficientDataSetException("Data set not large enough to calculate an upper quartile");
+            }
+            var upperHalf = new int[a.Length / 2];
+
+            return Median(upperHalf);
+        }
+
+        /// <summary>
+        /// Finds the upper quartile of the array.
+        /// </summary>
+        /// <param name="a">The array of type double</param>
+        /// <returns>The upper quartile of all the elements in the array</returns>
+        public static double UpperQuartile(this double[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1: case 2:
+                    throw new InsufficientDataSetException("Data set not large enough to calculate an upper quartile");
+            }
+            var upperHalf = new int[a.Length / 2];
+
+            return Median(upperHalf);
+        }
+
+        /// <summary>
+        /// Finds the inter-quartile range of the array.
+        /// </summary>
+        /// <param name="a">The array of type byte</param>
+        /// <returns>The inter-quartile range of all the elements in the array</returns>
+        public static double InterQuartileRange(this byte[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1: case 2:
+                    throw new InsufficientDataSetException("Data set not large enough to calculate an inter-quartile range");
+            }
+
+            var lowerQuart = LowerQuartile(a);
+            var upperQuart = UpperQuartile(a);
+            return upperQuart - lowerQuart;
+        }
+
+        /// <summary>
+        /// Finds the inter-quartile range of the array.
+        /// </summary>
+        /// <param name="a">The array of type short</param>
+        /// <returns>The inter-quartile range of all the elements in the array</returns>
+        public static double InterQuartileRange(this short[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1: case 2:
+                    throw new InsufficientDataSetException("Data set not large enough to calculate an inter-quartile range");
+            }
+
+            var lowerQuart = LowerQuartile(a);
+            var upperQuart = UpperQuartile(a);
+            return upperQuart - lowerQuart;
+        }
+
         /// <summary>
         /// Finds the inter-quartile range of the array.
         /// </summary>
@@ -1286,44 +1894,311 @@ namespace Utilities
             {
                 case 0:
                     throw new IndexOutOfRangeException("Array is empty.");
-                case 1:
-                    Console.WriteLine("Data set not large enough to calculate an inter-quartile range.");
-                    break;
-                case 2:
-                    Console.WriteLine("Data set not large enough to calculate an inter-quartile range.");
-                    break;
+                case 1: case 2:
+                    throw new InsufficientDataSetException("Data set not large enough to calculate an inter-quartile range");
             }
 
-            var lowerQuart = LowerQuart(a);
-            var upperQuart = UpperQuart(a);
+            var lowerQuart = LowerQuartile(a);
+            var upperQuart = UpperQuartile(a);
             return upperQuart - lowerQuart;
         }
-        
+
+        /// <summary>
+        /// Finds the inter-quartile range of the array.
+        /// </summary>
+        /// <param name="a">The array of type long</param>
+        /// <returns>The inter-quartile range of all the elements in the array</returns>
+        public static double InterQuartileRange(this long[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1: case 2:
+                    throw new InsufficientDataSetException("Data set not large enough to calculate an inter-quartile range");
+            }
+
+            var lowerQuart = LowerQuartile(a);
+            var upperQuart = UpperQuartile(a);
+            return upperQuart - lowerQuart;
+        }
+
+       /// <summary>
+        /// Finds the inter-quartile range of the array.
+        /// </summary>
+        /// <param name="a">The array of type float</param>
+        /// <returns>The inter-quartile range of all the elements in the array</returns>
+        public static double InterQuartileRange(this float[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1: case 2:
+                    throw new InsufficientDataSetException("Data set not large enough to calculate an inter-quartile range");
+            }
+
+            var lowerQuart = LowerQuartile(a);
+            var upperQuart = UpperQuartile(a);
+            return upperQuart - lowerQuart;
+        }
+
+        /// <summary>
+        /// Finds the inter-quartile range of the array.
+        /// </summary>
+        /// <param name="a">The array of type double</param>
+        /// <returns>The inter-quartile range of all the elements in the array</returns>
+        public static double InterQuartileRange(this double[] a)
+        {
+            if (a == null)
+            {
+                throw new NullReferenceException();
+            }
+            else switch (a.Length)
+            {
+                case 0:
+                    throw new IndexOutOfRangeException("Array is empty.");
+                case 1: case 2:
+                    throw new InsufficientDataSetException("Data set not large enough to calculate an inter-quartile range");
+            }
+
+            var lowerQuart = LowerQuartile(a);
+            var upperQuart = UpperQuartile(a);
+            return upperQuart - lowerQuart;
+        }
+
+        /// <summary>
+        /// Returns whether if the data set is normally distributed for a proportion.
+        /// </summary>
+        /// <param name="a">The array of type byte</param>
+        /// <param name="samstat">The sample statistic</param>
+        /// <returns>Returns whether if the data set is normally distributed for a proportion.</returns>
+        public static bool IsNormalProp(byte[] a, double samstat)
+        {
+            if(a == null)
+            {
+                throw new NullReferenceException();
+            }
+            if(a.Length == 0)
+            {
+                return false;
+            }
+
+            if ((a.Length * samstat) <= 15) return false;
+            if ((a.Length * (1 - samstat)) <= 15) return false;
+            
+            return true;
+        }
+
+        /// <summary>
+        /// Returns whether if the data set is normally distributed for a proportion.
+        /// </summary>
+        /// <param name="a">The array of type short</param>
+        /// <param name="samstat">The sample statistic</param>
+        /// <returns>Returns whether if the data set is normally distributed for a proportion.</returns>
+        public static bool IsNormalProp(short[] a, double samstat)
+        {
+            if(a == null)
+            {
+                throw new NullReferenceException();
+            }
+            if(a.Length == 0)
+            {
+                return false;
+            }
+
+            if ((a.Length * samstat) <= 15) return false;
+            if ((a.Length * (1 - samstat)) <= 15) return false;
+            
+            return true;
+        }
+
         /// <summary>
         /// Returns whether if the data set is normally distributed for a proportion.
         /// </summary>
         /// <param name="a">The array of type int</param>
+        /// <param name="samstat">The sample statistic</param>
         /// <returns>Returns whether if the data set is normally distributed for a proportion.</returns>
-        public static bool IsNormalProp<T>(this T[] a, double samstat)
+        public static bool IsNormalProp(int[] a, double samstat)
         {
-            if (a is string) return false;
-            else
+            if(a == null)
             {
-                if ((a.Length * samstat) <= 15) return false;
-                if ((a.Length * (1 - samstat)) <= 15) return false;
+                throw new NullReferenceException();
             }
+            if(a.Length == 0)
+            {
+                return false;
+            }
+
+            if ((a.Length * samstat) <= 15) return false;
+            if ((a.Length * (1 - samstat)) <= 15) return false;
+            
             return true;
         }
-        
+
+        /// <summary>
+        /// Returns whether if the data set is normally distributed for a proportion.
+        /// </summary>
+        /// <param name="a">The array of type long</param>
+        /// <param name="samstat">The sample statistic</param>
+        /// <returns>Returns whether if the data set is normally distributed for a proportion.</returns>
+        public static bool IsNormalProp(long[] a, double samstat)
+        {
+            if(a == null)
+            {
+                throw new NullReferenceException();
+            }
+            if(a.Length == 0)
+            {
+                return false;
+            }
+
+            if ((a.Length * samstat) <= 15) return false;
+            if ((a.Length * (1 - samstat)) <= 15) return false;
+            
+            return true;
+        }
+
+        /// <summary>
+        /// Returns whether if the data set is normally distributed for a proportion.
+        /// </summary>
+        /// <param name="a">The array of type float</param>
+        /// <param name="samstat">The sample statistic</param>
+        /// <returns>Returns whether if the data set is normally distributed for a proportion.</returns>
+        public static bool IsNormalProp(float[] a, double samstat)
+        {
+            if(a == null)
+            {
+                throw new NullReferenceException();
+            }
+            if(a.Length == 0)
+            {
+                return false;
+            }
+            if ((a.Length * samstat) <= 15) return false;
+            if ((a.Length * (1 - samstat)) <= 15) return false;
+            
+            return true;
+        }
+
+        /// <summary>
+        /// Returns whether if the data set is normally distributed for a proportion.
+        /// </summary>
+        /// <param name="a">The array of type double</param>
+        /// <param name="samstat">The sample statistic</param>
+        /// <returns>Returns whether if the data set is normally distributed for a proportion.</returns>
+        public static bool IsNormalProp(double[] a, double samstat)
+        {
+            if(a == null)
+            {
+                throw new NullReferenceException();
+            }
+            if(a.Length == 0)
+            {
+                return false;
+            }
+            if ((a.Length * samstat) <= 15) return false;
+            if ((a.Length * (1 - samstat)) <= 15) return false;
+            
+            return true;
+        }
+
+        /// <summary>
+        /// Returns whether if the data set is normally distributed for a mean.
+        /// </summary>
+        /// <param name="a">The array of type byte</param>
+        /// <param name="samstat">The sample statistic</param>
+        /// <returns>Returns whether if the data set is normally distributed for a mean.</returns>
+        public static bool IsNormalMean(this byte[] a, double samstat)
+        {
+            if(a == null)
+            {
+                throw new NullReferenceException();
+            }
+            return !(Math.Abs(Mode(a)) > TOLERANCE);
+        }
+
+        /// <summary>
+        /// Returns whether if the data set is normally distributed for a mean.
+        /// </summary>
+        /// <param name="a">The array of type short</param>
+        /// <param name="samstat">The sample statistic</param>
+        /// <returns>Returns whether if the data set is normally distributed for a mean.</returns>
+        public static bool IsNormalMean(this short[] a, double samstat)
+        {
+            if(a == null)
+            {
+                throw new NullReferenceException();
+            }
+            return !(Math.Abs(Mode(a)) > TOLERANCE);
+        }
+
         /// <summary>
         /// Returns whether if the data set is normally distributed for a mean.
         /// </summary>
         /// <param name="a">The array of type int</param>
+        /// <param name="samstat">The sample statistic</param>
         /// <returns>Returns whether if the data set is normally distributed for a mean.</returns>
-        public static bool IsNormalMean(this byte[] a, double samstat)
+        public static bool IsNormalMean(this int[] a, double samstat)
         {
-            const double tolerance = 0.00000000000000000000000;
-            return !(Math.Abs(Mode(a)) > tolerance);
+            if(a == null)
+            {
+                throw new NullReferenceException();
+            }
+            return !(Math.Abs(Mode(a)) > TOLERANCE);
+        }
+
+        /// <summary>
+        /// Returns whether if the data set is normally distributed for a mean.
+        /// </summary>
+        /// <param name="a">The array of type long</param>
+        /// <param name="samstat">The sample statistic</param>
+        /// <returns>Returns whether if the data set is normally distributed for a mean.</returns>
+        public static bool IsNormalMean(this long[] a, double samstat)
+        {
+            if(a == null)
+            {
+                throw new NullReferenceException();
+            }
+            return !(Math.Abs(Mode(a)) > TOLERANCE);
+        }
+
+        /// <summary>
+        /// Returns whether if the data set is normally distributed for a mean.
+        /// </summary>
+        /// <param name="a">The array of type float</param>
+        /// <param name="samstat">The sample statistic</param>
+        /// <returns>Returns whether if the data set is normally distributed for a mean.</returns>
+        public static bool IsNormalMean(this float[] a, double samstat)
+        {
+            if(a == null)
+            {
+                throw new NullReferenceException();
+            }
+            return !(Math.Abs(Mode(a)) > TOLERANCE);
+        }
+
+        /// <summary>
+        /// Returns whether if the data set is normally distributed for a mean.
+        /// </summary>
+        /// <param name="a">The array of type double</param>
+        /// <param name="samstat">The sample statistic</param>
+        /// <returns>Returns whether if the data set is normally distributed for a mean.</returns>
+        public static bool IsNormalMean(this double[] a, double samstat)
+        {
+            if(a == null)
+            {
+                throw new NullReferenceException();
+            }
+            return !(Math.Abs(Mode(a)) > TOLERANCE);
         }
 
         /// <summary>
@@ -1340,7 +2215,7 @@ namespace Utilities
             var upperBound = mean + (cv * se);
             ci[0] = lowBound;
             ci[1] = upperBound;
-            
+
             return ci;
         }
 
@@ -1358,29 +2233,6 @@ namespace Utilities
             return t;
         }
 
-        /// <summary>
-        /// Returns whether if the data set is qualitative.
-        /// </summary>
-        /// <param name="a">The array of type int</param>
-        /// <returns>Returns whether if the data set is qualitative.</returns>
-        public static bool IsQualitative<T>(this T[] a)
-        {
-            return a is string;
-        }
-        
-        /// <summary>
-        /// Returns whether if the data set is quantitative.
-        /// </summary>
-        /// <param name="a">The array of type int</param>
-        /// <returns>Returns whether if the data set is quantitative.</returns>
-        public static bool IsQuantitative<T>(this T[] a)
-        {
-            return !(a is string);
-        }
-        
-        
-        
-        
-
     }//ArrayStatUtils
+
 }//namespace Utilities

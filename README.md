@@ -34,7 +34,7 @@
   <br>
   <br>
   
-  Creating a core library of additional and useful C# utilities. All and any contributions are welcome :computer: :electric_plug: :open_file_folder:
+  Creating a core library of additional and useful C# utilities which are CLS Compliant. All and any contributions are welcome :computer: :electric_plug: :open_file_folder:
 </p>
 
 # Great! How do I get started?
@@ -43,5 +43,9 @@
 
 
 ## Updates
+### 2-17-2019
+- Important commit: https://github.com/manu-p-1/CSharp-Utilities/commit/5cf3efcf04941eb30c1f176f2a9d2d2114d80b58
+
+### Messages
 * We are constantly trying to improve the quality of code we give to the community by working hard. Currently, we are still in pre production creating the base library for the utilties. We would love your help to get this repository to its pre release! 
 

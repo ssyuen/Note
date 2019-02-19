@@ -22,12 +22,13 @@ namespace Utilities
         /// Reverses a string from left to right order while maintaining case sensitivity.
         /// </summary>
         /// <param name="str">The string to be reversed</param>
+        /// <exception cref="ArgumentNullException">Thrown when the string is null</exception>
         /// <returns>The reversed string</returns>
         public static string Reverse(this string str)
         {
             if (str == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if(str.Length == 0)
             {
@@ -42,12 +43,13 @@ namespace Utilities
         /// Creates a string from the first character of the string to the first whitespace.
         /// </summary>
         /// <param name="str">The string to be chomped</param>
+        /// <exception cref="ArgumentNullException">Thrown when the string is null</exception>
         /// <returns>The string retaining the first word</returns>
         public static string Chomp(this string str)
         {
             if (str == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if (str.Length == 0)
             {
@@ -69,12 +71,13 @@ namespace Utilities
         /// </summary>
         /// <param name="str">The string to be chomped</param>
         /// <param name="spaces">The amount of white space to chomp after</param>
+        /// <exception cref="ArgumentNullException">Thrown when the string is null</exception>
         /// <returns>The string retaining the chomped word</returns>
         public static string ChompAfter(this string str, int spaces)
         {
             if (str == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if (str.Length == 0)
             {
@@ -105,12 +108,13 @@ namespace Utilities
         /// Counts the number of words in a string
         /// </summary>
         /// <param name="str">The string to be used</param>
+        /// <exception cref="ArgumentNullException">Thrown when the string is null</exception>
         /// <returns>The number of words in the string</returns>
         public static int CountWords(this string str)
         {
             if (str == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if (str.Length == 0)
             {
@@ -124,12 +128,13 @@ namespace Utilities
         /// </summary>
         /// <param name="str">The string to be used</param>
         /// <param name="args">The characters which will be removed</param>
+        /// <exception cref="ArgumentNullException">Thrown when the string is null</exception>
         /// <returns>The string with all characters in args removed</returns>
         public static string RemoveAll(this string str, params char[] args)
         {
             if (str == null || args == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if (args.Length == 0)
             {
@@ -152,12 +157,13 @@ namespace Utilities
         /// </summary>
         /// <param name="str">The string to be used</param>
         /// <param name="args">The characters which will be removed</param>
+        /// <exception cref="ArgumentNullException">Thrown when the string is null</exception>
         /// <returns>The string with all characters in args removed</returns>
         public static string RemoveAll(this string str, params string[] args)
         {
             if (str == null || args == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if (args.Length == 0)
             {
@@ -189,12 +195,13 @@ namespace Utilities
         /// </summary>
         /// <param name="str">The string to be used</param>
         /// <param name="args">The characters which will be removed</param>
+        /// <exception cref="ArgumentNullException">Thrown when the string is null</exception>
         /// <returns>The string with all characters in args removed</returns>
         public static string RemoveAllIgnoreCase(this string str, params char[] args)
         {
             if (str == null || args == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if (args.Length == 0)
             {
@@ -218,12 +225,13 @@ namespace Utilities
         /// </summary>
         /// <param name="str">The string to be used</param>
         /// <param name="args">The characters which will be removed</param>
+        /// <exception cref="ArgumentNullException">Thrown when the string is null</exception>
         /// <returns>The string with all characters in args removed</returns>
         public static string RemoveAllIgnoreCase(this string str, params string[] args)
         {
             if (str == null || args == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if(args.Length == 0)
             {
@@ -254,12 +262,13 @@ namespace Utilities
         /// Checks if a given string contains any digits.
         /// </summary>
         /// <param name="str">The string to be used</param>
+        /// <exception cref="ArgumentNullException">Thrown when the string is null</exception>
         /// <returns>True if the string contains any digits, false otherwise</returns>
         public static bool ContainsDigits(this string str)
         {
             if (str == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if (str.Length == 0)
             {
@@ -272,12 +281,13 @@ namespace Utilities
         /// Roughly mimics C style strings in that each character of the specified string is stored in a List
         /// </summary>
         /// <param name="str">The string to be used</param>
+        /// <exception cref="ArgumentNullException">Thrown when the string is null</exception>
         /// <returns>The string represented as a List</returns>
         public static List<char> ToList(this string str)
         {
             if (str == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if (str.Length == 0)
             {
@@ -296,14 +306,15 @@ namespace Utilities
         /// </summary>
         /// <param name="str">The string to be used</param>
         /// <param name="format">The date format regex</param>
+        /// <exception cref="ArgumentNullException">Thrown when the string is null</exception>
         /// <returns>True if the string is a valid date recognized by System.DateTime</returns>
         public static bool IsSystemDateTime(this string date, string formattingRegex)
         {
-            if (date == null)
+            if (date == null || formattingRegex == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
-            if (date.Length == 0)
+            if (date.Length == 0 || formattingRegex.Length == 0)
             {
                 return false;
             }
@@ -314,12 +325,13 @@ namespace Utilities
         /// Checks if each character in a string is lexicographically greater than the previous character.
         /// </summary>
         /// <param name="str">The string to be used</param>
+        /// <exception cref="ArgumentNullException">Thrown when the string is null</exception>
         /// <returns>True if the string strictly increases</returns>
         public static bool IsStrictlyIncreasing(this string str)
         {
             if (str == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if (str.Length == 0)
             {
@@ -337,12 +349,13 @@ namespace Utilities
         /// while ignoring case.
         /// </summary>
         /// <param name="str">The string to be used</param>
+        /// <exception cref="ArgumentNullException">Thrown when the string is null</exception>
         /// <returns>True if the string strictly increases</returns>
         public static bool IsStrictlyIncreasingIgnoreCase(this string str)
         {
             if (str == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if (str.Length == 0)
             {
@@ -360,12 +373,13 @@ namespace Utilities
         /// 
         /// </summary>
         /// <param name="str">The string to be used</param>
+        /// <exception cref="ArgumentNullException">Thrown when the string is null</exception>
         /// <returns>True if the string strictly increases</returns>
         public static bool IsStrictlyDecreasing(this string str)
         {
             if (str == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if (str.Length == 0)
             {
@@ -383,12 +397,13 @@ namespace Utilities
         /// while ignoring case.
         /// </summary>
         /// <param name="str">The string to be used</param>
+        /// <exception cref="ArgumentNullException">Thrown when the string is null</exception>
         /// <returns>True if the string strictly increases</returns>
         public static bool IsStrictlyDecreasingIgnoreCase(this string str)
         {
             if (str == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if (str.Length == 0)
             {
@@ -405,12 +420,13 @@ namespace Utilities
         /// Checks if a given string is a palindrome.
         /// </summary>
         /// <param name="str">The string to be used</param>
+        /// <exception cref="ArgumentNullException">Thrown when the string is null</exception>
         /// <returns>True if the string is a palindrome</returns>
         public static bool IsPalindrome(this string str)
         {
             if (str == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if (str.Length == 0)
             {
@@ -432,12 +448,13 @@ namespace Utilities
         /// Checks if a given string is a palindrome while ignoring casing
         /// </summary>
         /// <param name="str">The string to be used</param>
+        /// <exception cref="ArgumentNullException">Thrown when the string is null</exception>
         /// <returns>True if the string is a palindrome</returns>
         public static bool IsPalindromeIgnoreCase(this string str)
         {
             if (str == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if (str.Length == 0)
             {

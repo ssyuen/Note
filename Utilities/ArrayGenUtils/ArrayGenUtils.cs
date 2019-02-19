@@ -8,27 +8,29 @@ namespace Utilities
     /// </summary>
     public static class ArrayGenUtils
     {
-        
+
         /// <summary>
         /// Concatenates two arrays of the same type together.
         /// </summary>
         /// <param name="array1">The first array to be concatenated</param>
         /// <param name="array2">The second array to be concatenated</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>The concatenated array</returns>
         public static T[] Concat <T> (T[] array1, T[] array2)
         {
-            T[] array3 = new T[array1.Length + array2.Length];
-
-            for (int i = 0; i < array1.Length; i++)
+            if (array1 == null || array2 == null)
             {
-                array3[i] = array1[i];
+                throw new ArgumentNullException();
             }
+            var z = new T[array1.Length + array2.Length];
 
-            for (int i = 0; i < array2.Length; i++)
-            {
-                array3[array1.Length + i] = array2[i];
-            }
-            return array3;
+            /*
+             *copyTo method is optimized for these scenarios.
+             * Most exceptions are also caught and thrown in the copyTo method
+             */
+            array1.CopyTo(z, 0);
+            array2.CopyTo(z, array1.Length);
+            return z;
         } //array concat
 
 
@@ -36,12 +38,13 @@ namespace Utilities
         /// Adds all the values in an array.
         /// </summary>
         /// <param name="arr">the array of type byte</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>The added amount</returns>
         public static double AddAll(this byte[] arr)
         {
             if(arr == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if(arr.Length == 1)
             {
@@ -55,12 +58,13 @@ namespace Utilities
         /// Adds all the values in an array.
         /// </summary>
         /// <param name="arr">the array of type short</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>The added amount</returns>
         public static double AddAll(this short[] arr)
         {
             if(arr == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if(arr.Length == 1)
             {
@@ -74,12 +78,13 @@ namespace Utilities
         /// Adds all the values in an array.
         /// </summary>
         /// <param name="arr">the array of type int</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>The added amount</returns>
         public static double AddAll(this int[] arr)
         {
             if(arr == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if(arr.Length == 1)
             {
@@ -93,12 +98,13 @@ namespace Utilities
         /// Adds all the values in an array.
         /// </summary>
         /// <param name="arr">the array of type int</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>The added amount</returns>
         public static double AddAll(this long[] arr)
         {
             if(arr == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if(arr.Length == 1)
             {
@@ -116,12 +122,13 @@ namespace Utilities
         /// Adds all the values in an array.
         /// </summary>
         /// <param name="arr">the array of type float</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>The added amount</returns>
         public static double AddAll(this float[] arr)
         {
             if(arr == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if(arr.Length == 1)
             {
@@ -139,12 +146,13 @@ namespace Utilities
         /// Subtracts all the values in an array.
         /// </summary>
         /// <param name="arr">the array of type byte</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>The subtracted amount</returns>
         public static double SubtractAll(this byte[] arr)
         {
             if(arr == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if(arr.Length == 1)
             {
@@ -158,12 +166,13 @@ namespace Utilities
         /// Subtracts all the values in an array.
         /// </summary>
         /// <param name="arr">the array of type short</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>The subtracted amount</returns>
         public static double SubtractAll(this short[] arr)
         {
             if(arr == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if(arr.Length == 1)
             {
@@ -177,12 +186,13 @@ namespace Utilities
         /// Subtracts all the values in an array.
         /// </summary>
         /// <param name="arr">the array of type int</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>The subtracted amount</returns>
         public static double SubtractAll(this int[] arr)
         {
             if(arr == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if(arr.Length == 1)
             {
@@ -196,12 +206,13 @@ namespace Utilities
         /// Subtracts all the values in an array.
         /// </summary>
         /// <param name="arr">the array of type long</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>The subtracted amount</returns>
         public static double SubtractAll(this long[] arr)
         {
             if(arr == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if(arr.Length == 1)
             {
@@ -219,12 +230,13 @@ namespace Utilities
         /// Subtracts all the values in an array.
         /// </summary>
         /// <param name="arr">the array of type float</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>The subtracted amount</returns>
         public static double SubtractAll(this float[] arr)
         {
             if(arr == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if(arr.Length == 1)
             {
@@ -286,6 +298,10 @@ namespace Utilities
             Array.ConstrainedCopy(arr, 0, arr_managed, 0, startingIndexOfOffset + 1);
             Array.ConstrainedCopy(offsetPointValues, 0, arr_managed, startingIndexOfOffset + 1, offsetPointValues.Length);
             Array.ConstrainedCopy(arr, startingIndexOfOffset + 1, arr_managed, startingIndexOfOffset + offset + 1, arr.Length - (startingIndexOfOffset + 1));
+            for(int i = startingIndexOfOffset + 1; i < startingIndexOfOffset + offset; i++)
+            {
+                arr_managed[i] = default(T);
+            }
             return arr_managed;
         }
 
@@ -335,6 +351,10 @@ namespace Utilities
 
             Array.ConstrainedCopy(offsetPointValues, 0, arr_managed, 0, offsetPointValues.Length);
             Array.ConstrainedCopy(arr, 0, arr_managed, offset, arr.Length);
+            for (int i = 0 + 1; i < offset; i++)
+            {
+                arr_managed[i] = default(T);
+            }
             return arr_managed;
         }
 
@@ -383,6 +403,10 @@ namespace Utilities
 
             Array.ConstrainedCopy(offsetPointValues, 0, arr_managed, arr_managed.Length - offset, offsetPointValues.Length);
             Array.ConstrainedCopy(arr, 0, arr_managed, 0, arr.Length);
+            for (int i = arr.Length; i < arr_managed.Length; i++)
+            {
+                arr_managed[i] = default(T);
+            }
             return arr_managed;
         }
     }//ArrayUtils

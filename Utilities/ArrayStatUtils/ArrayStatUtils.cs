@@ -20,9 +20,18 @@ namespace Utilities
         /// Finds the average of all the elements in the array.
         /// </summary>
         /// <param name="a">The byte type array</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>The average of all the elements in the array</returns>
         public static double Mean(this byte[] a)
         {
+            if(a == null)
+            {
+                throw new ArgumentNullException();
+            }
+            if(a.Length == 1)
+            {
+                return a[0];
+            }
             double sum = 0;
             int denom = a.Length;
             double avg = 0;
@@ -39,9 +48,18 @@ namespace Utilities
         /// Finds the average of all the elements in the array.
         /// </summary>
         /// <param name="a">The short type array</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>The average of all the elements in the array</returns>
         public static double Mean(this short[] a)
         {
+            if (a == null)
+            {
+                throw new ArgumentNullException();
+            }
+            if (a.Length == 1)
+            {
+                return a[0];
+            }
             double sum = 0;
             int denom = a.Length;
             double avg = 0;
@@ -58,9 +76,18 @@ namespace Utilities
         /// Finds the average of all the elements in the array.
         /// </summary>
         /// <param name="a">The byte type array</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>The average of all the elements in the array</returns>
         public static double Mean(this int[] a)
         {
+            if (a == null)
+            {
+                throw new ArgumentNullException();
+            }
+            if (a.Length == 1)
+            {
+                return a[0];
+            }
             double sum = 0;
             int denom = a.Length;
             double avg = 0;
@@ -77,9 +104,18 @@ namespace Utilities
         /// Finds the average of all the elements in the array.
         /// </summary>
         /// <param name="a">The long type array</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>The average of all the elements in the array</returns>
         public static double Mean(this long[] a)
         {
+            if (a == null)
+            {
+                throw new ArgumentNullException();
+            }
+            if (a.Length == 1)
+            {
+                return a[0];
+            }
             double sum = 0;
             int denom = a.Length;
             double avg = 0;
@@ -96,9 +132,18 @@ namespace Utilities
         /// Finds the average of all the elements in the array.
         /// </summary>
         /// <param name="a">The float type array</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>The average of all the elements in the array</returns>
         public static double Mean(this float[] a)
         {
+            if (a == null)
+            {
+                throw new ArgumentNullException();
+            }
+            if (a.Length == 1)
+            {
+                return a[0];
+            }
             double sum = 0;
             int denom = a.Length;
             double avg = 0;
@@ -115,9 +160,18 @@ namespace Utilities
         /// Finds the average of all the elements in the array.
         /// </summary>
         /// <param name="a">The double type array</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>The average of all the elements in the array</returns>
         public static double Mean(this double[] a)
         {
+            if (a == null)
+            {
+                throw new ArgumentNullException();
+            }
+            if (a.Length == 1)
+            {
+                return a[0];
+            }
             double sum = 0;
             int denom = a.Length;
             double avg = 0;
@@ -134,12 +188,14 @@ namespace Utilities
         /// Finds the median of all the elements in the array.
         /// </summary>
         /// <param name="a">The array of type byte</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
         /// <returns>The median of all the elements in the array</returns>
         public static double Median(this byte[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -163,12 +219,14 @@ namespace Utilities
         /// Finds the median of all the elements in the array.
         /// </summary>
         /// <param name="a">The array of type short</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
         /// <returns>The median of all the elements in the array</returns>
         public static double Median(this short[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -192,12 +250,14 @@ namespace Utilities
         /// Finds the median of all the elements in the array.
         /// </summary>
         /// <param name="a">The array of type int</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
         /// <returns>The median of all the elements in the array</returns>
         public static double Median(this int[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -221,12 +281,14 @@ namespace Utilities
         /// Finds the median of all the elements in the array.
         /// </summary>
         /// <param name="a">The array of type long</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
         /// <returns>The median of all the elements in the array</returns>
         public static double Median(this long[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
                 {
@@ -250,12 +312,14 @@ namespace Utilities
         /// Finds the median of all the elements in the array.
         /// </summary>
         /// <param name="a">The array of type float</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
         /// <returns>The median of all the elements in the array</returns>
         public static double Median(this float[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
                 {
@@ -279,12 +343,14 @@ namespace Utilities
         /// Finds the median of all the elements in the array.
         /// </summary>
         /// <param name="a">The array of type double</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
         /// <returns>The median of all the elements in the array</returns>
         public static double Median(this double[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
                 {
@@ -308,12 +374,15 @@ namespace Utilities
         /// Finds the mode of all the elements in the array.
         /// </summary>
         /// <param name="a">The array of type byte</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
+        /// <exception cref="NoModeException">Thrown when no mode exists for the array</exception>
         /// <returns>The median of all the elements in the array</returns>
         public static double Mode(this byte[]a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -355,12 +424,15 @@ namespace Utilities
         /// Finds the mode of all the elements in the array.
         /// </summary>
         /// <param name="a">The array of type byte</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
+        /// <exception cref="NoModeException">Thrown when no mode exists for the array</exception>
         /// <returns>The median of all the elements in the array</returns>
         public static double Mode(this short[]a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -398,17 +470,20 @@ namespace Utilities
             throw new NoModeException("No Mode Present");
 
         }
-        
+
         /// <summary>
         /// Finds the mode of all the elements in the array.
         /// </summary>
         /// <param name="a">The array of type byte</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
+        /// <exception cref="NoModeException">Thrown when no mode exists for the array</exception>
         /// <returns>The median of all the elements in the array</returns>
         public static double Mode(this int[]a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -446,17 +521,20 @@ namespace Utilities
             throw new NoModeException("No Mode Present");
         }
 
-        
+
         /// <summary>
         /// Finds the mode of all the elements in the array.
         /// </summary>
         /// <param name="a">The array of type byte</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
+        /// <exception cref="NoModeException">Thrown when no mode exists for the array</exception>
         /// <returns>The median of all the elements in the array</returns>
         public static double Mode(this long[]a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -494,17 +572,20 @@ namespace Utilities
             throw new NoModeException("No Mode Present");
             
         }
-        
+
         /// <summary>
         /// Finds the mode of all the elements in the array.
         /// </summary>
         /// <param name="a">The array of type byte</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
+        /// <exception cref="NoModeException">Thrown when no mode exists for the array</exception>
         /// <returns>The median of all the elements in the array</returns>
         public static double Mode(this float[]a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -547,12 +628,15 @@ namespace Utilities
         /// Finds the mode of all the elements in the array.
         /// </summary>
         /// <param name="a">The array of type byte</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
+        /// <exception cref="NoModeException">Thrown when no mode exists for the array</exception>
         /// <returns>The median of all the elements in the array</returns>
         public static double Mode(this double[]a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -998,12 +1082,14 @@ namespace Utilities
         /// Finds the smallest element in the array.
         /// </summary>
         /// <param name="a">The array of type byte</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
         /// <returns>The minimum of all the elements in the array</returns>
         public static double Minimum(this byte[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1034,12 +1120,14 @@ namespace Utilities
         /// Finds the smallest element in the array.
         /// </summary>
         /// <param name="a">The array of type byte</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
         /// <returns>The minimum of all the elements in the array</returns>
         public static double Minimum(this short[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1070,12 +1158,14 @@ namespace Utilities
         /// Finds the smallest element of the array.
         /// </summary>
         /// <param name="a">The array of type int</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
         /// <returns>The minimum of all the elements in the array</returns>
         public static double Minimum(this int[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1106,12 +1196,14 @@ namespace Utilities
         /// Finds the smallest element of the array.
         /// </summary>
         /// <param name="a">The array of type long</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
         /// <returns>The minimum of all the elements in the array</returns>
         public static double Minimum(this long[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1142,12 +1234,14 @@ namespace Utilities
         /// Finds the smallest element of the array.
         /// </summary>
         /// <param name="a">The array of type float</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
         /// <returns>The minimum of all the elements in the array</returns>
         public static double Minimum(this float[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1178,12 +1272,14 @@ namespace Utilities
         /// Finds the smallest element of the array.
         /// </summary>
         /// <param name="a">The array of type double</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
         /// <returns>The minimum of all the elements in the array</returns>
         public static double Minimum(this double[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1214,12 +1310,14 @@ namespace Utilities
         /// Finds the largest element in the array.
         /// </summary>
         /// <param name="a">The array of type byte</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
         /// <returns>The maximum of all the elements in the array</returns>
         public static double Maximum(this byte[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1250,12 +1348,14 @@ namespace Utilities
         /// Finds the largest element in the array.
         /// </summary>
         /// <param name="a">The array of type short</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
         /// <returns>The maximum of all the elements in the array</returns>
         public static double Maximum(this short[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1286,12 +1386,14 @@ namespace Utilities
         /// Finds the largest element in the array.
         /// </summary>
         /// <param name="a">The array of type int</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
         /// <returns>The maximum of all the elements in the array</returns>
         public static double Maximum(this int[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1322,12 +1424,14 @@ namespace Utilities
         /// Finds the largest element in the array.
         /// </summary>
         /// <param name="a">The array of type long</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
         /// <returns>The maximum of all the elements in the array</returns>
         public static double Maximum(this long[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1358,12 +1462,15 @@ namespace Utilities
         /// Finds the largest element in the array.
         /// </summary>
         /// <param name="a">The array of type float</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
         /// <returns>The maximum of all the elements in the array</returns>
         public static double Maximum(this float[] a)
         {
+            //O(n) runtime 
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1394,12 +1501,15 @@ namespace Utilities
         /// Finds the largest element in the array.
         /// </summary>
         /// <param name="a">The array of type double</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
         /// <returns>The maximum of all the elements in the array</returns>
         public static double Maximum(this double[] a)
         {
+            //O(n) runtime 
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1430,12 +1540,14 @@ namespace Utilities
         /// Finds the range of the array.
         /// </summary>
         /// <param name="a">The array of type byte</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
         /// <returns>The range of all the elements in the array</returns>
         public static double Range(this byte[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1452,12 +1564,14 @@ namespace Utilities
         /// Finds the range of the array.
         /// </summary>
         /// <param name="a">The array of type short</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
         /// <returns>The range of all the elements in the array</returns>
         public static double Range(this short[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1474,12 +1588,14 @@ namespace Utilities
         /// Finds the range of the array.
         /// </summary>
         /// <param name="a">The array of type int</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
         /// <returns>The range of all the elements in the array</returns>
         public static double Range(this int[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1496,12 +1612,14 @@ namespace Utilities
         /// Finds the range of the array.
         /// </summary>
         /// <param name="a">The array of type long</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
         /// <returns>The range of all the elements in the array</returns>
         public static double Range(this long[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1518,12 +1636,14 @@ namespace Utilities
         /// Finds the range of the array.
         /// </summary>
         /// <param name="a">The array of type float</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
         /// <returns>The range of all the elements in the array</returns>
         public static double Range(this float[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1540,12 +1660,14 @@ namespace Utilities
         /// Finds the range of the array.
         /// </summary>
         /// <param name="a">The array of type double</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
         /// <returns>The range of all the elements in the array</returns>
         public static double Range(this double[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1562,12 +1684,15 @@ namespace Utilities
         /// Finds the lower quartile of the array.
         /// </summary>
         /// <param name="a">The array of type byte</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
+        /// <exception cref="InsufficientDataSetException">Thrown when the data set is not large enough to calculate a lower quartile</exception>
         /// <returns>The lower quartile of all the elements in the array</returns>
         public static double LowerQuartile(this byte[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1584,12 +1709,15 @@ namespace Utilities
         /// Finds the lower quartile of the array.
         /// </summary>
         /// <param name="a">The array of type short</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
+        /// <exception cref="InsufficientDataSetException">Thrown when the data set is not large enough to calculate a lower quartile</exception>
         /// <returns>The lower quartile of all the elements in the array</returns>
         public static double LowerQuartile(this short[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1607,12 +1735,15 @@ namespace Utilities
         /// Finds the lower quartile of the array.
         /// </summary>
         /// <param name="a">The array of type int</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
+        /// <exception cref="InsufficientDataSetException">Thrown when the data set is not large enough to calculate a lower quartile</exception>
         /// <returns>The lower quartile of all the elements in the array</returns>
         public static double LowerQuartile(this int[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1630,12 +1761,15 @@ namespace Utilities
         /// Finds the lower quartile of the array.
         /// </summary>
         /// <param name="a">The array of type long</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
+        /// <exception cref="InsufficientDataSetException">Thrown when the data set is not large enough to calculate a lower quartile</exception>
         /// <returns>The lower quartile of all the elements in the array</returns>
         public static double LowerQuartile(this long[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1653,12 +1787,15 @@ namespace Utilities
         /// Finds the lower quartile of the array.
         /// </summary>
         /// <param name="a">The array of type float</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
+        /// <exception cref="InsufficientDataSetException">Thrown when the data set is not large enough to calculate a lower quartile</exception>
         /// <returns>The lower quartile of all the elements in the array</returns>
         public static double LowerQuartile(this float[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1675,12 +1812,15 @@ namespace Utilities
         /// Finds the lower quartile of the array.
         /// </summary>
         /// <param name="a">The array of type double</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
+        /// <exception cref="InsufficientDataSetException">Thrown when the data set is not large enough to calculate a lower quartile</exception>
         /// <returns>The lower quartile of all the elements in the array</returns>
         public static double LowerQuartile(this double[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1697,12 +1837,15 @@ namespace Utilities
         /// Finds the upper quartile of the array.
         /// </summary>
         /// <param name="a">The array of type byte</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
+        /// <exception cref="InsufficientDataSetException">Thrown when the data set is not large enough to calculate an upper quartile</exception>
         /// <returns>The upper quartile of all the elements in the array</returns>
         public static double UpperQuartile(this byte[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1720,12 +1863,15 @@ namespace Utilities
         /// Finds the upper quartile of the array.
         /// </summary>
         /// <param name="a">The array of type short</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
+        /// <exception cref="InsufficientDataSetException">Thrown when the data set is not large enough to calculate an upper quartile</exception>
         /// <returns>The upper quartile of all the elements in the array</returns>
         public static double UpperQuartile(this short[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1743,12 +1889,15 @@ namespace Utilities
         /// Finds the upper quartile of the array.
         /// </summary>
         /// <param name="a">The array of type int</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
+        /// <exception cref="InsufficientDataSetException">Thrown when the data set is not large enough to calculate an upper quartile</exception>
         /// <returns>The upper quartile of all the elements in the array</returns>
         public static double UpperQuartile(this int[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1766,12 +1915,15 @@ namespace Utilities
         /// Finds the upper quartile of the array.
         /// </summary>
         /// <param name="a">The array of type long</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
+        /// <exception cref="InsufficientDataSetException">Thrown when the data set is not large enough to calculate an upper quartile</exception>
         /// <returns>The upper quartile of all the elements in the array</returns>
         public static double UpperQuartile(this long[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1789,12 +1941,15 @@ namespace Utilities
         /// Finds the upper quartile of the array.
         /// </summary>
         /// <param name="a">The array of type float</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
+        /// <exception cref="InsufficientDataSetException">Thrown when the data set is not large enough to calculate an upper quartile</exception>
         /// <returns>The upper quartile of all the elements in the array</returns>
         public static double UpperQuartile(this float[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1812,12 +1967,15 @@ namespace Utilities
         /// Finds the upper quartile of the array.
         /// </summary>
         /// <param name="a">The array of type double</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
+        /// <exception cref="InsufficientDataSetException">Thrown when the data set is not large enough to calculate an upper quartile</exception>
         /// <returns>The upper quartile of all the elements in the array</returns>
         public static double UpperQuartile(this double[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1835,12 +1993,15 @@ namespace Utilities
         /// Finds the inter-quartile range of the array.
         /// </summary>
         /// <param name="a">The array of type byte</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
+        /// <exception cref="InsufficientDataSetException">Thrown when the data set is not large enough to calculate an IQR</exception>
         /// <returns>The inter-quartile range of all the elements in the array</returns>
         public static double InterQuartileRange(this byte[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1859,12 +2020,15 @@ namespace Utilities
         /// Finds the inter-quartile range of the array.
         /// </summary>
         /// <param name="a">The array of type short</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
+        /// <exception cref="InsufficientDataSetException">Thrown when the data set is not large enough to calculate an IQR</exception>
         /// <returns>The inter-quartile range of all the elements in the array</returns>
         public static double InterQuartileRange(this short[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1883,12 +2047,15 @@ namespace Utilities
         /// Finds the inter-quartile range of the array.
         /// </summary>
         /// <param name="a">The array of type int</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
+        /// <exception cref="InsufficientDataSetException">Thrown when the data set is not large enough to calculate an IQR</exception>
         /// <returns>The inter-quartile range of all the elements in the array</returns>
         public static double InterQuartileRange(this int[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1907,12 +2074,15 @@ namespace Utilities
         /// Finds the inter-quartile range of the array.
         /// </summary>
         /// <param name="a">The array of type long</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
+        /// <exception cref="InsufficientDataSetException">Thrown when the data set is not large enough to calculate an IQR</exception>
         /// <returns>The inter-quartile range of all the elements in the array</returns>
         public static double InterQuartileRange(this long[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1927,16 +2097,19 @@ namespace Utilities
             return upperQuart - lowerQuart;
         }
 
-       /// <summary>
+        /// <summary>
         /// Finds the inter-quartile range of the array.
         /// </summary>
         /// <param name="a">The array of type float</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
+        /// <exception cref="InsufficientDataSetException">Thrown when the data set is not large enough to calculate an IQR</exception>
         /// <returns>The inter-quartile range of all the elements in the array</returns>
         public static double InterQuartileRange(this float[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1955,12 +2128,15 @@ namespace Utilities
         /// Finds the inter-quartile range of the array.
         /// </summary>
         /// <param name="a">The array of type double</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
+        /// <exception cref="InsufficientDataSetException">Thrown when the data set is not large enough to calculate an IQR</exception>
         /// <returns>The inter-quartile range of all the elements in the array</returns>
         public static double InterQuartileRange(this double[] a)
         {
             if (a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             else switch (a.Length)
             {
@@ -1980,12 +2156,13 @@ namespace Utilities
         /// </summary>
         /// <param name="a">The array of type byte</param>
         /// <param name="samstat">The sample statistic</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>Returns whether if the data set is normally distributed for a proportion.</returns>
         public static bool IsNormalProp(byte[] a, double samstat)
         {
             if(a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if(a.Length == 0)
             {
@@ -2003,12 +2180,13 @@ namespace Utilities
         /// </summary>
         /// <param name="a">The array of type short</param>
         /// <param name="samstat">The sample statistic</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>Returns whether if the data set is normally distributed for a proportion.</returns>
         public static bool IsNormalProp(short[] a, double samstat)
         {
             if(a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if(a.Length == 0)
             {
@@ -2026,12 +2204,13 @@ namespace Utilities
         /// </summary>
         /// <param name="a">The array of type int</param>
         /// <param name="samstat">The sample statistic</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>Returns whether if the data set is normally distributed for a proportion.</returns>
         public static bool IsNormalProp(int[] a, double samstat)
         {
             if(a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if(a.Length == 0)
             {
@@ -2049,12 +2228,13 @@ namespace Utilities
         /// </summary>
         /// <param name="a">The array of type long</param>
         /// <param name="samstat">The sample statistic</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>Returns whether if the data set is normally distributed for a proportion.</returns>
         public static bool IsNormalProp(long[] a, double samstat)
         {
             if(a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if(a.Length == 0)
             {
@@ -2072,12 +2252,13 @@ namespace Utilities
         /// </summary>
         /// <param name="a">The array of type float</param>
         /// <param name="samstat">The sample statistic</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>Returns whether if the data set is normally distributed for a proportion.</returns>
         public static bool IsNormalProp(float[] a, double samstat)
         {
             if(a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if(a.Length == 0)
             {
@@ -2094,12 +2275,13 @@ namespace Utilities
         /// </summary>
         /// <param name="a">The array of type double</param>
         /// <param name="samstat">The sample statistic</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>Returns whether if the data set is normally distributed for a proportion.</returns>
         public static bool IsNormalProp(double[] a, double samstat)
         {
             if(a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             if(a.Length == 0)
             {
@@ -2116,12 +2298,13 @@ namespace Utilities
         /// </summary>
         /// <param name="a">The array of type byte</param>
         /// <param name="samstat">The sample statistic</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>Returns whether if the data set is normally distributed for a mean.</returns>
         public static bool IsNormalMean(this byte[] a, double samstat)
         {
             if(a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             return !(Math.Abs(Mode(a)) > TOLERANCE);
         }
@@ -2131,12 +2314,13 @@ namespace Utilities
         /// </summary>
         /// <param name="a">The array of type short</param>
         /// <param name="samstat">The sample statistic</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>Returns whether if the data set is normally distributed for a mean.</returns>
         public static bool IsNormalMean(this short[] a, double samstat)
         {
             if(a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             return !(Math.Abs(Mode(a)) > TOLERANCE);
         }
@@ -2146,12 +2330,13 @@ namespace Utilities
         /// </summary>
         /// <param name="a">The array of type int</param>
         /// <param name="samstat">The sample statistic</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>Returns whether if the data set is normally distributed for a mean.</returns>
         public static bool IsNormalMean(this int[] a, double samstat)
         {
             if(a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             return !(Math.Abs(Mode(a)) > TOLERANCE);
         }
@@ -2161,12 +2346,13 @@ namespace Utilities
         /// </summary>
         /// <param name="a">The array of type long</param>
         /// <param name="samstat">The sample statistic</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>Returns whether if the data set is normally distributed for a mean.</returns>
         public static bool IsNormalMean(this long[] a, double samstat)
         {
             if(a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             return !(Math.Abs(Mode(a)) > TOLERANCE);
         }
@@ -2176,12 +2362,13 @@ namespace Utilities
         /// </summary>
         /// <param name="a">The array of type float</param>
         /// <param name="samstat">The sample statistic</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>Returns whether if the data set is normally distributed for a mean.</returns>
         public static bool IsNormalMean(this float[] a, double samstat)
         {
             if(a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             return !(Math.Abs(Mode(a)) > TOLERANCE);
         }
@@ -2191,12 +2378,13 @@ namespace Utilities
         /// </summary>
         /// <param name="a">The array of type double</param>
         /// <param name="samstat">The sample statistic</param>
+        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>Returns whether if the data set is normally distributed for a mean.</returns>
         public static bool IsNormalMean(this double[] a, double samstat)
         {
             if(a == null)
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
             return !(Math.Abs(Mode(a)) > TOLERANCE);
         }

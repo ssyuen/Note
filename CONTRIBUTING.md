@@ -1,24 +1,12 @@
-# Introduction
+# Welcome
 
-## Welcome to the C# Utilities repo!!!
+## The C# Utilities repo!!!
 
 >First off, thank you for considering contributing to the C# Utility class library. We're a work in progress but it's people like you that make this repo such a great tool.
 
 ## Why read this?
 
 >Following these guidelines helps to communicate that you respect the time of the developers managing and developing this open source project. In return, they should reciprocate that respect in addressing your issue, assessing changes, and helping you finalize your pull requests.
-
-## Contributions we look for
-
-Keep an open mind! Improving documentation, bug triaging, or writing tutorials are all examples of helpful contributions that mean less work for you.
-
-> C# Utilities is an open source project and we love to receive contributions from our community — you! There are many ways to contribute, from writing tutorials or blog posts, improving the documentation, submitting bug reports and feature requests or writing code which can be incorporated into C# Utilities itself.
-
-> Responsibilities
-> * Ensure cross-platform compatibility for every change that's accepted. Windows, Mac, Debian & Ubuntu Linux.
-> * Ensure that code that goes into the repo meats the checklist provided on the pull request template
-> * Create issues for any major changes and enhancements that you wish to make. Discuss things transparently and get community feedback.
-> * Be welcoming to newcomers and encourage diverse new contributors from all backgrounds. Read the Code of Conduct!
 
 # Ground Rules
 
@@ -27,9 +15,27 @@ Read the code of conduct: [Code of Conduct](https://github.com/manu-p-1/CSharp-U
 
 ## Getting started
 
+### Contributions we look for
+
+Keep an open mind! Improving documentation, bug triaging, or writing tutorials are all examples of helpful contributions that mean less work for you.
+
+> C# Utilities is an open source project and we love to receive contributions from our community — you! There are many ways to contribute, from writing tutorials or blog posts, improving the documentation, submitting bug reports and feature requests or writing code which can be incorporated into C# Utilities itself.
+
+> Responsibilities
+> * Ensure cross-platform compatibility for every change that's accepted. Windows, Mac, Debian & Ubuntu Linux.
+> * Ensure that code that goes into the repo meats the checklist provided on the pull request template
+> * Write robust, fast performing code
+> * Write informative documentation
+> * Overload any utility methods
+> * Add extension methods when appropriate
+> * Ensure .NET CLS Runtime Compliance
+> * Unit testing
+> * Create issues for any major changes and enhancements that you wish to make. Discuss things transparently and get community feedback.
+> * Be welcoming to newcomers and encourage diverse new contributors from all backgrounds. Read the Code of Conduct!
+
 ### How to Contribute 101
-1. Start off by downloading a test editor or IDE. Visual Studio is ideal, but JetBrains Rider or Atom are great choices as well.
-Some IDE's come with built in Github integration making your life easier.
+1. Start off by downloading a test editor or IDE. Visual Studio is ideal, but JetBrains' Rider, Atom, and VSCode are great choices as well.
+> * TIP: Some IDE's come with built in Github integration making your life easier.
 
 2. Download Git (if your not using a text editor with Git integration)
 
@@ -47,7 +53,7 @@ For your first contribution, get a feel of how the project works, try running it
 >* Changes to ‘metadata’ files .gitignore, build scripts, etc.
 >* Moving source files from one directory to another
 
-> Changes which do change functionality or creative thinking will require a full explanation on the pull request template as well as an analysis from our team before being merged.
+> Changes which do change functionality or creative thinking will require a full explanation on the pull request template as well as an analysis from our core team before being merged.
 
 4. After making changes, submit a pull request. Remember to read and fill out the PULL REQUEST TEMPLATE.
 Read the following to understand how to create a pull request:

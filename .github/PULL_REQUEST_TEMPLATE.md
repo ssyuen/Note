@@ -7,6 +7,11 @@ A pull request that doesn't explain **why** the change was made has a much
 lower chance of being accepted. Write Below:  
 
 
+
+
+
+
+
 ## Types of Changes
 
 What types of changes does your code introduce to this project?
@@ -39,6 +44,11 @@ for what you are doing._
 If this is a relatively large or complex change, kick off the discussion by
 explaining why you chose the solution you did and what alternatives you
 considered, etc. Write Below:  
+
+
+
+
+
 
 
 ## Attributions

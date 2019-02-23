@@ -4,7 +4,8 @@ Describe the changes here for us to accept your pull request. If it fixes a bug 
 resolves a feature request, be sure to link to that issue.
 
 A pull request that doesn't explain **why** the change was made has a much
-lower chance of being accepted.
+lower chance of being accepted. Write Below:  
+
 
 ## Types of Changes
 
@@ -22,17 +23,23 @@ _Put an `x` in the boxes that apply_
 _Put an `x` in the boxes that apply. You can also fill these out after creating
 the PR. If you're unsure about any of them, don't hesitate to ask on the
 mailing list. We're here to help! This is simply a reminder of what we are
-going to look for before merging your code._
+going to look for before merging your code. Remember, only check if it is appropriate
+for what you are doing._
 
-- [ ] All tests pass locally with my changes
-- [ ] I have added necessary documentation (if appropriate)
+- [ ] All tests pass locally with my changes (used unit tests)
+- [ ] I have added all necessary documenation that is informative (if appropriate)
+- [ ] Code is .NET CLS Compliant and generates no warnings
+- [ ] Methods which can be extensions methods have been marked
+- [ ] Methods which can be overloaded have been overloaded
+- [ ] Code has inline comments
 - [ ] Any dependent changes have been merged and published in related repositories
 
 ## Further Comments
 
 If this is a relatively large or complex change, kick off the discussion by
 explaining why you chose the solution you did and what alternatives you
-considered, etc.
+considered, etc. Write Below:  
+
 
 ## Attributions
 Pull request template has been adopted from https://github.com/rabbitmq/rabbitmq-dotnet-client/blob/0ffd443eb1a3de7de8db58ece20b26e379355a73/.github/PULL_REQUEST_TEMPLATE.md

@@ -71,6 +71,15 @@ REMEMBER TO READ THE PULL REQUEST TEMPLATE. Answer all questions that the templa
 > 4. What did you expect to see?
 > 5. What did you see instead?
 
+### Other Helpful Links
+[The .NET Guide Documentation](https://docs.microsoft.com/en-us/dotnet/standard/)  
+[The C# Guide Documentation](https://docs.microsoft.com/en-us/dotnet/csharp/)  
+[XML Documenation](https://docs.microsoft.com/en-us/dotnet/csharp/codedoc)
+[Documenting in C# additional guide](https://www.codeproject.com/Articles/11701/Documentation-in-C)
+[Semantic Versioning - What we use](https://semver.org/)
+[Writing CLS Compliant Code](https://docs.microsoft.com/en-us/previous-versions/bhc3fa7f(v=vs.140))
+[Syncing a fork - to make sure that you have the latest copy](https://help.github.com/en/articles/syncing-a-fork)
+
 # Suggesting a feature
 > If you find yourself wishing for a feature that doesn't exist in the C# Utilities library, you are probably not alone. There are bound to be others out there with similar needs. Many of the features that Elasticsearch has today have been added because our users saw the need. Simply open an issue on our issues list on GitHub which describes the feature you would like to see, why you need it, and how it should work.
 

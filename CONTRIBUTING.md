@@ -38,7 +38,7 @@ Some IDE's come with built in Github integration making your life easier.
 ### Your First Contribution
 For your first contribution, get a feel of how the project works, try running it and perusing through the code.
 
-> As a rule of thumb, changes are obvious fixes if they do not introduce any new functionality or creative thinking. As long as the change does not affect functionality, some likely examples include the following:
+> As a rule of thumb, changes that are obvious fixes, which do not introduce any new functionality, creative thinking, or change functionality, will be merged almost immediately. Such changes pursuant to the following:
 >* Spelling / grammar fixes
 >* Typo correction, white space and formatting changes
 >* Comment clean up
@@ -47,11 +47,12 @@ For your first contribution, get a feel of how the project works, try running it
 >* Changes to ‘metadata’ files .gitignore, build scripts, etc.
 >* Moving source files from one directory to another
 
+> Changes which do change functionality or creative thinking will require a full explanation on the pull request template as well as an analysis from our team before being merged.
+
 4. After making changes, submit a pull request. Remember to read and fill out the PULL REQUEST TEMPLATE.
 Read the following to understand how to create a pull request:
-
-### Helpful Links
 Here are a couple of friendly tutorials you can include: http://makeapullrequest.com/
+REMEMBER TO READ THE PULL REQUEST TEMPLATE. Answer all questions that the template asks. Failure to do so will result in a immediate closed pull request.
 
 > Working on your first Pull Request? You can learn how from this *free* series, [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github).
 > If a maintainer asks you to "rebase" your PR, they're saying that a lot of code has changed, and that you need to update your branch so it's easier to merge.

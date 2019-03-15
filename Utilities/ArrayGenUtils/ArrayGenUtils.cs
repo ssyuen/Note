@@ -421,10 +421,10 @@ namespace Utilities
         /// option is the spacing of the delimitting character. The spacing can be evenly applied
         /// if the boolean is set to true.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="arr"></param>
-        /// <param name="formattingRegex"></param>
-        /// <param name="evenlySpacedDelimiters"></param>
+        /// <typeparam name="T">The type of the array</typeparam>
+        /// <param name="arr">The array to be used</param>
+        /// <param name="formattingRegex">The guidelined regex to be optionally used</param>
+        /// <param name="evenlySpacedDelimiters">Determines whether the spacing between each element should be the same</param>
         /// <returns>The string representation of the array</returns>
         /// <exception cref="ArgumentException">If arr is null</exception>
         /// <exception cref="FormatException">If the formatting regex length is neither 0 or 3</exception>

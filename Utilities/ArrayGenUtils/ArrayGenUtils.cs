@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Text;
 
 namespace Utilities
 {
@@ -269,7 +270,7 @@ namespace Utilities
         /// <code>
         /// class TestClass 
         /// {
-        ///     static int Main() 
+        ///     static int Main(string[] args) 
         ///     {
         ///         int[] w = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
         ///         int[] x = w.InsertIntoManaged(3, 1); 
@@ -322,7 +323,7 @@ namespace Utilities
         /// <code>
         /// class TestClass 
         /// {
-        ///     static int Main() 
+        ///     static int Main(string[] args) 
         ///     {
         ///         int[] w = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
         ///         int[] x = w.ShiftBeginningToRightManaged(3); 
@@ -375,7 +376,7 @@ namespace Utilities
         /// <code>
         /// class TestClass 
         /// {
-        ///     static int Main() 
+        ///     static int Main(string[] args) 
         ///     {
         ///         int[] w = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
         ///         int[] x = w.ShiftEndToLeftManaged(3); 
@@ -408,6 +409,88 @@ namespace Utilities
                 arr_managed[i] = default(T);
             }
             return arr_managed;
+        }
+
+        /// <summary>
+        /// Prints a string representation of an array. Optionally, a formatting regular expression
+        /// can be specified to alter the appereance of the string representation. The formatting regex 
+        /// can be either of length 0 or 3. If a regex is specified, it needs to contain an character 
+        /// representing the bounds of the left outer bound of the array, a character which seperates 
+        /// each element, and a character which represents the right outer bound of the array. 
+        /// The ordering of these elements must be respective of the rules aforementioned. Another 
+        /// option is the spacing of the delimitting character. The spacing can be evenly applied
+        /// if the boolean is set to true.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="arr"></param>
+        /// <param name="formattingRegex"></param>
+        /// <param name="evenlySpacedDelimiters"></param>
+        /// <returns>The string representation of the array</returns>
+        /// <exception cref="ArgumentException">If arr is null</exception>
+        /// <exception cref="FormatException">If the formatting regex length is neither 0 or 3</exception>
+        /// <example>This sample shows how to call the <see cref="ToStringExt{T}(T[], string, bool)"/> method.</example>
+        /// <code>
+        /// 
+        /// class TestClass 
+        /// {
+        ///     static int Main(string[] args) 
+        ///     {
+        ///         int[] w = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
+        ///         Console.WriteLine(w.ToStringExt()); 
+        ///         //The above results in: [2, 3, 4, 5, 6, 7, 8, 9, 10]
+        ///         
+        ///         int[] x = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
+        ///         Console.WriteLine(x.ToStringExt("(|)", true));
+        ///         //Printing out z results in: (2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10)
+        ///     }
+        /// }
+        /// </code>
+        public static string ToStringExt<T>(this T[] arr, string formattingRegex = "[,]", bool evenlySpacedDelimiters = false)
+        {
+            if (arr == null)
+            {
+                throw new ArgumentNullException("array");
+            }
+            if (formattingRegex != "" && formattingRegex.Length != 3)
+            {
+                throw new FormatException("Regex must be of length three following the supported regex's");
+            }
+
+            string outerLeft = "", delimiter = "", outerRight = "";
+            if (formattingRegex != "")
+            {
+                outerLeft = formattingRegex[0] + "";
+                delimiter = formattingRegex[1] + "";
+                outerRight = formattingRegex[2] + "";
+            }
+
+            bool isLooselyPrimitive = false;
+            Type T_type = typeof(T);
+            if (T_type.IsPrimitive || T_type == typeof(decimal) || T_type == typeof(string))
+            {
+                isLooselyPrimitive = true;
+            }
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append(outerLeft);
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if(i == arr.Length - 1)
+                {
+                    sb.Append(arr[i]);
+                }
+                else
+                {
+                    if (evenlySpacedDelimiters)
+                        sb.Append(arr[i] + " " + delimiter + " ");
+                    else if (isLooselyPrimitive)
+                        sb.Append(arr[i] + delimiter + " ");
+                    else
+                        sb.Append(arr[i] + delimiter);
+                }
+            }
+            sb.Append(outerRight);
+            return sb.ToString();
         }
     }//ArrayUtils
 }//Namespace

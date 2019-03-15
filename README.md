@@ -34,7 +34,7 @@
   <br>
   <br>
   
-  Creating a core library of additional and useful C# utilities which are CLS Compliant. All and any contributions are welcome :computer: :electric_plug: :open_file_folder:
+  Creating a core library of additional and useful C# utilities. The C# Utilities class library is also CLS Compliant so it can be used with other .NET CLR Languages. All and any contributions are welcome :computer: :electric_plug: :open_file_folder:
 </p>
 
 # Great! How do I get started?

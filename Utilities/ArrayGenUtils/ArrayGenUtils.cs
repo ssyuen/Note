@@ -481,7 +481,7 @@ namespace Utilities
                 }
                 else
                 {
-                    if (evenlySpacedDelimiters)
+                    if (evenlySpacedDelimiters && isLooselyPrimitive)
                         sb.Append(arr[i] + " " + delimiter + " ");
                     else if (isLooselyPrimitive)
                         sb.Append(arr[i] + delimiter + " ");

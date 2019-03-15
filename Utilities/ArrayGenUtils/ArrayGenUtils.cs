@@ -430,7 +430,6 @@ namespace Utilities
         /// <exception cref="FormatException">If the formatting regex length is neither 0 or 3</exception>
         /// <example>This sample shows how to call the <see cref="ToStringExt{T}(T[], string, bool)"/> method.</example>
         /// <code>
-        /// 
         /// class TestClass 
         /// {
         ///     static int Main(string[] args) 

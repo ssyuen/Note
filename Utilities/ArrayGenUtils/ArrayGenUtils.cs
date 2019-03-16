@@ -431,7 +431,7 @@ namespace Utilities
         /// <returns>The string representation of the array</returns>
         /// <exception cref="ArgumentException">If arr is null</exception>
         /// <exception cref="FormatException">If the formatting regex length is neither 0 or 3</exception>
-        /// <example>This sample shows how to call the <see cref="ToStringExt{T}(T[], string, bool)"/> method.</example>
+        /// <example>This sample shows how to call the <see cref="ToString{T}(T[], string, bool)"/> method.</example>
         /// <code>
         /// class TestClass
         /// {
@@ -451,7 +451,7 @@ namespace Utilities
         ///     }
         /// }
         /// </code>
-        public static string ToStringExt<T>(this T[] arr, string formattingRegex = "", bool evenlySpacedSeparator = false)
+        public static string ToString<T>(this T[] arr, string formattingRegex = "", bool evenlySpacedSeparator = false)
         {
             int frl = formattingRegex.Length;
 

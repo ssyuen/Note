@@ -420,9 +420,15 @@ namespace Utilities
         /// a default behavior, execpt with the specified separator rather than the default separator. A formattingRegex 
         /// of length 2 specifies a two characters to mark the left and right outer bounds of the array, A formattingRegex 
         /// of length 3 specifies a character for the left outer bound of the array, followed by a separator character, 
+<<<<<<< HEAD
         /// followed by a character for the right outer bound of the array. If no separator is desired, the "/0+" regex
         /// can be specified.The evenlySpacedSeparator parameter specifies whether an even number of spaces should be on
         /// both sides of the separator. This parameter ignores Object type arrays excluding decimal and string.
+=======
+        /// followed by a character for the right outer bound of the array. The evenlySpacedSeparator parameter specifies 
+        /// whether an even number of spaces should be on both sides of the separator. This parameter ignores Object type 
+        /// arrays excluding decimal and string.
+>>>>>>> 88c3bbbd7b63a23a5fcb25fbca610a118da5874d
         /// </summary>
         /// <typeparam name="T">The type of the array</typeparam>
         /// <param name="arr">The array to be used</param>
@@ -463,7 +469,11 @@ namespace Utilities
             {
                 throw new FormatException("Unsupported Regular Expression");
             }
+<<<<<<< HEAD
             string outerLeft = string.Empty, separator = string.Empty, outerRight = string.Empty;
+=======
+            string outerLeft = "", separator = "", outerRight = "";
+>>>>>>> 88c3bbbd7b63a23a5fcb25fbca610a118da5874d
             bool hasNoSep = false;
             if (formattingRegex.Equals("/0+"))
             {
@@ -508,7 +518,11 @@ namespace Utilities
                 {
                     case 0:
                     case 2:
+<<<<<<< HEAD
                     case 3: breakout:
+=======
+                    case 3: defBehavior:
+>>>>>>> 88c3bbbd7b63a23a5fcb25fbca610a118da5874d
                             if (evenlySpacedSeparator && isLooselyPrimitive)
                             {
                                 if (frl != 2)
@@ -534,7 +548,11 @@ namespace Utilities
                         if (hasNoSep)
                             sb.Append(arr[i]);
                         else
+<<<<<<< HEAD
                             goto breakout;
+=======
+                            goto defBehavior;
+>>>>>>> 88c3bbbd7b63a23a5fcb25fbca610a118da5874d
                         break;                   
                 }
             }

@@ -69,7 +69,6 @@
     <Compile Include="ArrayGenUtils\ArrayGenUtils.cs" />
     <Compile Include="ArrayStatUtils\ArrayStatUtils.cs" />
     <Compile Include="ArrayStatUtils\StatExceptions.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="StringUtils\StringUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

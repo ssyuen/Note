@@ -52,7 +52,7 @@ namespace Utilities
                 return arr[0];
             }
             var arr_mult_tot = arr.Aggregate(1, (idx1, idx2) => idx1 * idx2);
-            return arr_mult_tot; 
+            return arr_mult_tot;
         }
 
         /// <summary>
@@ -160,7 +160,7 @@ namespace Utilities
                 return arr[0];
             }
             var arr_mult_tot = arr.Aggregate(0, (idx1, idx2) => idx1 - idx2);
-            return arr_mult_tot; 
+            return arr_mult_tot;
         }
 
         /// <summary>
@@ -268,14 +268,14 @@ namespace Utilities
         /// <exception cref="IndexOutOfRangeException">Thrown when the offset or the startingIndexOffset is less than 0</exception>
         /// <example>This sample shows how to call the <see cref="ArrayGenUtils.InsertIntoManaged{T}(T[], int, int, T[])"/> method.</example>
         /// <code>
-        /// class TestClass 
+        /// class TestClass
         /// {
-        ///     static int Main(string[] args) 
+        ///     static int Main(string[] args)
         ///     {
         ///         int[] w = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
-        ///         int[] x = w.InsertIntoManaged(3, 1); 
+        ///         int[] x = w.InsertIntoManaged(3, 1);
         ///         //Printint out x results in: 2, 3, 0, 0, 0, 4, 5, 6, 7, 8, 9, 10
-        ///         
+        ///
         ///         int[] y = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
         ///         int[] z = y.InsertIntoManaged(3, 1, 250, 350, 450);
         ///         //Printing out z results in: 2, 3, 250, 350, 450, 4, 5, 6, 7, 8, 9, 10
@@ -321,14 +321,14 @@ namespace Utilities
         /// <exception cref="IndexOutOfRangeException">Thrown when the offset is less than 0</exception>
         /// <example>This sample shows how to call the <see cref="ArrayGenUtils.ShiftBeginningToRightManaged{T}(T[], int, T[])"/> method.</example>
         /// <code>
-        /// class TestClass 
+        /// class TestClass
         /// {
-        ///     static int Main(string[] args) 
+        ///     static int Main(string[] args)
         ///     {
         ///         int[] w = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
-        ///         int[] x = w.ShiftBeginningToRightManaged(3); 
+        ///         int[] x = w.ShiftBeginningToRightManaged(3);
         ///         //Printint out x results in: 0, 0, 0, 2, 3, 4, 5, 6, 7, 8, 9, 10
-        ///         
+        ///
         ///         int[] y = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
         ///         int[] z = y.ShiftBeginningToRightManaged(3, 250, 350, 450);
         ///         //Printing out z results in: 250, 350, 450, 2, 3, 4, 5, 6, 7, 8, 9, 10
@@ -374,14 +374,14 @@ namespace Utilities
         /// <exception cref="IndexOutOfRangeException">Thrown when the offset is less than 0</exception>
         /// <example>This sample shows how to call the <see cref="ArrayGenUtils.ShiftBeginningToRightManaged{T}(T[], int, T[])"/> method.</example>
         /// <code>
-        /// class TestClass 
+        /// class TestClass
         /// {
-        ///     static int Main(string[] args) 
+        ///     static int Main(string[] args)
         ///     {
         ///         int[] w = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
-        ///         int[] x = w.ShiftEndToLeftManaged(3); 
+        ///         int[] x = w.ShiftEndToLeftManaged(3);
         ///         //Printint out x results in: 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0
-        ///         
+        ///
         ///         int[] y = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
         ///         int[] z = y.ShiftEndToLeftManaged(3, 250, 350, 450);
         ///         //Printing out z results in: 2, 3, 4, 5, 6, 7, 8, 9, 10, 250, 350, 450
@@ -415,20 +415,14 @@ namespace Utilities
         /// Prints a string representation of an array. There are 4 supported lengths for the formattingRegex. The
         /// default length is 0 and the default behavior depends on the type of the array. If the type is primitive
         /// (based on the System.IsPrimitive property) including decimal and string, then it prints the array with a space
-        /// as a separator between each element. If the array is not primitive, it prints the array with no separator. 
-        /// A formattingRegex of length 1 specifies a character to separate each element. The array is printed out, following 
-        /// a default behavior, execpt with the specified separator rather than the default separator. A formattingRegex 
-        /// of length 2 specifies a two characters to mark the left and right outer bounds of the array, A formattingRegex 
-        /// of length 3 specifies a character for the left outer bound of the array, followed by a separator character, 
-<<<<<<< HEAD
+        /// as a separator between each element. If the array is not primitive, it prints the array with no separator.
+        /// A formattingRegex of length 1 specifies a character to separate each element. The array is printed out, following
+        /// a default behavior, execpt with the specified separator rather than the default separator. A formattingRegex
+        /// of length 2 specifies a two characters to mark the left and right outer bounds of the array, A formattingRegex
+        /// of length 3 specifies a character for the left outer bound of the array, followed by a separator character,
         /// followed by a character for the right outer bound of the array. If no separator is desired, the "/0+" regex
         /// can be specified.The evenlySpacedSeparator parameter specifies whether an even number of spaces should be on
         /// both sides of the separator. This parameter ignores Object type arrays excluding decimal and string.
-=======
-        /// followed by a character for the right outer bound of the array. The evenlySpacedSeparator parameter specifies 
-        /// whether an even number of spaces should be on both sides of the separator. This parameter ignores Object type 
-        /// arrays excluding decimal and string.
->>>>>>> 88c3bbbd7b63a23a5fcb25fbca610a118da5874d
         /// </summary>
         /// <typeparam name="T">The type of the array</typeparam>
         /// <param name="arr">The array to be used</param>
@@ -439,18 +433,18 @@ namespace Utilities
         /// <exception cref="FormatException">If the formatting regex length is neither 0 or 3</exception>
         /// <example>This sample shows how to call the <see cref="ToStringExt{T}(T[], string, bool)"/> method.</example>
         /// <code>
-        /// class TestClass 
+        /// class TestClass
         /// {
-        ///     static int Main(string[] args) 
+        ///     static int Main(string[] args)
         ///     {
         ///         int[] w = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
-        ///         Console.WriteLine(w.ToStringExt("[,]")); 
+        ///         Console.WriteLine(w.ToStringExt("[,]"));
         ///         //The above results in: [2, 3, 4, 5, 6, 7, 8, 9, 10]
-        ///         
+        ///
         ///         int[] x = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
         ///         Console.WriteLine(x.ToStringExt("(|)", true));
         ///         //Printing out z results in: (2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10)
-        ///         
+        ///
         ///         string[] y = new string[4] {"Bill", "Bob", "Tom", "Joe"};
         ///         Console.WriteLine(y.ToStringExt());
         ///         //Printing out y results in: Bill Bob Tom Joe
@@ -469,11 +463,7 @@ namespace Utilities
             {
                 throw new FormatException("Unsupported Regular Expression");
             }
-<<<<<<< HEAD
             string outerLeft = string.Empty, separator = string.Empty, outerRight = string.Empty;
-=======
-            string outerLeft = "", separator = "", outerRight = "";
->>>>>>> 88c3bbbd7b63a23a5fcb25fbca610a118da5874d
             bool hasNoSep = false;
             if (formattingRegex.Equals("/0+"))
             {
@@ -518,11 +508,7 @@ namespace Utilities
                 {
                     case 0:
                     case 2:
-<<<<<<< HEAD
-                    case 3: breakout:
-=======
                     case 3: defBehavior:
->>>>>>> 88c3bbbd7b63a23a5fcb25fbca610a118da5874d
                             if (evenlySpacedSeparator && isLooselyPrimitive)
                             {
                                 if (frl != 2)
@@ -548,12 +534,8 @@ namespace Utilities
                         if (hasNoSep)
                             sb.Append(arr[i]);
                         else
-<<<<<<< HEAD
-                            goto breakout;
-=======
                             goto defBehavior;
->>>>>>> 88c3bbbd7b63a23a5fcb25fbca610a118da5874d
-                        break;                   
+                        break;
                 }
             }
             sb.Append(outerRight);

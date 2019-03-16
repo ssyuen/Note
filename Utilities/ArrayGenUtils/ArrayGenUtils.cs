@@ -412,19 +412,22 @@ namespace Utilities
         }
 
         /// <summary>
-        /// Prints a string representation of an array. Optionally, a formatting regular expression
-        /// can be specified to alter the appereance of the string representation. The formatting regex 
-        /// can be either of length 0 or 3. If a regex is specified, it needs to contain an character 
-        /// representing the bounds of the left outer bound of the array, a character which seperates 
-        /// each element, and a character which represents the right outer bound of the array. 
-        /// The ordering of these elements must be respective of the rules aforementioned. Another 
-        /// option is the spacing of the delimitting character. The spacing can be evenly applied
-        /// if the boolean is set to true.
+        /// Prints a string representation of an array. There are 4 supported lengths for the formattingRegex. The
+        /// default length is 0 and the default behavior depends on the type of the array. If the type is primitive
+        /// (based on the System.IsPrimitive property) including decimal and string, then it prints the array with a space
+        /// as a separator between each element. If the array is not primitive, it prints the array with no separator. 
+        /// A formattingRegex of length 1 specifies a character to separate each element. The array is printed out, following 
+        /// a default behavior, execpt with the specified separator rather than the default separator. A formattingRegex 
+        /// of length 2 specifies a two characters to mark the left and right outer bounds of the array, A formattingRegex 
+        /// of length 3 specifies a character for the left outer bound of the array, followed by a separator character, 
+        /// followed by a character for the right outer bound of the array. If no separator is desired, the "/0+" regex
+        /// can be specified.The evenlySpacedSeparator parameter specifies whether an even number of spaces should be on
+        /// both sides of the separator. This parameter ignores Object type arrays excluding decimal and string.
         /// </summary>
         /// <typeparam name="T">The type of the array</typeparam>
         /// <param name="arr">The array to be used</param>
         /// <param name="formattingRegex">The guidelined regex to be optionally used</param>
-        /// <param name="evenlySpacedDelimiters">Determines whether the spacing between each element should be the same</param>
+        /// <param name="evenlySpacedSeparator">Determines whether the spacing between each element should be the same</param>
         /// <returns>The string representation of the array</returns>
         /// <exception cref="ArgumentException">If arr is null</exception>
         /// <exception cref="FormatException">If the formatting regex length is neither 0 or 3</exception>
@@ -435,32 +438,55 @@ namespace Utilities
         ///     static int Main(string[] args) 
         ///     {
         ///         int[] w = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
-        ///         Console.WriteLine(w.ToStringExt()); 
+        ///         Console.WriteLine(w.ToStringExt("[,]")); 
         ///         //The above results in: [2, 3, 4, 5, 6, 7, 8, 9, 10]
         ///         
         ///         int[] x = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
         ///         Console.WriteLine(x.ToStringExt("(|)", true));
         ///         //Printing out z results in: (2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10)
+        ///         
+        ///         string[] y = new string[4] {"Bill", "Bob", "Tom", "Joe"};
+        ///         Console.WriteLine(y.ToStringExt());
+        ///         //Printing out y results in: Bill Bob Tom Joe
         ///     }
         /// }
         /// </code>
-        public static string ToStringExt<T>(this T[] arr, string formattingRegex = "[,]", bool evenlySpacedDelimiters = false)
+        public static string ToStringExt<T>(this T[] arr, string formattingRegex = "", bool evenlySpacedSeparator = false)
         {
+            int frl = formattingRegex.Length;
+
             if (arr == null)
             {
                 throw new ArgumentNullException("array");
             }
-            if (formattingRegex != "" && formattingRegex.Length != 3)
+            if (frl < 0 || frl > 3)
             {
-                throw new FormatException("Regex must be of length three following the supported regex's");
+                throw new FormatException("Unsupported Regular Expression");
+            }
+            string outerLeft = string.Empty, separator = string.Empty, outerRight = string.Empty;
+            bool hasNoSep = false;
+            if (formattingRegex.Equals("/0+"))
+            {
+                hasNoSep = true;
+                frl = 1;
             }
 
-            string outerLeft = "", delimiter = "", outerRight = "";
-            if (formattingRegex != "")
+            switch (frl)
             {
-                outerLeft = formattingRegex[0] + "";
-                delimiter = formattingRegex[1] + "";
-                outerRight = formattingRegex[2] + "";
+                case 3:
+                    outerLeft = formattingRegex[0].ToString();
+                    separator = formattingRegex[1].ToString();
+                    outerRight = formattingRegex[2].ToString();
+                    break;
+
+                case 2:
+                    outerLeft = formattingRegex[0].ToString();
+                    outerRight = formattingRegex[1].ToString();
+                    break;
+
+                case 1:
+                    separator = formattingRegex[0].ToString();
+                    break;
             }
 
             bool isLooselyPrimitive = false;
@@ -478,14 +504,38 @@ namespace Utilities
                 {
                     sb.Append(arr[i]);
                 }
-                else
+                else switch(frl)
                 {
-                    if (evenlySpacedDelimiters && isLooselyPrimitive)
-                        sb.Append(arr[i] + " " + delimiter + " ");
-                    else if (isLooselyPrimitive)
-                        sb.Append(arr[i] + delimiter + " ");
-                    else
-                        sb.Append(arr[i] + delimiter);
+                    case 0:
+                    case 2:
+                    case 3: breakout:
+                            if (evenlySpacedSeparator && isLooselyPrimitive)
+                            {
+                                if (frl != 2)
+                                {
+                                    sb.Append(arr[i] + " " + separator + " ");
+                                }
+                                else
+                                {
+                                    sb.Append(arr[i] + separator + " ");
+                                }
+                            }
+                            else if (isLooselyPrimitive)
+                            {
+                                sb.Append(arr[i] + separator + " ");
+                            }
+                            else
+                            {
+                                sb.Append(arr[i] + separator);
+                            }
+                        break;
+
+                    case 1:
+                        if (hasNoSep)
+                            sb.Append(arr[i]);
+                        else
+                            goto breakout;
+                        break;                   
                 }
             }
             sb.Append(outerRight);

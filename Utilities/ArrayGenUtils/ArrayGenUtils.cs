@@ -252,163 +252,69 @@ namespace Utilities
         }
 
         /// <summary>
-        /// Allocates spaces in the array after a specified index. Spaces can be inserted after the first index
-        /// of the array (index 0) and before the last index of the array (arr.Length - 1). For inserting spaces
-        /// before the first index or after the last index of the array, refer to the seealso. The empty indexes
-        /// are filled with the default value type for the array. Optionally, empty indexes in the new array
-        /// can be filled through a variable argument array.
+        /// Inserts the specified element at the specified index in the array (modifying the original array).
+        /// If element at that position exits, If shifts that element and any subsequent elements to the right,
+        /// adding one to their indices. The method also allows for inserting more than one element into
+        /// the array at one time given that they are specified. This Insert method is functionally similar
+        /// to the Insert method of the List class. <see cref="System.Collections.IList.Insert(int, object)"/>
+        /// for information about the add method of the List class.
         /// </summary>
         /// <typeparam name="T">The type of the array</typeparam>
         /// <param name="arr">The array to be used</param>
-        /// <param name="offset">The amount of spaces to create in the array</param>
-        /// <param name="startingIndexOfOffset">The index to start the spaces AFTER</param>
-        /// <param name="offsetPointValues">Optionally, the values to insert into the empty indexes of the new array</param>
+        /// <param name="startIdx">The index to start insertion</param>
+        /// <param name="amtToIns">The amount of elements to insert into the array</param>
+        /// <param name="valuesToIns">Optionally, the values to insert into the empty indices of the new array</param>
         /// <returns>A new array with the specified allocations</returns>
-        /// <exception cref="IndexOutOfRangeException">Thrown when the offsetPointValues array does not match the amount of offsets (if it is greater than 0)</exception>
-        /// <exception cref="IndexOutOfRangeException">Thrown when the offset or the startingIndexOffset is less than 0</exception>
-        /// <example>This sample shows how to call the <see cref="ArrayGenUtils.InsertIntoManaged{T}(T[], int, int, T[])"/> method.</example>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the valuesToIns array does not match the amount to insert (if it is greater than 0)</exception>
+        /// <exception cref="IndexOutOfRangeException">Thrown when the amtToIns or the startIdx is less than 0</exception>
+        /// <example>This sample shows how to call the <see cref="ArrayGenUtils.Insert{T}(T[], int, int, T[])"/> method.</example>
+        /// <seealso cref="System.Collections.IList.Insert(int, object)"/>
         /// <code>
+        ///
+        /// using static Utilities.ArrayGenUtils;
+        ///
         /// class TestClass
         /// {
         ///     static int Main(string[] args)
         ///     {
         ///         int[] w = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
-        ///         int[] x = w.InsertIntoManaged(3, 1);
-        ///         //Printint out x results in: 2, 3, 0, 0, 0, 4, 5, 6, 7, 8, 9, 10
+        ///         InsertInto(ref w, 1, 3);
+        ///         //Printint out w results in: 2, 0, 0, 0, 3, 4, 5, 6, 7, 8, 9, 10
         ///
         ///         int[] y = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
-        ///         int[] z = y.InsertIntoManaged(3, 1, 250, 350, 450);
-        ///         //Printing out z results in: 2, 3, 250, 350, 450, 4, 5, 6, 7, 8, 9, 10
+        ///         InsertInto(ref y, 1, 3, 250, 350, 450);
+        ///         //Printing out y results in: 2, 250, 350, 450, 3, 4, 5, 6, 7, 8, 9, 10
         ///     }
         /// }
         /// </code>
-        /// <seealso cref="ArrayGenUtils.ShiftBeginningToRightManaged{T}(T[], int, T[])"/>
-        /// <seealso cref="ArrayGenUtils.ShiftEndToLeftManaged{T}(T[], int, T[])"/>
-        public static T[] InsertIntoManaged<T>(this T[] arr, int offset, int startingIndexOfOffset, params T[] offsetPointValues)
+        public static void InsertInto<T>(ref T[] arr, int startIdx, int amtToIns, params T[] valuesToIns)
         {
-
-            if (startingIndexOfOffset < 0 || startingIndexOfOffset >= arr.Length || offset < 0)
+            if (startIdx < 0 || startIdx >= arr.Length || amtToIns < 0)
             {
                 throw new IndexOutOfRangeException();
             }
-            if(offsetPointValues.Length != 0 && offset != offsetPointValues.Length)
+            if (amtToIns != valuesToIns.Length && valuesToIns.Length != 0)
             {
                 throw new IndexOutOfRangeException("offset amount should equal the number of values to be filled");
             }
-            T[] arr_managed = new T[arr.Length + offset];
-            Array.ConstrainedCopy(arr, 0, arr_managed, 0, startingIndexOfOffset + 1);
-            Array.ConstrainedCopy(offsetPointValues, 0, arr_managed, startingIndexOfOffset + 1, offsetPointValues.Length);
-            Array.ConstrainedCopy(arr, startingIndexOfOffset + 1, arr_managed, startingIndexOfOffset + offset + 1, arr.Length - (startingIndexOfOffset + 1));
-            for(int i = startingIndexOfOffset + 1; i < startingIndexOfOffset + offset; i++)
-            {
-                arr_managed[i] = default(T);
-            }
-            return arr_managed;
-        }
 
-        /// <summary>
-        /// Allocates spaces in the array before the first index of the array. Essentially, the array is shifted to the
-        /// right. For inserting spaces in between index values in the array, refer to the seealso. The empty indexes
-        /// are filled with the default value type for the array. Optionally, empty indexes in the new array
-        /// can be filled through a variable argument array.
-        /// </summary>
-        /// <typeparam name="T">The type of the array</typeparam>
-        /// <param name="arr">The array to be used</param>
-        /// <param name="offset">The amount of spaces to create in the array</param>
-        /// <param name="offsetPointValues">Optionally, the values to insert into the empty indexes of the new array</param>
-        /// <returns>A new array with the specified allocations</returns>
-        /// <exception cref="IndexOutOfRangeException">Thrown when the offsetPointValues array does not match the amount of offset (if it is greater than 0)</exception>
-        /// <exception cref="IndexOutOfRangeException">Thrown when the offset is less than 0</exception>
-        /// <example>This sample shows how to call the <see cref="ArrayGenUtils.ShiftBeginningToRightManaged{T}(T[], int, T[])"/> method.</example>
-        /// <code>
-        /// class TestClass
-        /// {
-        ///     static int Main(string[] args)
-        ///     {
-        ///         int[] w = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
-        ///         int[] x = w.ShiftBeginningToRightManaged(3);
-        ///         //Printint out x results in: 0, 0, 0, 2, 3, 4, 5, 6, 7, 8, 9, 10
-        ///
-        ///         int[] y = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
-        ///         int[] z = y.ShiftBeginningToRightManaged(3, 250, 350, 450);
-        ///         //Printing out z results in: 250, 350, 450, 2, 3, 4, 5, 6, 7, 8, 9, 10
-        ///     }
-        /// }
-        /// </code>
-        /// <seealso cref="ArrayGenUtils.InsertIntoManaged{T}(T[], int, int, T[])"/>
-        /// <seealso cref="ArrayGenUtils.ShiftEndToLeftManaged{T}(T[], int, T[])"/>
-        public static T[] ShiftBeginningToRightManaged<T>(this T[] arr, int offset, params T[] offsetPointValues)
-        {
+            T[] arr_managed = new T[arr.Length + amtToIns];
 
-            if (offset < 0)
+            if (amtToIns != 0)
             {
-                throw new IndexOutOfRangeException();
+                if (startIdx == arr.Length - 1)
+                {
+                    Array.ConstrainedCopy(arr, 0, arr_managed, 0, arr.Length);
+                    Array.ConstrainedCopy(valuesToIns, 0, arr_managed, startIdx + 1, valuesToIns.Length);
+                }
+                else
+                {
+                    Array.ConstrainedCopy(arr, 0, arr_managed, 0, startIdx);
+                    Array.ConstrainedCopy(valuesToIns, 0, arr_managed, startIdx, valuesToIns.Length);
+                    Array.ConstrainedCopy(arr, startIdx, arr_managed, startIdx + amtToIns, arr.Length - startIdx);
+                }
             }
-            if(offsetPointValues.Length != 0 && offset != offsetPointValues.Length)
-            {
-                throw new IndexOutOfRangeException("offset amount should equal the number of values to be filled");
-            }
-            T[] arr_managed = new T[arr.Length + offset];
-
-            Array.ConstrainedCopy(offsetPointValues, 0, arr_managed, 0, offsetPointValues.Length);
-            Array.ConstrainedCopy(arr, 0, arr_managed, offset, arr.Length);
-            for (int i = 0 + 1; i < offset; i++)
-            {
-                arr_managed[i] = default(T);
-            }
-            return arr_managed;
-        }
-
-        /// <summary>
-        /// Allocates spaces in the array after the last index of the array. Essentially, the array is shifted to the left
-        /// from the end. For inserting spaces in between index values in the array, refer to the seealso. The empty indexes
-        /// are filled with the default value type for the array. Optionally, empty indexes in the new array
-        /// can be filled through a variable argument array.
-        /// </summary>
-        /// <typeparam name="T">The type of the array</typeparam>
-        /// <param name="arr">The array to be used</param>
-        /// <param name="offset">The amount of spaces to create in the array</param>
-        /// <param name="offsetPointValues">Optionally, the values to insert into the empty indexes of the new array</param>
-        /// <returns>A new array with the specified allocations</returns>
-        /// <exception cref="IndexOutOfRangeException">Thrown when the offsetPointValues array does not match the amount of offset (if it is greater than 0)</exception>
-        /// <exception cref="IndexOutOfRangeException">Thrown when the offset is less than 0</exception>
-        /// <example>This sample shows how to call the <see cref="ArrayGenUtils.ShiftBeginningToRightManaged{T}(T[], int, T[])"/> method.</example>
-        /// <code>
-        /// class TestClass
-        /// {
-        ///     static int Main(string[] args)
-        ///     {
-        ///         int[] w = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
-        ///         int[] x = w.ShiftEndToLeftManaged(3);
-        ///         //Printint out x results in: 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0
-        ///
-        ///         int[] y = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
-        ///         int[] z = y.ShiftEndToLeftManaged(3, 250, 350, 450);
-        ///         //Printing out z results in: 2, 3, 4, 5, 6, 7, 8, 9, 10, 250, 350, 450
-        ///     }
-        /// }
-        /// </code>
-        /// <seealso cref="ArrayGenUtils.InsertIntoManaged{T}(T[], int, int, T[])"/>
-        /// <seealso cref="ArrayGenUtils.ShiftBeginningToRightManaged{T}(T[], int, T[])"/>
-        public static T[] ShiftEndToLeftManaged<T>(this T[] arr, int offset, params T[] offsetPointValues)
-        {
-            if (offset < 0)
-            {
-                throw new IndexOutOfRangeException();
-            }
-            if (offsetPointValues.Length != 0 && offset != offsetPointValues.Length)
-            {
-                throw new IndexOutOfRangeException("offset amount should equal the number of values to be filled");
-            }
-            T[] arr_managed = new T[arr.Length + offset];
-
-            Array.ConstrainedCopy(offsetPointValues, 0, arr_managed, arr_managed.Length - offset, offsetPointValues.Length);
-            Array.ConstrainedCopy(arr, 0, arr_managed, 0, arr.Length);
-            for (int i = arr.Length; i < arr_managed.Length; i++)
-            {
-                arr_managed[i] = default(T);
-            }
-            return arr_managed;
+            arr = arr_managed;
         }
 
         /// <summary>
@@ -431,7 +337,7 @@ namespace Utilities
         /// <returns>The string representation of the array</returns>
         /// <exception cref="ArgumentException">If arr is null</exception>
         /// <exception cref="FormatException">If the formatting regex length is neither 0 or 3</exception>
-        /// <example>This sample shows how to call the <see cref="ToString{T}(T[], string, bool)"/> method.</example>
+        /// <example>This sample shows how to call the <see cref="ToStringX{T}(T[], string, bool)"/> method.</example>
         /// <code>
         /// class TestClass
         /// {
@@ -451,13 +357,13 @@ namespace Utilities
         ///     }
         /// }
         /// </code>
-        public static string ToString<T>(this T[] arr, string formattingRegex = "", bool evenlySpacedSeparator = false)
+        public static string ToStringX<T>(this T[] arr, string formattingRegex = "", bool evenlySpacedSeparator = false)
         {
             int frl = formattingRegex.Length;
 
             if (arr == null)
             {
-                throw new ArgumentNullException("array");
+                throw new ArgumentNullException();
             }
             if (frl < 0 || frl > 3)
             {
@@ -490,13 +396,14 @@ namespace Utilities
             }
 
             bool isLooselyPrimitive = false;
-            Type T_type = typeof(T);
+            var T_type = typeof(T);
             if (T_type.IsPrimitive || T_type == typeof(decimal) || T_type == typeof(string))
             {
                 isLooselyPrimitive = true;
             }
 
             StringBuilder sb = new StringBuilder();
+
             sb.Append(outerLeft);
             for (int i = 0; i < arr.Length; i++)
             {

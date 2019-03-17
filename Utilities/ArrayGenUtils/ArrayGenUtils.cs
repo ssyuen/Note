@@ -264,7 +264,7 @@ namespace Utilities
         /// <param name="startIdx">The index to start insertion</param>
         /// <param name="amtToIns">The amount of elements to insert into the array</param>
         /// <param name="valuesToIns">Optionally, the values to insert into the empty indices of the new array</param>
-        /// <returns>A new array with the specified allocations</returns>
+        /// <returns>An array of the elements inserted into the array, if any</returns>
         /// <exception cref="IndexOutOfRangeException">Thrown when the valuesToIns array does not match the amount to insert (if it is greater than 0)</exception>
         /// <exception cref="IndexOutOfRangeException">Thrown when the amtToIns or the startIdx is less than 0</exception>
         /// <example>This sample shows how to call the <see cref="ArrayGenUtils.Insert{T}(T[], int, int, T[])"/> method.</example>
@@ -287,7 +287,7 @@ namespace Utilities
         ///     }
         /// }
         /// </code>
-        public static void InsertInto<T>(ref T[] arr, int startIdx, int amtToIns, params T[] valuesToIns)
+        public static T[] InsertInto<T>(ref T[] arr, int startIdx, int amtToIns, params T[] valuesToIns)
         {
             if (startIdx < 0 || startIdx >= arr.Length || amtToIns < 0)
             {
@@ -315,6 +315,7 @@ namespace Utilities
                 }
             }
             arr = arr_managed;
+            return valuesToIns;
         }
 
         /// <summary>

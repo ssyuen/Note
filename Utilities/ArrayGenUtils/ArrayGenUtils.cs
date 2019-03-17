@@ -346,7 +346,7 @@ namespace Utilities
         ///     {
         ///         int[] w = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
         ///         Console.WriteLine(w.ToStringX("[,]"));
-        ///         //Printing out w results in : [2, 3, 4, 5, 6, 7, 8, 9, 10]
+        ///         //Printing out w results in: [2, 3, 4, 5, 6, 7, 8, 9, 10]
         ///
         ///         int[] x = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
         ///         Console.WriteLine(x.ToStringX("(|)", true));
@@ -417,25 +417,25 @@ namespace Utilities
                     case 0:
                     case 2:
                     case 3: defBehavior:
-                            if (evenlySpacedSeparator && isLooselyPrimitive)
+                        if (evenlySpacedSeparator && isLooselyPrimitive)
+                        {
+                            if (frl != 2)
                             {
-                                if (frl != 2)
-                                {
-                                    sb.Append(arr[i] + " " + separator + " ");
-                                }
-                                else
-                                {
-                                    sb.Append(arr[i] + separator + " ");
-                                }
-                            }
-                            else if (isLooselyPrimitive)
-                            {
-                                sb.Append(arr[i] + separator + " ");
+                                sb.Append(arr[i] + " " + separator + " ");
                             }
                             else
                             {
-                                sb.Append(arr[i] + separator);
+                                sb.Append(arr[i] + separator + " ");
                             }
+                        }
+                        else if (isLooselyPrimitive)
+                        {
+                            sb.Append(arr[i] + separator + " ");
+                        }
+                        else
+                        {
+                            sb.Append(arr[i] + separator);
+                        }
                         break;
 
                     case 1:

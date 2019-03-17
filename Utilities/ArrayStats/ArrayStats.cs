@@ -8,7 +8,7 @@ namespace Utilities
     /// <summary>
     /// An Array Utility class for statistical methodology
     /// </summary>
-    public static class ArrayStatUtils
+    public static class ArrayStats
     {
 
         /*

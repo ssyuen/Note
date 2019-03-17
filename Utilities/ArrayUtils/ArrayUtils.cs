@@ -7,7 +7,7 @@ namespace Utilities
     /// <summary>
     /// An array utility class
     /// </summary>
-    public static class ArrayGenUtils
+    public static class ArrayUtils
     {
 
         /// <summary>
@@ -267,7 +267,7 @@ namespace Utilities
         /// <returns>An array of the elements inserted into the array, if any</returns>
         /// <exception cref="IndexOutOfRangeException">Thrown when the valuesToIns array does not match the amount to insert (if it is greater than 0)</exception>
         /// <exception cref="IndexOutOfRangeException">Thrown when the amtToIns or the startIdx is less than 0</exception>
-        /// <example>This sample shows how to call the <see cref="ArrayGenUtils.Insert{T}(T[], int, int, T[])"/> method.</example>
+        /// <example>This sample shows how to call the <see cref="ArrayUtils.Insert{T}(T[], int, int, T[])"/> method.</example>
         /// <seealso cref="System.Collections.IList.Insert(int, object)"/>
         /// <code>
         ///

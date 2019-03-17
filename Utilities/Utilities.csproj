@@ -68,9 +68,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArrayGenUtils\ArrayGenUtils.cs" />
-    <Compile Include="ArrayStatUtils\ArrayStatUtils.cs" />
-    <Compile Include="ArrayStatUtils\StatExceptions.cs" />
+    <Compile Include="ArrayUtils\ArrayUtils.cs" />
+    <Compile Include="ArrayStats\ArrayStats.cs" />
+    <Compile Include="ArrayStats\StatExceptions.cs" />
     <Compile Include="StringUtils\StringUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

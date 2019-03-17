@@ -345,15 +345,15 @@ namespace Utilities
         ///     static int Main(string[] args)
         ///     {
         ///         int[] w = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
-        ///         Console.WriteLine(w.ToStringExt("[,]"));
+        ///         Console.WriteLine(w.ToStringX("[,]"));
         ///         //The above results in: [2, 3, 4, 5, 6, 7, 8, 9, 10]
         ///
         ///         int[] x = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
-        ///         Console.WriteLine(x.ToStringExt("(|)", true));
+        ///         Console.WriteLine(x.ToStringX("(|)", true));
         ///         //Printing out z results in: (2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10)
         ///
         ///         string[] y = new string[4] {"Bill", "Bob", "Tom", "Joe"};
-        ///         Console.WriteLine(y.ToStringExt());
+        ///         Console.WriteLine(y.ToStringX());
         ///         //Printing out y results in: Bill Bob Tom Joe
         ///     }
         /// }

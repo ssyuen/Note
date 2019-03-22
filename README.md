@@ -43,6 +43,9 @@
 
 
 ## Updates
+### 3-17-2019
+- Utilities Alpha release is out! Find it here: https://github.com/manu-p-1/CSharp-Utilities/releases
+
 ### 2-17-2019
 - Important commit: https://github.com/manu-p-1/CSharp-Utilities/commit/5cf3efcf04941eb30c1f176f2a9d2d2114d80b58
 

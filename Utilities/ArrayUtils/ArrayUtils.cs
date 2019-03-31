@@ -21,7 +21,7 @@ namespace Utilities
         /// <example>This sample shows how to call the <see cref="Concat{T}(T[][])"/> method.</example>
         /// <code>
         /// 
-        /// using static Utilities.ArrayGenUtils;
+        /// using static Utilities.ArrayUtils;
         /// 
         /// class TestClass
         /// {
@@ -48,7 +48,7 @@ namespace Utilities
             var dest = 0;
             foreach(T[] t in arrays)
             {
-                t.CopyTo(z, dest);
+                Array.ConstrainedCopy(t, 0, z, dest, t.Length);
                 dest += t.Length;
             }
             return z;
@@ -300,7 +300,7 @@ namespace Utilities
         /// <seealso cref="System.Collections.IList.Insert(int, object)"/>
         /// <code>
         ///
-        /// using static Utilities.ArrayGenUtils;
+        /// using static Utilities.ArrayUtils;
         ///
         /// class TestClass
         /// {

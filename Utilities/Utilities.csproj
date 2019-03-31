@@ -71,6 +71,8 @@
     <Compile Include="ArrayUtils\ArrayUtils.cs" />
     <Compile Include="ArrayStats\ArrayStats.cs" />
     <Compile Include="ArrayStats\StatExceptions.cs" />
+    <Compile Include="FileUtils\FileUtils.cs" />
+    <Compile Include="Attributes\BetaAttribute.cs" />
     <Compile Include="StringUtils\StringUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

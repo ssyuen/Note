@@ -14,7 +14,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Utilities")]
-[assembly: AssemblyCopyright("Copyright © 2019")]
+[assembly: AssemblyCopyright("Copyright © 2019  Manu Puduvalli")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

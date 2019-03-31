@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Text;
+using Utilities.Attributes;
 
 namespace Utilities
 {
@@ -9,31 +10,49 @@ namespace Utilities
     /// </summary>
     public static class ArrayUtils
     {
-
         /// <summary>
-        /// Concatenates two arrays of the same type together.
+        /// Concatenates all arrays which are specified in in the parameter. The
+        /// concatenation occurs in the order specified in the parameter.
         /// </summary>
-        /// <param name="array1">The first array to be concatenated</param>
-        /// <param name="array2">The second array to be concatenated</param>
-        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
-        /// <returns>The concatenated array</returns>
-        public static T[] Concat <T> (T[] array1, T[] array2)
+        /// <typeparam name="T">The type to be used</typeparam>
+        /// <param name="arrays">An array of all one dimensional arrays to be concatenated</param>
+        /// <exception cref="ArgumentNullException">If any array, which is a candidate to be concatenated, is null</exception>
+        /// <returns>A single array with all of the concatenated elements</returns>
+        /// <example>This sample shows how to call the <see cref="Concat{T}(T[][])"/> method.</example>
+        /// <code>
+        /// 
+        /// using static Utilities.ArrayGenUtils;
+        /// 
+        /// class TestClass
+        /// {
+        ///    static void Main(string[] args)
+        ///    {
+        ///        int[] x = { 1, 2, 3, 4 };
+        ///        int[] y = { 1, 2, 3, 4, 5, 6 };
+        ///        int[] z = { 1, 2, 3 };
+        ///        int[] comb = Concat(x, y, z);
+        ///        //Printing out 'comb' results in 1, 2, 3, 4, 1, 2, 3, 4, 5, 6, 1, 2, 3
+        ///    }
+        /// }
+        /// </code>
+        [Beta]
+        public static T[] Concat <T> (params T[][] arrays)
         {
-            if (array1 == null || array2 == null)
+            if (!arrays.All(x => x != null)) throw new ArgumentNullException();
+            var arrTotal = 0;
+            foreach(T[] t in arrays)
             {
-                throw new ArgumentNullException();
+                arrTotal += t.Length;
             }
-            var z = new T[array1.Length + array2.Length];
-
-            /*
-             *copyTo method is optimized for these scenarios.
-             * Most exceptions are also caught and thrown in the copyTo method
-             */
-            array1.CopyTo(z, 0);
-            array2.CopyTo(z, array1.Length);
+            var z = new T[arrTotal];
+            var dest = 0;
+            foreach(T[] t in arrays)
+            {
+                t.CopyTo(z, dest);
+                dest += t.Length;
+            }
             return z;
-        } //array concat
-
+        }
 
         /// <summary>
         /// Adds all the values in an array.
@@ -41,6 +60,7 @@ namespace Utilities
         /// <param name="arr">the array of type byte</param>
         /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>The added amount</returns>
+        [Beta]
         public static double AddAll(this byte[] arr)
         {
             if(arr == null)
@@ -61,6 +81,7 @@ namespace Utilities
         /// <param name="arr">the array of type short</param>
         /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>The added amount</returns>
+        [Beta]
         public static double AddAll(this short[] arr)
         {
             if(arr == null)
@@ -81,6 +102,7 @@ namespace Utilities
         /// <param name="arr">the array of type int</param>
         /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>The added amount</returns>
+        [Beta]
         public static double AddAll(this int[] arr)
         {
             if(arr == null)
@@ -101,6 +123,7 @@ namespace Utilities
         /// <param name="arr">the array of type int</param>
         /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>The added amount</returns>
+        [Beta]
         public static double AddAll(this long[] arr)
         {
             if(arr == null)
@@ -125,6 +148,7 @@ namespace Utilities
         /// <param name="arr">the array of type float</param>
         /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>The added amount</returns>
+        [Beta]
         public static double AddAll(this float[] arr)
         {
             if(arr == null)
@@ -149,6 +173,7 @@ namespace Utilities
         /// <param name="arr">the array of type byte</param>
         /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>The subtracted amount</returns>
+        [Beta]
         public static double SubtractAll(this byte[] arr)
         {
             if(arr == null)
@@ -169,6 +194,7 @@ namespace Utilities
         /// <param name="arr">the array of type short</param>
         /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>The subtracted amount</returns>
+        [Beta]
         public static double SubtractAll(this short[] arr)
         {
             if(arr == null)
@@ -189,6 +215,7 @@ namespace Utilities
         /// <param name="arr">the array of type int</param>
         /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>The subtracted amount</returns>
+        [Beta]
         public static double SubtractAll(this int[] arr)
         {
             if(arr == null)
@@ -209,6 +236,7 @@ namespace Utilities
         /// <param name="arr">the array of type long</param>
         /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>The subtracted amount</returns>
+        [Beta]
         public static double SubtractAll(this long[] arr)
         {
             if(arr == null)
@@ -233,6 +261,7 @@ namespace Utilities
         /// <param name="arr">the array of type float</param>
         /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
         /// <returns>The subtracted amount</returns>
+        [Beta]
         public static double SubtractAll(this float[] arr)
         {
             if(arr == null)
@@ -275,15 +304,15 @@ namespace Utilities
         ///
         /// class TestClass
         /// {
-        ///     static int Main(string[] args)
+        ///     static void Main(string[] args)
         ///     {
         ///         int[] w = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
         ///         InsertInto(ref w, 1, 3);
-        ///         //Printint out w results in: 2, 0, 0, 0, 3, 4, 5, 6, 7, 8, 9, 10
+        ///         //Printing out 'w' results in: 2, 0, 0, 0, 3, 4, 5, 6, 7, 8, 9, 10
         ///
         ///         int[] y = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
         ///         InsertInto(ref y, 1, 3, 250, 350, 450);
-        ///         //Printing out y results in: 2, 250, 350, 450, 3, 4, 5, 6, 7, 8, 9, 10
+        ///         //Printing out 'y' results in: 2, 250, 350, 450, 3, 4, 5, 6, 7, 8, 9, 10
         ///     }
         /// }
         /// </code>
@@ -342,19 +371,19 @@ namespace Utilities
         /// <code>
         /// class TestClass
         /// {
-        ///     static int Main(string[] args)
+        ///     static void Main(string[] args)
         ///     {
         ///         int[] w = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
         ///         Console.WriteLine(w.ToStringX("[,]"));
-        ///         //Printing out w results in: [2, 3, 4, 5, 6, 7, 8, 9, 10]
+        ///         //Printing out 'w' results in: [2, 3, 4, 5, 6, 7, 8, 9, 10]
         ///
         ///         int[] x = new int[9] {2, 3, 4, 5, 6, 7, 8, 9, 10};
         ///         Console.WriteLine(x.ToStringX("(|)", true));
-        ///         //Printing out x results in: (2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10)
+        ///         //Printing out 'x' results in: (2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10)
         ///
         ///         string[] y = new string[4] {"Bill", "Bob", "Tom", "Joe"};
         ///         Console.WriteLine(y.ToStringX());
-        ///         //Printing out y results in: Bill Bob Tom Joe
+        ///         //Printing out 'y' results in: Bill Bob Tom Joe
         ///     }
         /// }
         /// </code>

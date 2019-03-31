@@ -27,13 +27,13 @@ namespace Utilities
             FileInfo[] fi_arr = new DirectoryInfo(dirPath).GetFiles();
             DirectoryInfo[] di_arr = new DirectoryInfo(dirPath).GetDirectories();
            
-            foreach(FileInfo indiv in fi_arr)
+            foreach(FileInfo indv in fi_arr)
             {
-                length += indiv.Length;
+                length += indv.Length;
             }
-            foreach (DirectoryInfo di in di_arr)
+            foreach (DirectoryInfo indv in di_arr)
             {
-                length += GetDirectorySize(di.FullName);
+                length += GetDirectorySize(indv.FullName);
             }
             return length;
         }

@@ -20,9 +20,9 @@ namespace Utilities
         /// <returns>A single array with all of the concatenated elements</returns>
         /// <example>This sample shows how to call the <see cref="Concat{T}(T[][])"/> method.</example>
         /// <code>
-        /// 
+        ///
         /// using static Utilities.ArrayUtils;
-        /// 
+        ///
         /// class TestClass
         /// {
         ///    static void Main(string[] args)
@@ -35,10 +35,9 @@ namespace Utilities
         ///    }
         /// }
         /// </code>
-        [Beta]
         public static T[] Concat <T> (params T[][] arrays)
         {
-            if (!arrays.All(x => x != null)) throw new ArgumentNullException();
+            if (!arrays.All(x => x != null)) throw new ArgumentNullException("One of the params array's were null");
             var arrTotal = 0;
             foreach(T[] t in arrays)
             {

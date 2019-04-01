@@ -1,8 +1,8 @@
 ﻿namespace Utilities.Attributes
 {
     [System.AttributeUsage(System.AttributeTargets.Class  |
-                           System.AttributeTargets.Struct |
-                           System.AttributeTargets.Method, AllowMultiple = true)]
+                           System.AttributeTargets.Struct,
+                           AllowMultiple = true)]
     internal class Author : System.Attribute
     {
         private readonly string name;
@@ -21,11 +21,12 @@
     }
 
     [System.AttributeUsage(System.AttributeTargets.Class  |
-                           System.AttributeTargets.Struct |
-                           System.AttributeTargets.Method, AllowMultiple = true)]
+                           System.AttributeTargets.Struct, 
+                           AllowMultiple = true)]
     internal class CoAuthor : System.Attribute
     {
         private readonly string name;
+        public double version;    
 
         /// <summary>
         /// Specifies an author. Author's can only be assigned
@@ -36,6 +37,7 @@
         public CoAuthor(string name)
         {
             this.name = name;
+            version = 1.0;
         }
     }
 }

@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Utilities.UtilExceptions;
+using Utilities.Attributes;
 
 namespace Utilities
 {
-    /// <summary>
-    /// An Array Utility class for statistical methodology
-    /// </summary>
+    [Author("Sam Yuen")]
+    [CoAuthor("Manu Puduvalli")]
     public static class ArrayStats
     {
 

@@ -5,9 +5,8 @@ using Utilities.Attributes;
 
 namespace Utilities
 {
-    /// <summary>
-    /// An array utility class
-    /// </summary>
+    [Author("Manu Puduvalli")]
+    [CoAuthor("Sam Yuen")]
     public static class ArrayUtils
     {
         /// <summary>

@@ -4,16 +4,12 @@ namespace Utilities.UtilExceptions
 {
     class InsufficientDataSetException : Exception
     {
-        public InsufficientDataSetException(string msg) : base(msg)
-        {
-        }
+        public InsufficientDataSetException(string msg) : base(msg) {}
     }
 
     class NoModeException : Exception
     {
-        public NoModeException(string msg) : base(msg)
-        {
-        }
+        public NoModeException(string msg) : base(msg) {}
     }
 }
 

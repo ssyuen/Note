@@ -3,12 +3,11 @@ using System.Globalization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Utilities.Attributes;
 
 namespace Utilities
 {
-    /// <summary>
-    /// A string Utility class for string manipulation
-    /// </summary>
+    [Author("Manu Puduvalli")]
     public static class StringUtils
     {
 

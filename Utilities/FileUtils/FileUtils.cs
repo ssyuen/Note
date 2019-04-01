@@ -4,6 +4,7 @@ using Utilities.Attributes;
 
 namespace Utilities
 {
+    [Author("Manu Puduvalli")]
     public static class FileUtils
     {
         /// <summary>

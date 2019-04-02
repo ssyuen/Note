@@ -279,6 +279,28 @@ namespace Utilities
         }
 
         /// <summary>
+        /// Returns whether an array is null or empty
+        /// </summary>
+        /// <typeparam name="T">The type of the array</typeparam>
+        /// <param name="array">The array to be used</param>
+        /// <returns></returns>
+        public static bool IsNullOrEmpty<T>(this T[] array) => array == null || array.Length == 0;
+
+        /// <summary>
+        /// Throws an ArgumentNullException if an array is null, otherwise, 
+        /// throws an IndexOutOfRangeException if an array is of length 0
+        /// </summary>
+        /// <typeparam name="T">The type of the array</typeparam>
+        /// <param name="array">The array to be used</param>
+        /// <exception cref="ArgumentOutOfRangeException">If the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">If the array is of length 0</exception>
+        public static void DelegateNullOrEmptyException<T>(this T[] array)
+        {
+            if (array == null) throw new ArgumentNullException("Array is null");
+            if (array.Length == 0) throw new IndexOutOfRangeException("Array is out of range");
+        }
+
+        /// <summary>
         /// Inserts the specified element at the specified index in the array (modifying the original array).
         /// If element at that position exits, If shifts that element and any subsequent elements to the right,
         /// adding one to their indices. The method also allows for inserting more than one element into

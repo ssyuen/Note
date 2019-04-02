@@ -10,7 +10,6 @@ namespace Utilities
     [Author("Manu Puduvalli")]
     public static class StringUtils
     {
-
         /*
          * A string for a space character.
          *

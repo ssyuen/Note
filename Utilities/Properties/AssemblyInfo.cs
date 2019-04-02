@@ -3,7 +3,6 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 //CLS Compliance for entire assembly
-//Entered by @Manu
 [assembly: System.CLSCompliant(true)]
 
 // General Information about an assembly is controlled through the following

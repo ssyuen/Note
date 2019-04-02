@@ -1,9 +1,9 @@
 using System;
 using System.Linq;
 using System.Text;
-using Utilities.Attributes;
+using Note.Attributes;
 
-namespace Utilities
+namespace Note
 {
     [Author("Manu Puduvalli")]
     [CoAuthor("Sam Yuen")]

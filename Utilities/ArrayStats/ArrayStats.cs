@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Utilities.UtilExceptions;
-using Utilities.Attributes;
+using Note.UtilExceptions;
+using Note.Attributes;
 
-namespace Utilities
+namespace Note
 {
     [Author("Sam Yuen")]
     [CoAuthor("Manu Puduvalli")]

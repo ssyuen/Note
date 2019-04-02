@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Utilities.Attributes
+namespace Note.Attributes
 {
     [System.AttributeUsage(System.AttributeTargets.Class        |
                            System.AttributeTargets.Struct       |

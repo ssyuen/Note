@@ -34,7 +34,7 @@
   <br>
   <br>
   
-  Creating a core library of additional and useful C# utilities. Since the class library is CLS Compliant, it can be used with other .NET CLR Languages. All and any contributions are welcome :computer: :electric_plug: :open_file_folder:
+  Note is a core library of additional and useful C# utilities. Since the library is CLS Compliant, it can be used with other .NET CLR Languages. All and any contributions are welcome :computer: :electric_plug: :open_file_folder:
 </p>
 
 # Great! How do I get started?

@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics.Contracts;
 using System.IO;
-using Utilities.Attributes;
+using Note.Attributes;
 
-namespace Utilities
+namespace Note
 {
     [Author("Manu Puduvalli")]
     public static class FileUtils

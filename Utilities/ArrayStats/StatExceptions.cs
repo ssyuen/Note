@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Utilities.UtilExceptions
+namespace Note.UtilExceptions
 {
     class InsufficientDataSetException : Exception
     {

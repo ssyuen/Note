@@ -8,11 +8,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Utilities")]
-[assembly: AssemblyDescription("Useful utilities which are CLS compliant")]
+[assembly: AssemblyTitle("Note")]
+[assembly: AssemblyDescription("Useful CLS Compliant Utilities")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Utilities")]
+[assembly: AssemblyProduct("Note")]
 [assembly: AssemblyCopyright("Copyright © 2019  Manu Puduvalli")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

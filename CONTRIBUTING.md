@@ -1,8 +1,8 @@
 # Welcome
 
-## The C# Utilities repo!!!
+## The Note C# Utilities repo!!!
 
->First off, thank you for considering contributing to the C# Utility class library. We're a work in progress but it's people like you that make this repo such a great tool.
+>First off, thank you for considering contributing to Note. We're a work in progress but it's people like you that make this repo such a great tool.
 
 ## Why read this?
 
@@ -11,7 +11,7 @@
 # Ground Rules
 
 ## Behaviorial Expectations (from us and you)
-Read the code of conduct: [Code of Conduct](https://github.com/manu-p-1/CSharp-Utilities/blob/master/CODE_OF_CONDUCT.md)
+Read the code of conduct: [Code of Conduct](https://github.com/manu-p-1/Note/blob/master/CODE_OF_CONDUCT.md)
 
 ## Getting started
 
@@ -19,7 +19,7 @@ Read the code of conduct: [Code of Conduct](https://github.com/manu-p-1/CSharp-U
 
 Keep an open mind! Improving documentation, bug triaging, or writing tutorials are all examples of helpful contributions that mean less work for you.
 
-> C# Utilities is an open source project and we love to receive contributions from our community — you! There are many ways to contribute, from writing tutorials or blog posts, improving the documentation, submitting bug reports and feature requests or writing code which can be incorporated into C# Utilities itself.
+> Note is an open source project and we love to receive contributions from our community — you! There are many ways to contribute, from writing tutorials or blog posts, improving the documentation, submitting bug reports and feature requests or writing code which can be incorporated into the utilities itself.
 
 > Responsibilities
 > * Ensure cross-platform compatibility for every change that's accepted. Windows, Mac, Debian & Ubuntu Linux.
@@ -81,10 +81,10 @@ REMEMBER TO READ THE PULL REQUEST TEMPLATE. Answer all questions that the templa
 [Syncing a fork - to make sure that you have the latest copy](https://help.github.com/en/articles/syncing-a-fork)
 
 # Suggesting a feature
-> If you find yourself wishing for a feature that doesn't exist in the C# Utilities library, you are probably not alone. There are bound to be others out there with similar needs. Many of the features that Elasticsearch has today have been added because our users saw the need. Simply open an issue on our issues list on GitHub which describes the feature you would like to see, why you need it, and how it should work.
+> If you find yourself wishing for a feature that doesn't exist in the Note library, you are probably not alone. There are bound to be others out there with similar needs. Many of the features that Elasticsearch has today have been added because our users saw the need. Simply open an issue on our issues list on GitHub which describes the feature you would like to see, why you need it, and how it should work.
 
 # Code review process
 Who reviews it? Who needs to sign off before it’s accepted? When should a contributor expect to hear from you? How can contributors get commit access, if at all?
 
-> The core team looks at Pull Requests on a regular basis. The pull request may be closed due to inactivity. If we believe that the request enhances any part of the C# Utilities repo,
+> The core team looks at Pull Requests on a regular basis. The pull request may be closed due to inactivity. If we believe that the request enhances any part of the Note repo,
 you should expect the pull request to be merged within a week.

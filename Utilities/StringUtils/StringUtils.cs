@@ -3,9 +3,9 @@ using System.Globalization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Utilities.Attributes;
+using Note.Attributes;
 
-namespace Utilities
+namespace Note
 {
     [Author("Manu Puduvalli")]
     public static class StringUtils

@@ -9,6 +9,7 @@ namespace Utilities
     [CoAuthor("Sam Yuen")]
     public static class ArrayUtils
     {
+
         /// <summary>
         /// Concatenates all arrays which are specified in in the parameter. The
         /// concatenation occurs in the order specified in the parameter.
@@ -34,7 +35,7 @@ namespace Utilities
         ///    }
         /// }
         /// </code>
-        public static T[] Concat <T> (params T[][] arrays)
+        public static T[] Concat <T> (params T[][] arrays) //Passing a variable number of array's as params
         {
             if (!arrays.All(x => x != null)) throw new ArgumentNullException("One of the params array's were null");
             var arrTotal = 0;
@@ -61,11 +62,8 @@ namespace Utilities
         [Beta]
         public static double AddAll(this byte[] arr)
         {
-            if(arr == null)
-            {
-                throw new ArgumentNullException();
-            }
-            if(arr.Length == 1)
+            ThrowExcIfNull(arr);
+            if (arr.Length == 1)
             {
                 return arr[0];
             }
@@ -82,11 +80,8 @@ namespace Utilities
         [Beta]
         public static double AddAll(this short[] arr)
         {
-            if(arr == null)
-            {
-                throw new ArgumentNullException();
-            }
-            if(arr.Length == 1)
+            ThrowExcIfNull(arr);
+            if (arr.Length == 1)
             {
                 return arr[0];
             }
@@ -103,11 +98,8 @@ namespace Utilities
         [Beta]
         public static double AddAll(this int[] arr)
         {
-            if(arr == null)
-            {
-                throw new ArgumentNullException();
-            }
-            if(arr.Length == 1)
+            ThrowExcIfNull(arr);
+            if (arr.Length == 1)
             {
                 return arr[0];
             }
@@ -124,11 +116,8 @@ namespace Utilities
         [Beta]
         public static double AddAll(this long[] arr)
         {
-            if(arr == null)
-            {
-                throw new ArgumentNullException();
-            }
-            if(arr.Length == 1)
+            ThrowExcIfNull(arr);
+            if (arr.Length == 1)
             {
                 return arr[0];
             }
@@ -149,11 +138,8 @@ namespace Utilities
         [Beta]
         public static double AddAll(this float[] arr)
         {
-            if(arr == null)
-            {
-                throw new ArgumentNullException();
-            }
-            if(arr.Length == 1)
+            ThrowExcIfNull(arr);
+            if (arr.Length == 1)
             {
                 return arr[0];
             }
@@ -174,11 +160,8 @@ namespace Utilities
         [Beta]
         public static double SubtractAll(this byte[] arr)
         {
-            if(arr == null)
-            {
-                throw new ArgumentNullException();
-            }
-            if(arr.Length == 1)
+            ThrowExcIfNull(arr);
+            if (arr.Length == 1)
             {
                 return arr[0];
             }
@@ -195,11 +178,8 @@ namespace Utilities
         [Beta]
         public static double SubtractAll(this short[] arr)
         {
-            if(arr == null)
-            {
-                throw new ArgumentNullException();
-            }
-            if(arr.Length == 1)
+            ThrowExcIfNull(arr);
+            if (arr.Length == 1)
             {
                 return arr[0];
             }
@@ -216,11 +196,8 @@ namespace Utilities
         [Beta]
         public static double SubtractAll(this int[] arr)
         {
-            if(arr == null)
-            {
-                throw new ArgumentNullException();
-            }
-            if(arr.Length == 1)
+            ThrowExcIfNull(arr);
+            if (arr.Length == 1)
             {
                 return arr[0];
             }
@@ -237,11 +214,8 @@ namespace Utilities
         [Beta]
         public static double SubtractAll(this long[] arr)
         {
-            if(arr == null)
-            {
-                throw new ArgumentNullException();
-            }
-            if(arr.Length == 1)
+            ThrowExcIfNull(arr);
+            if (arr.Length == 1)
             {
                 return arr[0];
             }
@@ -262,10 +236,7 @@ namespace Utilities
         [Beta]
         public static double SubtractAll(this float[] arr)
         {
-            if(arr == null)
-            {
-                throw new ArgumentNullException();
-            }
+            ThrowExcIfNull(arr);
             if(arr.Length == 1)
             {
                 return arr[0];
@@ -287,17 +258,37 @@ namespace Utilities
         public static bool IsNullOrEmpty<T>(this T[] array) => array == null || array.Length == 0;
 
         /// <summary>
+        /// Throws an ArgumentNullException if an array is null
+        /// </summary>
+        /// <typeparam name="T">The type to be used</typeparam>
+        /// <param name="array">The array to be used</param>
+        public static void ThrowExcIfNull<T>(this T[] array)
+        {
+            if (array == null) throw new ArgumentNullException("Array is null");
+        }
+
+        /// <summary>
+        /// Throws an IndexOutOfRangeException if an array's Length is 0
+        /// </summary>
+        /// <typeparam name="T">The type to be used</typeparam>
+        /// <param name="array">The array to be used</param>
+        public static void ThrowExcIfEmpty<T>(this T[] array)
+        {
+            if (array.Length == 0) throw new IndexOutOfRangeException("Array is of length 0");
+        }
+
+        /// <summary>
         /// Throws an ArgumentNullException if an array is null, otherwise, 
-        /// throws an IndexOutOfRangeException if an array is of length 0
+        /// throws an IndexOutOfRangeException if an array is of length 0.
         /// </summary>
         /// <typeparam name="T">The type of the array</typeparam>
         /// <param name="array">The array to be used</param>
         /// <exception cref="ArgumentOutOfRangeException">If the array is null</exception>
         /// <exception cref="IndexOutOfRangeException">If the array is of length 0</exception>
-        public static void DelegateNullOrEmptyException<T>(this T[] array)
+        public static void ThrowExcIfNullOrEmpty<T>(this T[] array)
         {
-            if (array == null) throw new ArgumentNullException("Array is null");
-            if (array.Length == 0) throw new IndexOutOfRangeException("Array is out of range");
+            ThrowExcIfNull(array);
+            ThrowExcIfEmpty(array);
         }
 
         /// <summary>
@@ -411,10 +402,8 @@ namespace Utilities
         {
             int frl = formattingRegex.Length;
 
-            if (arr == null)
-            {
-                throw new ArgumentNullException();
-            }
+            ThrowExcIfNull(arr);
+
             if (frl < 0 || frl > 3)
             {
                 throw new FormatException("Unsupported Regular Expression");

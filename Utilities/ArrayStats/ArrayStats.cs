@@ -23,7 +23,7 @@ namespace Utilities
         /// <returns>The average of all the elements in the array</returns>
         public static double Mean(this byte[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
 
             if (a.Length == 1)
             {
@@ -49,7 +49,7 @@ namespace Utilities
         /// <returns>The average of all the elements in the array</returns>
         public static double Mean(this short[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
 
             if (a.Length == 1)
             {
@@ -75,7 +75,7 @@ namespace Utilities
         /// <returns>The average of all the elements in the array</returns>
         public static double Mean(this int[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
 
             if (a.Length == 1)
             {
@@ -101,7 +101,7 @@ namespace Utilities
         /// <returns>The average of all the elements in the array</returns>
         public static double Mean(this long[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
 
             if (a.Length == 1)
             {
@@ -127,7 +127,7 @@ namespace Utilities
         /// <returns>The average of all the elements in the array</returns>
         public static double Mean(this float[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
 
             if (a.Length == 1)
             {
@@ -153,7 +153,7 @@ namespace Utilities
         /// <returns>The average of all the elements in the array</returns>
         public static double Mean(this double[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
 
             if (a.Length == 1)
             {
@@ -180,7 +180,7 @@ namespace Utilities
         /// <returns>The median of all the elements in the array</returns>
         public static double Median(this byte[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
 
             if (a.Length == 1)
             {
@@ -207,7 +207,7 @@ namespace Utilities
         /// <returns>The median of all the elements in the array</returns>
         public static double Median(this short[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
 
             if (a.Length == 1)
             {
@@ -233,7 +233,7 @@ namespace Utilities
         /// <returns>The median of all the elements in the array</returns>
         public static double Median(this int[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
 
             if (a.Length == 1)
             {
@@ -259,7 +259,7 @@ namespace Utilities
         /// <returns>The median of all the elements in the array</returns>
         public static double Median(this long[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
 
             if (a.Length == 1)
             {
@@ -285,7 +285,7 @@ namespace Utilities
         /// <returns>The median of all the elements in the array</returns>
         public static double Median(this float[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
 
             if (a.Length == 1)
             {
@@ -311,7 +311,7 @@ namespace Utilities
         /// <returns>The median of all the elements in the array</returns>
         public static double Median(this double[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
 
             if (a.Length == 1)
             {
@@ -338,7 +338,7 @@ namespace Utilities
         /// <returns>The median of all the elements in the array</returns>
         public static double Mode(this byte[]a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
 
             if (a.Length == 1)
             {
@@ -383,7 +383,7 @@ namespace Utilities
         /// <returns>The median of all the elements in the array</returns>
         public static double Mode(this short[]a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
 
             if (a.Length == 1)
             {
@@ -416,7 +416,6 @@ namespace Utilities
             if (allEqual != numOfMode.Length)
                 return keysInDict[index];
             throw new NoModeException("No Mode Present");
-
         }
 
         /// <summary>
@@ -429,7 +428,7 @@ namespace Utilities
         /// <returns>The median of all the elements in the array</returns>
         public static double Mode(this int[]a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
 
             if (a.Length == 1)
             {
@@ -464,7 +463,6 @@ namespace Utilities
             throw new NoModeException("No Mode Present");
         }
 
-
         /// <summary>
         /// Finds the mode of all the elements in the array.
         /// </summary>
@@ -475,7 +473,7 @@ namespace Utilities
         /// <returns>The median of all the elements in the array</returns>
         public static double Mode(this long[]a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
 
             if (a.Length == 1)
             {
@@ -505,10 +503,9 @@ namespace Utilities
                 if (max == numOfMode[i]) allEqual++;
             }
 
-            if (allEqual != numOfMode.Length) return keysInDict[index];
-
-            throw new NoModeException("No Mode Present");
-            
+            if (allEqual != numOfMode.Length)
+                return keysInDict[index];
+            throw new NoModeException("No Mode Present");   
         }
 
         /// <summary>
@@ -521,7 +518,7 @@ namespace Utilities
         /// <returns>The median of all the elements in the array</returns>
         public static double Mode(this float[]a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
 
             if (a.Length == 1)
             {
@@ -566,7 +563,7 @@ namespace Utilities
         /// <returns>The median of all the elements in the array</returns>
         public static double Mode(this double[]a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
 
             if (a.Length == 1)
             {
@@ -1014,7 +1011,7 @@ namespace Utilities
         /// <returns>The minimum of all the elements in the array</returns>
         public static double Minimum(this byte[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             if(a.Length == 1)
             {
                 return a[0];
@@ -1046,7 +1043,7 @@ namespace Utilities
         /// <returns>The minimum of all the elements in the array</returns>
         public static double Minimum(this short[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             if (a.Length == 1)
             {
                 return a[0];
@@ -1078,7 +1075,7 @@ namespace Utilities
         /// <returns>The minimum of all the elements in the array</returns>
         public static double Minimum(this int[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             if (a.Length == 1)
             {
                 return a[0];
@@ -1110,7 +1107,7 @@ namespace Utilities
         /// <returns>The minimum of all the elements in the array</returns>
         public static double Minimum(this long[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             if (a.Length == 1)
             {
                 return a[0];
@@ -1142,7 +1139,7 @@ namespace Utilities
         /// <returns>The minimum of all the elements in the array</returns>
         public static double Minimum(this float[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             if (a.Length == 1)
             {
                 return a[0];
@@ -1174,7 +1171,7 @@ namespace Utilities
         /// <returns>The minimum of all the elements in the array</returns>
         public static double Minimum(this double[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             if (a.Length == 1)
             {
                 return a[0];
@@ -1206,7 +1203,7 @@ namespace Utilities
         /// <returns>The maximum of all the elements in the array</returns>
         public static double Maximum(this byte[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             if (a.Length == 1)
             {
                 return a[0];
@@ -1238,7 +1235,7 @@ namespace Utilities
         /// <returns>The maximum of all the elements in the array</returns>
         public static double Maximum(this short[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             if (a.Length == 1)
             {
                 return a[0];
@@ -1270,7 +1267,7 @@ namespace Utilities
         /// <returns>The maximum of all the elements in the array</returns>
         public static double Maximum(this int[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             if (a.Length == 1)
             {
                 return a[0];
@@ -1302,7 +1299,7 @@ namespace Utilities
         /// <returns>The maximum of all the elements in the array</returns>
         public static double Maximum(this long[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             if (a.Length == 1)
             {
                 return a[0];
@@ -1335,7 +1332,7 @@ namespace Utilities
         public static double Maximum(this float[] a)
         {
             //O(n) runtime 
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             if (a.Length == 1)
             {
                 return a[0];
@@ -1368,7 +1365,7 @@ namespace Utilities
         public static double Maximum(this double[] a)
         {
             //O(n) runtime 
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             if (a.Length == 1)
             {
                 return a[0];
@@ -1400,7 +1397,7 @@ namespace Utilities
         /// <returns>The range of all the elements in the array</returns>
         public static double Range(this byte[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             if (a.Length == 1)
             {
                 return a[0];
@@ -1418,7 +1415,7 @@ namespace Utilities
         /// <returns>The range of all the elements in the array</returns>
         public static double Range(this short[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             if (a.Length == 1)
             {
                 return a[0];
@@ -1436,7 +1433,7 @@ namespace Utilities
         /// <returns>The range of all the elements in the array</returns>
         public static double Range(this int[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             if (a.Length == 1)
             {
                 return a[0];
@@ -1454,7 +1451,7 @@ namespace Utilities
         /// <returns>The range of all the elements in the array</returns>
         public static double Range(this long[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             if (a.Length == 1)
             {
                 return a[0];
@@ -1472,7 +1469,7 @@ namespace Utilities
         /// <returns>The range of all the elements in the array</returns>
         public static double Range(this float[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             if (a.Length == 1)
             {
                 return a[0];
@@ -1490,7 +1487,7 @@ namespace Utilities
         /// <returns>The range of all the elements in the array</returns>
         public static double Range(this double[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             if (a.Length == 1)
             {
                 return a[0];
@@ -1509,8 +1506,9 @@ namespace Utilities
         /// <returns>The lower quartile of all the elements in the array</returns>
         public static double LowerQuartile(this byte[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
-            switch (a.Length) { 
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            switch (a.Length)
+            { 
                 case 1:
                 case 2:
                     throw new InsufficientDataSetException("Data set not large enough to calculate an lower quartile");        
@@ -1529,7 +1527,7 @@ namespace Utilities
         /// <returns>The lower quartile of all the elements in the array</returns>
         public static double LowerQuartile(this short[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             switch (a.Length)
             {
                 case 1:
@@ -1539,7 +1537,6 @@ namespace Utilities
             var lowerHalf = new int[a.Length / 2];
             return Median(lowerHalf);
         }
-
 
         /// <summary>
         /// Finds the lower quartile of the array.
@@ -1551,7 +1548,7 @@ namespace Utilities
         /// <returns>The lower quartile of all the elements in the array</returns>
         public static double LowerQuartile(this int[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             switch (a.Length)
             {
                 case 1:
@@ -1561,7 +1558,6 @@ namespace Utilities
             var lowerHalf = new int[a.Length / 2];
             return Median(lowerHalf);
         }
-
 
         /// <summary>
         /// Finds the lower quartile of the array.
@@ -1573,7 +1569,7 @@ namespace Utilities
         /// <returns>The lower quartile of all the elements in the array</returns>
         public static double LowerQuartile(this long[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             switch (a.Length)
             {
                 case 1:
@@ -1583,7 +1579,6 @@ namespace Utilities
             var lowerHalf = new int[a.Length / 2];
             return Median(lowerHalf);
         }
-
 
         /// <summary>
         /// Finds the lower quartile of the array.
@@ -1595,7 +1590,7 @@ namespace Utilities
         /// <returns>The lower quartile of all the elements in the array</returns>
         public static double LowerQuartile(this float[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             switch (a.Length)
             {
                 case 1:
@@ -1616,7 +1611,7 @@ namespace Utilities
         /// <returns>The lower quartile of all the elements in the array</returns>
         public static double LowerQuartile(this double[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             switch (a.Length)
             {
                 case 1:
@@ -1637,7 +1632,7 @@ namespace Utilities
         /// <returns>The upper quartile of all the elements in the array</returns>
         public static double UpperQuartile(this byte[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             switch (a.Length)
             {
                 case 1:
@@ -1658,7 +1653,7 @@ namespace Utilities
         /// <returns>The upper quartile of all the elements in the array</returns>
         public static double UpperQuartile(this short[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             switch (a.Length)
             {
                 case 1:
@@ -1679,7 +1674,7 @@ namespace Utilities
         /// <returns>The upper quartile of all the elements in the array</returns>
         public static double UpperQuartile(this int[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             switch (a.Length)
             {
                 case 1:
@@ -1700,7 +1695,7 @@ namespace Utilities
         /// <returns>The upper quartile of all the elements in the array</returns>
         public static double UpperQuartile(this long[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             switch (a.Length)
             {
                 case 1:
@@ -1721,7 +1716,7 @@ namespace Utilities
         /// <returns>The upper quartile of all the elements in the array</returns>
         public static double UpperQuartile(this float[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             switch (a.Length)
             {
                 case 1:
@@ -1742,7 +1737,7 @@ namespace Utilities
         /// <returns>The upper quartile of all the elements in the array</returns>
         public static double UpperQuartile(this double[] a)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             switch (a.Length)
             {
                 case 1:
@@ -1853,7 +1848,7 @@ namespace Utilities
         /// <returns>Returns whether if the data set is normally distributed for a proportion.</returns>
         public static bool IsNormalProp(byte[] a, double samstat)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             if ((a.Length * samstat) <= 15) return false;
             return (a.Length * (1 - samstat)) <= 15 ? false : true;
         }
@@ -1868,7 +1863,7 @@ namespace Utilities
         /// <returns>Returns whether if the data set is normally distributed for a proportion.</returns>
         public static bool IsNormalProp(short[] a, double samstat)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             if ((a.Length * samstat) <= 15) return false;
             return (a.Length * (1 - samstat)) <= 15 ? false : true;
         }
@@ -1883,7 +1878,7 @@ namespace Utilities
         /// <returns>Returns whether if the data set is normally distributed for a proportion.</returns>
         public static bool IsNormalProp(int[] a, double samstat)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             if ((a.Length * samstat) <= 15) return false;
             return (a.Length * (1 - samstat)) <= 15 ? false : true;
         }
@@ -1898,7 +1893,7 @@ namespace Utilities
         /// <returns>Returns whether if the data set is normally distributed for a proportion.</returns>
         public static bool IsNormalProp(long[] a, double samstat)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             if ((a.Length * samstat) <= 15) return false;
             return (a.Length * (1 - samstat)) <= 15 ? false : true;
         }
@@ -1913,7 +1908,7 @@ namespace Utilities
         /// <returns>Returns whether if the data set is normally distributed for a proportion.</returns>
         public static bool IsNormalProp(float[] a, double samstat)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             if ((a.Length * samstat) <= 15) return false;
             return (a.Length * (1 - samstat)) <= 15 ? false : true;
         }
@@ -1928,7 +1923,7 @@ namespace Utilities
         /// <returns>Returns whether if the data set is normally distributed for a proportion.</returns>
         public static bool IsNormalProp(double[] a, double samstat)
         {
-            ArrayUtils.DelegateNullOrEmptyException(a);
+            ArrayUtils.ThrowExcIfNullOrEmpty(a);
             if ((a.Length * samstat) <= 15) return false;
             return (a.Length * (1 - samstat)) <= 15 ? false : true;
         }

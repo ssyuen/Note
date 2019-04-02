@@ -6,7 +6,7 @@
     internal class Author : System.Attribute
     {
         private readonly string name;
-        public double version;
+        private double version;
 
         /// <summary>
         /// Specifies an author. Author's can only be assigned
@@ -16,8 +16,10 @@
         public Author(string name)
         {
             this.name = name;
-            version = 1.0;
+            Version = 1.0;
         }
+
+        public double Version { get => version; set => version = value; }
     }
 
     [System.AttributeUsage(System.AttributeTargets.Class  |
@@ -26,7 +28,7 @@
     internal class CoAuthor : System.Attribute
     {
         private readonly string name;
-        public double version;    
+        private double version;
 
         /// <summary>
         /// Specifies an author. Author's can only be assigned
@@ -37,7 +39,9 @@
         public CoAuthor(string name)
         {
             this.name = name;
-            version = 1.0;
+            Version = 1.0;
         }
+
+        public double Version { get => version; set => version = value; }
     }
 }

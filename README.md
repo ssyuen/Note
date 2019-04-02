@@ -1,6 +1,6 @@
 <p align="center">
   
-  <img src="https://github.com/manu-p-1/Note/blob/master/Images/C%23%20utilities.png">
+  <img src="https://github.com/manu-p-1/Note/blob/master/Images/Note.PNG">
 
   <br>
   <br>

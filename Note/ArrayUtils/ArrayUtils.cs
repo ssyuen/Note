@@ -2,14 +2,14 @@ using System;
 using System.Linq;
 using System.Text;
 using Note.Attributes;
+using System.Diagnostics.Contracts;
 
 namespace Note
 {
     [Author("Manu Puduvalli")]
-    [CoAuthor("Sam Yuen")]
+    [Author("Sam Yuen")]
     public static class ArrayUtils
     {
-
         /// <summary>
         /// Concatenates all arrays which are specified in in the parameter. The
         /// concatenation occurs in the order specified in the parameter.
@@ -38,6 +38,8 @@ namespace Note
         public static T[] Concat <T> (params T[][] arrays) //Passing a variable number of array's as params
         {
             if (!arrays.All(x => x != null)) throw new ArgumentNullException("One of the params array's were null");
+            Contract.EndContractBlock();
+
             var arrTotal = 0;
             foreach(T[] t in arrays)
             {
@@ -62,7 +64,8 @@ namespace Note
         [Beta]
         public static double AddAll(this byte[] arr)
         {
-            ThrowExcIfNull(arr);
+            Contract.Requires<ArgumentNullException>(arr != null, nameof(arr));
+
             if (arr.Length == 1)
             {
                 return arr[0];
@@ -80,7 +83,8 @@ namespace Note
         [Beta]
         public static double AddAll(this short[] arr)
         {
-            ThrowExcIfNull(arr);
+            Contract.Requires<ArgumentNullException>(arr != null, nameof(arr));
+
             if (arr.Length == 1)
             {
                 return arr[0];
@@ -98,7 +102,8 @@ namespace Note
         [Beta]
         public static double AddAll(this int[] arr)
         {
-            ThrowExcIfNull(arr);
+            Contract.Requires<ArgumentNullException>(arr != null, nameof(arr));
+
             if (arr.Length == 1)
             {
                 return arr[0];
@@ -116,7 +121,8 @@ namespace Note
         [Beta]
         public static double AddAll(this long[] arr)
         {
-            ThrowExcIfNull(arr);
+            Contract.Requires<ArgumentNullException>(arr != null, nameof(arr));
+
             if (arr.Length == 1)
             {
                 return arr[0];
@@ -138,7 +144,8 @@ namespace Note
         [Beta]
         public static double AddAll(this float[] arr)
         {
-            ThrowExcIfNull(arr);
+            Contract.Requires<ArgumentNullException>(arr != null, nameof(arr));
+
             if (arr.Length == 1)
             {
                 return arr[0];
@@ -160,7 +167,7 @@ namespace Note
         [Beta]
         public static double SubtractAll(this byte[] arr)
         {
-            ThrowExcIfNull(arr);
+            Contract.Requires<ArgumentNullException>(arr != null, nameof(arr));
             if (arr.Length == 1)
             {
                 return arr[0];
@@ -178,7 +185,7 @@ namespace Note
         [Beta]
         public static double SubtractAll(this short[] arr)
         {
-            ThrowExcIfNull(arr);
+            Contract.Requires<ArgumentNullException>(arr != null, nameof(arr));
             if (arr.Length == 1)
             {
                 return arr[0];
@@ -196,7 +203,7 @@ namespace Note
         [Beta]
         public static double SubtractAll(this int[] arr)
         {
-            ThrowExcIfNull(arr);
+            Contract.Requires<ArgumentNullException>(arr != null, nameof(arr));
             if (arr.Length == 1)
             {
                 return arr[0];
@@ -214,7 +221,7 @@ namespace Note
         [Beta]
         public static double SubtractAll(this long[] arr)
         {
-            ThrowExcIfNull(arr);
+            Contract.Requires<ArgumentNullException>(arr != null, nameof(arr));
             if (arr.Length == 1)
             {
                 return arr[0];
@@ -236,8 +243,8 @@ namespace Note
         [Beta]
         public static double SubtractAll(this float[] arr)
         {
-            ThrowExcIfNull(arr);
-            if(arr.Length == 1)
+            Contract.Requires<ArgumentNullException>(arr != null, nameof(arr));
+            if (arr.Length == 1)
             {
                 return arr[0];
             }
@@ -255,41 +262,7 @@ namespace Note
         /// <typeparam name="T">The type of the array</typeparam>
         /// <param name="array">The array to be used</param>
         /// <returns></returns>
-        public static bool IsNullOrEmpty<T>(this T[] array) => array == null || array.Length == 0;
-
-        /// <summary>
-        /// Throws an ArgumentNullException if an array is null
-        /// </summary>
-        /// <typeparam name="T">The type to be used</typeparam>
-        /// <param name="array">The array to be used</param>
-        public static void ThrowExcIfNull<T>(this T[] array)
-        {
-            if (array == null) throw new ArgumentNullException("Array is null");
-        }
-
-        /// <summary>
-        /// Throws an IndexOutOfRangeException if an array's Length is 0
-        /// </summary>
-        /// <typeparam name="T">The type to be used</typeparam>
-        /// <param name="array">The array to be used</param>
-        public static void ThrowExcIfEmpty<T>(this T[] array)
-        {
-            if (array.Length == 0) throw new IndexOutOfRangeException("Array is of length 0");
-        }
-
-        /// <summary>
-        /// Throws an ArgumentNullException if an array is null, otherwise, 
-        /// throws an IndexOutOfRangeException if an array is of length 0.
-        /// </summary>
-        /// <typeparam name="T">The type of the array</typeparam>
-        /// <param name="array">The array to be used</param>
-        /// <exception cref="ArgumentOutOfRangeException">If the array is null</exception>
-        /// <exception cref="IndexOutOfRangeException">If the array is of length 0</exception>
-        public static void ThrowExcIfNullOrEmpty<T>(this T[] array)
-        {
-            ThrowExcIfNull(array);
-            ThrowExcIfEmpty(array);
-        }
+        public static bool IsNullOrEmpty<T>(T[] array) => array == null || array.Length == 0;
 
         /// <summary>
         /// Inserts the specified element at the specified index in the array (modifying the original array).
@@ -329,6 +302,10 @@ namespace Note
         /// </code>
         public static T[] InsertInto<T>(ref T[] arr, int startIdx, int amtToIns, params T[] valuesToIns)
         {
+            if(arr == null || valuesToIns == null) 
+            {
+                throw new ArgumentNullException();
+            }
             if (startIdx < 0 || startIdx >= arr.Length || amtToIns < 0)
             {
                 throw new IndexOutOfRangeException();
@@ -337,8 +314,9 @@ namespace Note
             {
                 throw new IndexOutOfRangeException("offset amount should equal the number of values to be filled");
             }
-
             T[] arr_managed = new T[arr.Length + amtToIns];
+            Contract.Ensures(Contract.Result<T[]>() != null);
+            Contract.EndContractBlock();
 
             if (amtToIns != 0)
             {
@@ -402,12 +380,16 @@ namespace Note
         {
             int frl = formattingRegex.Length;
 
-            ThrowExcIfNull(arr);
+            if (arr == null) throw new ArgumentNullException(nameof(arr));
 
             if (frl < 0 || frl > 3)
             {
                 throw new FormatException("Unsupported Regular Expression");
             }
+            
+            Contract.Ensures(Contract.Result<T[]>() != null);
+            Contract.EndContractBlock();
+
             string outerLeft = string.Empty, separator = string.Empty, outerRight = string.Empty;
             bool hasNoSep = false;
             if (formattingRegex.Equals("/0+"))

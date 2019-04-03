@@ -2,14 +2,26 @@
 
 namespace Note.UtilExceptions
 {
-    class InsufficientDataSetException : Exception
+    [Serializable()]
+    public class InsufficientDataSetException : Exception
     {
-        public InsufficientDataSetException(string msg) : base(msg) {}
+        public InsufficientDataSetException() : base() { }
+        public InsufficientDataSetException(string message) : base(message) { }
+        public InsufficientDataSetException(string message, System.Exception inner) : base(message, inner) { }
+
+        protected InsufficientDataSetException(System.Runtime.Serialization.SerializationInfo info,
+            System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
     }
 
-    class NoModeException : Exception
+    [Serializable()]
+    public class NoModeException : Exception
     {
-        public NoModeException(string msg) : base(msg) {}
+        public NoModeException() : base() { }
+        public NoModeException(string message) : base(message) { }
+        public NoModeException(string message, System.Exception inner) : base(message, inner) { }
+
+        protected NoModeException(System.Runtime.Serialization.SerializationInfo info,
+            System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
     }
 }
 

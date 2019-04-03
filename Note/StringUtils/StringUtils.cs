@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Note.Attributes;
+using System.Diagnostics.Contracts;
 
 namespace Note
 {
@@ -24,10 +25,8 @@ namespace Note
         /// <returns>The reversed string</returns>
         public static string Reverse(this string str)
         {
-            if (str == null)
-            {
-                throw new ArgumentNullException();
-            }
+            if(str == null) throw new ArgumentNullException(nameof(str));
+            Contract.EndContractBlock();
             if(str.Length == 0)
             {
                 return string.Empty;
@@ -45,10 +44,8 @@ namespace Note
         /// <returns>The string retaining the first word</returns>
         public static string Chomp(this string str)
         {
-            if (str == null)
-            {
-                throw new ArgumentNullException();
-            }
+            if(str == null) throw new ArgumentNullException(nameof(str));
+            Contract.EndContractBlock();
             if (str.Length == 0)
             {
                 return string.Empty;
@@ -73,10 +70,8 @@ namespace Note
         /// <returns>The string retaining the chomped word</returns>
         public static string ChompAfter(this string str, int spaces)
         {
-            if (str == null)
-            {
-                throw new ArgumentNullException();
-            }
+            if(str == null) throw new ArgumentNullException(nameof(str));
+            Contract.EndContractBlock();
             if (str.Length == 0)
             {
                 return string.Empty;
@@ -110,10 +105,8 @@ namespace Note
         /// <returns>The number of words in the string</returns>
         public static int CountWords(this string str)
         {
-            if (str == null)
-            {
-                throw new ArgumentNullException();
-            }
+            if(str == null) throw new ArgumentNullException(nameof(str));
+            Contract.EndContractBlock();
             if (str.Length == 0)
             {
                 return 0;
@@ -130,10 +123,9 @@ namespace Note
         /// <returns>The string with all characters in args removed</returns>
         public static string RemoveAll(this string str, params char[] args)
         {
-            if (str == null || args == null)
-            {
-                throw new ArgumentNullException();
-            }
+            if(str == null) throw new ArgumentNullException(nameof(str));
+            if (args == null) throw new ArgumentNullException(nameof(args));
+            Contract.EndContractBlock();
             if (args.Length == 0)
             {
                 return str;
@@ -157,12 +149,11 @@ namespace Note
         /// <param name="args">The characters which will be removed</param>
         /// <exception cref="ArgumentNullException">Thrown when the string is null</exception>
         /// <returns>The string with all characters in args removed</returns>
-        public static string RemoveAll(this string str, params string[] args)
+        public static string RemoveAllInnerStrings(this string str, params string[] args)
         {
-            if (str == null || args == null)
-            {
-                throw new ArgumentNullException();
-            }
+            if(str == null) throw new ArgumentNullException(nameof(str));
+            if (args == null) throw new ArgumentNullException(nameof(args));
+            Contract.EndContractBlock();
             if (args.Length == 0)
             {
                 return str;
@@ -197,10 +188,9 @@ namespace Note
         /// <returns>The string with all characters in args removed</returns>
         public static string RemoveAllIgnoreCase(this string str, params char[] args)
         {
-            if (str == null || args == null)
-            {
-                throw new ArgumentNullException();
-            }
+            if(str == null) throw new ArgumentNullException(nameof(str));
+            if (args == null) throw new ArgumentNullException(nameof(args));
+            Contract.EndContractBlock();
             if (args.Length == 0)
             {
                 return str;
@@ -225,13 +215,12 @@ namespace Note
         /// <param name="args">The characters which will be removed</param>
         /// <exception cref="ArgumentNullException">Thrown when the string is null</exception>
         /// <returns>The string with all characters in args removed</returns>
-        public static string RemoveAllIgnoreCase(this string str, params string[] args)
+        public static string RemoveAllInnerStringsIgnoreCase(this string str, params string[] args)
         {
-            if (str == null || args == null)
-            {
-                throw new ArgumentNullException();
-            }
-            if(args.Length == 0)
+            if(str == null) throw new ArgumentNullException(nameof(str));
+            if (args == null) throw new ArgumentNullException(nameof(args));
+            Contract.EndContractBlock();
+            if (args.Length == 0)
             {
                 return str;
             }
@@ -264,10 +253,8 @@ namespace Note
         /// <returns>True if the string contains any digits, false otherwise</returns>
         public static bool ContainsDigits(this string str)
         {
-            if (str == null)
-            {
-                throw new ArgumentNullException();
-            }
+            if(str == null) throw new ArgumentNullException(nameof(str));
+            Contract.EndContractBlock();
             if (str.Length == 0)
             {
                 return false;
@@ -283,10 +270,8 @@ namespace Note
         /// <returns>The string represented as a List</returns>
         public static List<char> ToList(this string str)
         {
-            if (str == null)
-            {
-                throw new ArgumentNullException();
-            }
+            if(str == null) throw new ArgumentNullException(nameof(str));
+            Contract.EndContractBlock();
             if (str.Length == 0)
             {
                 return new List<char>(0);
@@ -308,10 +293,9 @@ namespace Note
         /// <returns>True if the string is a valid date recognized by System.DateTime</returns>
         public static bool IsSystemDateTime(this string date, string formattingRegex)
         {
-            if (date == null || formattingRegex == null)
-            {
-                throw new ArgumentNullException();
-            }
+            if (date == null) throw new ArgumentNullException(nameof(date));
+            if (formattingRegex == null) throw new ArgumentNullException(nameof(formattingRegex));
+            Contract.EndContractBlock();
             if (date.Length == 0 || formattingRegex.Length == 0)
             {
                 return false;
@@ -327,10 +311,8 @@ namespace Note
         /// <returns>True if the string strictly increases</returns>
         public static bool IsStrictlyIncreasing(this string str)
         {
-            if (str == null)
-            {
-                throw new ArgumentNullException();
-            }
+            if(str == null) throw new ArgumentNullException(nameof(str));
+            Contract.EndContractBlock();
             if (str.Length == 0)
             {
                 return false;
@@ -351,10 +333,8 @@ namespace Note
         /// <returns>True if the string strictly increases</returns>
         public static bool IsStrictlyIncreasingIgnoreCase(this string str)
         {
-            if (str == null)
-            {
-                throw new ArgumentNullException();
-            }
+            if(str == null) throw new ArgumentNullException(nameof(str));
+            Contract.EndContractBlock();
             if (str.Length == 0)
             {
                 return false;
@@ -375,10 +355,8 @@ namespace Note
         /// <returns>True if the string strictly increases</returns>
         public static bool IsStrictlyDecreasing(this string str)
         {
-            if (str == null)
-            {
-                throw new ArgumentNullException();
-            }
+            if(str == null) throw new ArgumentNullException(nameof(str));
+            Contract.EndContractBlock();
             if (str.Length == 0)
             {
                 return false;
@@ -399,10 +377,8 @@ namespace Note
         /// <returns>True if the string strictly increases</returns>
         public static bool IsStrictlyDecreasingIgnoreCase(this string str)
         {
-            if (str == null)
-            {
-                throw new ArgumentNullException();
-            }
+            if(str == null) throw new ArgumentNullException(nameof(str));
+            Contract.EndContractBlock();
             if (str.Length == 0)
             {
                 return false;
@@ -422,10 +398,8 @@ namespace Note
         /// <returns>True if the string is a palindrome</returns>
         public static bool IsPalindrome(this string str)
         {
-            if (str == null)
-            {
-                throw new ArgumentNullException();
-            }
+            if(str == null) throw new ArgumentNullException(nameof(str));
+            Contract.EndContractBlock();
             if (str.Length == 0)
             {
                 return true; //empty string is a palindrome!
@@ -450,10 +424,8 @@ namespace Note
         /// <returns>True if the string is a palindrome</returns>
         public static bool IsPalindromeIgnoreCase(this string str)
         {
-            if (str == null)
-            {
-                throw new ArgumentNullException();
-            }
+            if(str == null) throw new ArgumentNullException(nameof(str));
+            Contract.EndContractBlock();
             if (str.Length == 0)
             {
                 return true;

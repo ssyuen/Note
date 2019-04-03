@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Note.UtilExceptions;
 using Note.Attributes;
+using System.Diagnostics.Contracts;
 
 namespace Note
 {
     [Author("Sam Yuen")]
-    [CoAuthor("Manu Puduvalli")]
+    [Author("Manu Puduvalli")]
     public static class ArrayStats
     {
         /*
@@ -20,10 +21,13 @@ namespace Note
         /// </summary>
         /// <param name="a">The byte type array</param>
         /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">If the array is of length 0</exception>
         /// <returns>The average of all the elements in the array</returns>
-        public static double Mean(this byte[] a)
+        public static double Mean (this byte[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
 
             if (a.Length == 1)
             {
@@ -46,11 +50,13 @@ namespace Note
         /// </summary>
         /// <param name="a">The short type array</param>
         /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">If the array is of length 0</exception>
         /// <returns>The average of all the elements in the array</returns>
         public static double Mean(this short[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
-
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -72,11 +78,13 @@ namespace Note
         /// </summary>
         /// <param name="a">The byte type array</param>
         /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">If the array is of length 0</exception>
         /// <returns>The average of all the elements in the array</returns>
         public static double Mean(this int[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
-
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -98,11 +106,13 @@ namespace Note
         /// </summary>
         /// <param name="a">The long type array</param>
         /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">If the array is of length 0</exception>
         /// <returns>The average of all the elements in the array</returns>
         public static double Mean(this long[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
-
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -124,11 +134,13 @@ namespace Note
         /// </summary>
         /// <param name="a">The float type array</param>
         /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">If the array is of length 0</exception>
         /// <returns>The average of all the elements in the array</returns>
         public static double Mean(this float[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
-
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -150,11 +162,13 @@ namespace Note
         /// </summary>
         /// <param name="a">The double type array</param>
         /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
+        /// <exception cref="IndexOutOfRangeException">If the array is of length 0</exception>
         /// <returns>The average of all the elements in the array</returns>
         public static double Mean(this double[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
-
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -180,8 +194,9 @@ namespace Note
         /// <returns>The median of all the elements in the array</returns>
         public static double Median(this byte[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
-
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -207,8 +222,9 @@ namespace Note
         /// <returns>The median of all the elements in the array</returns>
         public static double Median(this short[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
-
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -233,8 +249,9 @@ namespace Note
         /// <returns>The median of all the elements in the array</returns>
         public static double Median(this int[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
-
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -259,8 +276,9 @@ namespace Note
         /// <returns>The median of all the elements in the array</returns>
         public static double Median(this long[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
-
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -285,8 +303,9 @@ namespace Note
         /// <returns>The median of all the elements in the array</returns>
         public static double Median(this float[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
-
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -311,8 +330,9 @@ namespace Note
         /// <returns>The median of all the elements in the array</returns>
         public static double Median(this double[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
-
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -338,8 +358,9 @@ namespace Note
         /// <returns>The median of all the elements in the array</returns>
         public static double Mode(this byte[]a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
-
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -383,8 +404,9 @@ namespace Note
         /// <returns>The median of all the elements in the array</returns>
         public static double Mode(this short[]a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
-
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -428,8 +450,9 @@ namespace Note
         /// <returns>The median of all the elements in the array</returns>
         public static double Mode(this int[]a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
-
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -473,8 +496,9 @@ namespace Note
         /// <returns>The median of all the elements in the array</returns>
         public static double Mode(this long[]a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
-
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -518,8 +542,9 @@ namespace Note
         /// <returns>The median of all the elements in the array</returns>
         public static double Mode(this float[]a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
-
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -563,8 +588,9 @@ namespace Note
         /// <returns>The median of all the elements in the array</returns>
         public static double Mode(this double[]a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
-
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -793,6 +819,10 @@ namespace Note
         /// <returns>The sample variance of all the elements in the array</returns>
         public static double SampleVariance(this byte[] a)
         {
+            /*
+             *Since the mean takes care of the exception, we don't need to worry about
+             * it - even though the loop iterates until the length of the array
+             */
             double mean = Mean(a);
             double sum = 0;
             for (int i = 0; i < a.Length; i++)
@@ -1011,8 +1041,10 @@ namespace Note
         /// <returns>The minimum of all the elements in the array</returns>
         public static double Minimum(this byte[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
-            if(a.Length == 1)
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
+            if (a.Length == 1)
             {
                 return a[0];
             } 
@@ -1043,7 +1075,9 @@ namespace Note
         /// <returns>The minimum of all the elements in the array</returns>
         public static double Minimum(this short[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -1075,7 +1109,8 @@ namespace Note
         /// <returns>The minimum of all the elements in the array</returns>
         public static double Minimum(this int[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
             if (a.Length == 1)
             {
                 return a[0];
@@ -1107,7 +1142,9 @@ namespace Note
         /// <returns>The minimum of all the elements in the array</returns>
         public static double Minimum(this long[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -1139,7 +1176,9 @@ namespace Note
         /// <returns>The minimum of all the elements in the array</returns>
         public static double Minimum(this float[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -1171,7 +1210,9 @@ namespace Note
         /// <returns>The minimum of all the elements in the array</returns>
         public static double Minimum(this double[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -1203,7 +1244,9 @@ namespace Note
         /// <returns>The maximum of all the elements in the array</returns>
         public static double Maximum(this byte[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -1235,7 +1278,9 @@ namespace Note
         /// <returns>The maximum of all the elements in the array</returns>
         public static double Maximum(this short[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -1267,7 +1312,9 @@ namespace Note
         /// <returns>The maximum of all the elements in the array</returns>
         public static double Maximum(this int[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -1299,7 +1346,9 @@ namespace Note
         /// <returns>The maximum of all the elements in the array</returns>
         public static double Maximum(this long[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -1332,7 +1381,9 @@ namespace Note
         public static double Maximum(this float[] a)
         {
             //O(n) runtime 
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -1365,7 +1416,9 @@ namespace Note
         public static double Maximum(this double[] a)
         {
             //O(n) runtime 
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -1397,7 +1450,9 @@ namespace Note
         /// <returns>The range of all the elements in the array</returns>
         public static double Range(this byte[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -1415,7 +1470,9 @@ namespace Note
         /// <returns>The range of all the elements in the array</returns>
         public static double Range(this short[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -1433,7 +1490,9 @@ namespace Note
         /// <returns>The range of all the elements in the array</returns>
         public static double Range(this int[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -1451,7 +1510,9 @@ namespace Note
         /// <returns>The range of all the elements in the array</returns>
         public static double Range(this long[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -1469,7 +1530,9 @@ namespace Note
         /// <returns>The range of all the elements in the array</returns>
         public static double Range(this float[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -1487,7 +1550,9 @@ namespace Note
         /// <returns>The range of all the elements in the array</returns>
         public static double Range(this double[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if (a.Length == 1)
             {
                 return a[0];
@@ -1506,13 +1571,16 @@ namespace Note
         /// <returns>The lower quartile of all the elements in the array</returns>
         public static double LowerQuartile(this byte[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
             switch (a.Length)
             { 
                 case 1:
                 case 2:
-                    throw new InsufficientDataSetException("Data set not large enough to calculate an lower quartile");        
+                    throw new InsufficientDataSetException("Data set not large enough to calculate an lower quartile");
+                case 0:
+                    throw new IndexOutOfRangeException(nameof(a));
             }
+            Contract.EndContractBlock();
             var lowerHalf = new int[a.Length / 2];
             return Median(lowerHalf);
         }
@@ -1527,13 +1595,16 @@ namespace Note
         /// <returns>The lower quartile of all the elements in the array</returns>
         public static double LowerQuartile(this short[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
             switch (a.Length)
             {
                 case 1:
                 case 2:
                     throw new InsufficientDataSetException("Data set not large enough to calculate an lower quartile");
+                case 0:
+                    throw new IndexOutOfRangeException(nameof(a));
             }
+            Contract.EndContractBlock();
             var lowerHalf = new int[a.Length / 2];
             return Median(lowerHalf);
         }
@@ -1548,13 +1619,16 @@ namespace Note
         /// <returns>The lower quartile of all the elements in the array</returns>
         public static double LowerQuartile(this int[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
             switch (a.Length)
             {
                 case 1:
                 case 2:
                     throw new InsufficientDataSetException("Data set not large enough to calculate an lower quartile");
+                case 0:
+                    throw new IndexOutOfRangeException(nameof(a));
             }
+            Contract.EndContractBlock();
             var lowerHalf = new int[a.Length / 2];
             return Median(lowerHalf);
         }
@@ -1569,13 +1643,16 @@ namespace Note
         /// <returns>The lower quartile of all the elements in the array</returns>
         public static double LowerQuartile(this long[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
             switch (a.Length)
             {
                 case 1:
                 case 2:
                     throw new InsufficientDataSetException("Data set not large enough to calculate an lower quartile");
+                case 0:
+                    throw new IndexOutOfRangeException(nameof(a));
             }
+            Contract.EndContractBlock();
             var lowerHalf = new int[a.Length / 2];
             return Median(lowerHalf);
         }
@@ -1590,13 +1667,16 @@ namespace Note
         /// <returns>The lower quartile of all the elements in the array</returns>
         public static double LowerQuartile(this float[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
             switch (a.Length)
             {
                 case 1:
                 case 2:
                     throw new InsufficientDataSetException("Data set not large enough to calculate an lower quartile");
+                case 0:
+                    throw new IndexOutOfRangeException(nameof(a));
             }
+            Contract.EndContractBlock();
             var lowerHalf = new int[a.Length / 2];
             return Median(lowerHalf);
         }
@@ -1611,13 +1691,16 @@ namespace Note
         /// <returns>The lower quartile of all the elements in the array</returns>
         public static double LowerQuartile(this double[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
             switch (a.Length)
             {
                 case 1:
                 case 2:
                     throw new InsufficientDataSetException("Data set not large enough to calculate an lower quartile");
+                case 0:
+                    throw new IndexOutOfRangeException(nameof(a));
             }
+            Contract.EndContractBlock();
             var lowerHalf = new int[a.Length / 2];
             return Median(lowerHalf);
         }
@@ -1632,13 +1715,16 @@ namespace Note
         /// <returns>The upper quartile of all the elements in the array</returns>
         public static double UpperQuartile(this byte[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
             switch (a.Length)
             {
                 case 1:
                 case 2:
                     throw new InsufficientDataSetException("Data set not large enough to calculate an upper quartile");
+                case 0:
+                    throw new IndexOutOfRangeException(nameof(a));
             }
+            Contract.EndContractBlock();
             var upperHalf = new int[a.Length / 2];
             return Median(upperHalf);
         }
@@ -1653,13 +1739,16 @@ namespace Note
         /// <returns>The upper quartile of all the elements in the array</returns>
         public static double UpperQuartile(this short[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
             switch (a.Length)
             {
                 case 1:
                 case 2:
                     throw new InsufficientDataSetException("Data set not large enough to calculate an upper quartile");
+                case 0:
+                    throw new IndexOutOfRangeException(nameof(a));
             }
+            Contract.EndContractBlock();
             var upperHalf = new int[a.Length / 2];
             return Median(upperHalf);
         }
@@ -1674,13 +1763,16 @@ namespace Note
         /// <returns>The upper quartile of all the elements in the array</returns>
         public static double UpperQuartile(this int[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
             switch (a.Length)
             {
                 case 1:
                 case 2:
                     throw new InsufficientDataSetException("Data set not large enough to calculate an upper quartile");
+                case 0:
+                    throw new IndexOutOfRangeException(nameof(a));
             }
+            Contract.EndContractBlock();
             var upperHalf = new int[a.Length / 2];
             return Median(upperHalf);
         }
@@ -1695,13 +1787,16 @@ namespace Note
         /// <returns>The upper quartile of all the elements in the array</returns>
         public static double UpperQuartile(this long[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
             switch (a.Length)
             {
                 case 1:
                 case 2:
                     throw new InsufficientDataSetException("Data set not large enough to calculate an upper quartile");
+                case 0:
+                    throw new IndexOutOfRangeException(nameof(a));
             }
+            Contract.EndContractBlock();
             var upperHalf = new int[a.Length / 2];    
             return Median(upperHalf);
         }
@@ -1716,13 +1811,16 @@ namespace Note
         /// <returns>The upper quartile of all the elements in the array</returns>
         public static double UpperQuartile(this float[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
             switch (a.Length)
             {
                 case 1:
                 case 2:
                     throw new InsufficientDataSetException("Data set not large enough to calculate an upper quartile");
+                case 0:
+                    throw new IndexOutOfRangeException(nameof(a));
             }
+            Contract.EndContractBlock();
             var upperHalf = new int[a.Length / 2];
             return Median(upperHalf);
         }
@@ -1737,13 +1835,16 @@ namespace Note
         /// <returns>The upper quartile of all the elements in the array</returns>
         public static double UpperQuartile(this double[] a)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
             switch (a.Length)
             {
                 case 1:
                 case 2:
                     throw new InsufficientDataSetException("Data set not large enough to calculate an upper quartile");
+                case 0:
+                    throw new IndexOutOfRangeException(nameof(a));
             }
+            Contract.EndContractBlock();
             var upperHalf = new int[a.Length / 2];
             return Median(upperHalf);
         }
@@ -1752,9 +1853,6 @@ namespace Note
         /// Finds the inter-quartile range of the array.
         /// </summary>
         /// <param name="a">The array of type byte</param>
-        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
-        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
-        /// <exception cref="InsufficientDataSetException">Thrown when the data set is not large enough to calculate an IQR</exception>
         /// <returns>The inter-quartile range of all the elements in the array</returns>
         public static double InterQuartileRange(this byte[] a)
         {
@@ -1767,9 +1865,6 @@ namespace Note
         /// Finds the inter-quartile range of the array.
         /// </summary>
         /// <param name="a">The array of type short</param>
-        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
-        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
-        /// <exception cref="InsufficientDataSetException">Thrown when the data set is not large enough to calculate an IQR</exception>
         /// <returns>The inter-quartile range of all the elements in the array</returns>
         public static double InterQuartileRange(this short[] a)
         {
@@ -1782,9 +1877,6 @@ namespace Note
         /// Finds the inter-quartile range of the array.
         /// </summary>
         /// <param name="a">The array of type int</param>
-        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
-        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
-        /// <exception cref="InsufficientDataSetException">Thrown when the data set is not large enough to calculate an IQR</exception>
         /// <returns>The inter-quartile range of all the elements in the array</returns>
         public static double InterQuartileRange(this int[] a)
         {
@@ -1797,9 +1889,6 @@ namespace Note
         /// Finds the inter-quartile range of the array.
         /// </summary>
         /// <param name="a">The array of type long</param>
-        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
-        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
-        /// <exception cref="InsufficientDataSetException">Thrown when the data set is not large enough to calculate an IQR</exception>
         /// <returns>The inter-quartile range of all the elements in the array</returns>
         public static double InterQuartileRange(this long[] a)
         {
@@ -1812,9 +1901,6 @@ namespace Note
         /// Finds the inter-quartile range of the array.
         /// </summary>
         /// <param name="a">The array of type float</param>
-        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
-        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
-        /// <exception cref="InsufficientDataSetException">Thrown when the data set is not large enough to calculate an IQR</exception>
         /// <returns>The inter-quartile range of all the elements in the array</returns>
         public static double InterQuartileRange(this float[] a)
         {
@@ -1827,9 +1913,6 @@ namespace Note
         /// Finds the inter-quartile range of the array.
         /// </summary>
         /// <param name="a">The array of type double</param>
-        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
-        /// <exception cref="IndexOutOfRangeException">Thrown when the array is of size 0</exception>
-        /// <exception cref="InsufficientDataSetException">Thrown when the data set is not large enough to calculate an IQR</exception>
         /// <returns>The inter-quartile range of all the elements in the array</returns>
         public static double InterQuartileRange(this double[] a)
         {
@@ -1848,7 +1931,9 @@ namespace Note
         /// <returns>Returns whether if the data set is normally distributed for a proportion.</returns>
         public static bool IsNormalProp(byte[] a, double samstat)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if ((a.Length * samstat) <= 15) return false;
             return (a.Length * (1 - samstat)) <= 15 ? false : true;
         }
@@ -1863,7 +1948,9 @@ namespace Note
         /// <returns>Returns whether if the data set is normally distributed for a proportion.</returns>
         public static bool IsNormalProp(short[] a, double samstat)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if ((a.Length * samstat) <= 15) return false;
             return (a.Length * (1 - samstat)) <= 15 ? false : true;
         }
@@ -1878,7 +1965,9 @@ namespace Note
         /// <returns>Returns whether if the data set is normally distributed for a proportion.</returns>
         public static bool IsNormalProp(int[] a, double samstat)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if ((a.Length * samstat) <= 15) return false;
             return (a.Length * (1 - samstat)) <= 15 ? false : true;
         }
@@ -1893,7 +1982,8 @@ namespace Note
         /// <returns>Returns whether if the data set is normally distributed for a proportion.</returns>
         public static bool IsNormalProp(long[] a, double samstat)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
             if ((a.Length * samstat) <= 15) return false;
             return (a.Length * (1 - samstat)) <= 15 ? false : true;
         }
@@ -1908,7 +1998,9 @@ namespace Note
         /// <returns>Returns whether if the data set is normally distributed for a proportion.</returns>
         public static bool IsNormalProp(float[] a, double samstat)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if ((a.Length * samstat) <= 15) return false;
             return (a.Length * (1 - samstat)) <= 15 ? false : true;
         }
@@ -1923,7 +2015,9 @@ namespace Note
         /// <returns>Returns whether if the data set is normally distributed for a proportion.</returns>
         public static bool IsNormalProp(double[] a, double samstat)
         {
-            ArrayUtils.ThrowExcIfNullOrEmpty(a);
+            if (a == null) throw new ArgumentNullException(nameof(a));
+            if (a.Length == 0) throw new IndexOutOfRangeException(nameof(a));
+            Contract.EndContractBlock();
             if ((a.Length * samstat) <= 15) return false;
             return (a.Length * (1 - samstat)) <= 15 ? false : true;
         }
@@ -1933,8 +2027,6 @@ namespace Note
         /// </summary>
         /// <param name="a">The array of type byte</param>
         /// <param name="samstat">The sample statistic</param>
-        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
-        /// <exception cref="IndexOutOfRangeException">If the array is of length 0</exception>
         /// <returns>Returns whether if the data set is normally distributed for a mean.</returns>
         public static bool IsNormalMean(this byte[] a, double samstat) => !(Math.Abs(Mode(a)) > TOLERANCE);
 
@@ -1943,8 +2035,6 @@ namespace Note
         /// </summary>
         /// <param name="a">The array of type short</param>
         /// <param name="samstat">The sample statistic</param>
-        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
-        /// <exception cref="IndexOutOfRangeException">If the array is of length 0</exception>
         /// <returns>Returns whether if the data set is normally distributed for a mean.</returns>
         public static bool IsNormalMean(this short[] a, double samstat) => !(Math.Abs(Mode(a)) > TOLERANCE);
 
@@ -1953,8 +2043,6 @@ namespace Note
         /// </summary>
         /// <param name="a">The array of type int</param>
         /// <param name="samstat">The sample statistic</param>
-        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
-        /// <exception cref="IndexOutOfRangeException">If the array is of length 0</exception>
         /// <returns>Returns whether if the data set is normally distributed for a mean.</returns>
         public static bool IsNormalMean(this int[] a, double samstat) => !(Math.Abs(Mode(a)) > TOLERANCE);
 
@@ -1963,8 +2051,6 @@ namespace Note
         /// </summary>
         /// <param name="a">The array of type long</param>
         /// <param name="samstat">The sample statistic</param>
-        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
-        /// <exception cref="IndexOutOfRangeException">If the array is of length 0</exception>
         /// <returns>Returns whether if the data set is normally distributed for a mean.</returns>
         public static bool IsNormalMean(this long[] a, double samstat) => !(Math.Abs(Mode(a)) > TOLERANCE);
 
@@ -1973,8 +2059,6 @@ namespace Note
         /// </summary>
         /// <param name="a">The array of type float</param>
         /// <param name="samstat">The sample statistic</param>
-        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
-        /// <exception cref="IndexOutOfRangeException">If the array is of length 0</exception>
         /// <returns>Returns whether if the data set is normally distributed for a mean.</returns>
         public static bool IsNormalMean(this float[] a, double samstat) => !(Math.Abs(Mode(a)) > TOLERANCE);
 
@@ -1983,8 +2067,6 @@ namespace Note
         /// </summary>
         /// <param name="a">The array of type double</param>
         /// <param name="samstat">The sample statistic</param>
-        /// <exception cref="ArgumentNullException">Thrown when the array is null</exception>
-        /// <exception cref="IndexOutOfRangeException">If the array is of length 0</exception>
         /// <returns>Returns whether if the data set is normally distributed for a mean.</returns>
         public static bool IsNormalMean(this double[] a, double samstat) => !(Math.Abs(Mode(a)) > TOLERANCE);
 

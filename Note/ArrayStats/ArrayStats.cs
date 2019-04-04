@@ -69,7 +69,6 @@ namespace Note
             {
                 sum += a[i];
             }
-
             return avg = sum / denom;
         }
 

@@ -16,7 +16,7 @@ namespace Note
         /// </summary>
         /// <typeparam name="T">The type to be used</typeparam>
         /// <param name="arrays">An array of all one dimensional arrays to be concatenated</param>
-        /// <exception cref="ArgumentNullException">If any array, which is a candidate to be concatenated, is null</exception>
+        /// <exception cref="ArgumentNullException"> Is thrown if any array, which is a candidate to be concatenated, is null</exception>
         /// <returns>A single array with all of the concatenated elements</returns>
         /// <example>This sample shows how to call the <see cref="Concat{T}(T[][])"/> method.</example>
         /// <code>
@@ -64,7 +64,8 @@ namespace Note
         [Beta]
         public static double AddAll(this byte[] arr)
         {
-            Contract.Requires<ArgumentNullException>(arr != null, nameof(arr));
+            if(arr == null) throw new ArgumentNullException(nameof(arr));
+            Contract.EndContractBlock();
 
             if (arr.Length == 1)
             {
@@ -83,8 +84,8 @@ namespace Note
         [Beta]
         public static double AddAll(this short[] arr)
         {
-            Contract.Requires<ArgumentNullException>(arr != null, nameof(arr));
-
+            if(arr == null) throw new ArgumentNullException(nameof(arr));
+            Contract.EndContractBlock();
             if (arr.Length == 1)
             {
                 return arr[0];
@@ -102,7 +103,8 @@ namespace Note
         [Beta]
         public static double AddAll(this int[] arr)
         {
-            Contract.Requires<ArgumentNullException>(arr != null, nameof(arr));
+            if(arr == null) throw new ArgumentNullException(nameof(arr));
+            Contract.EndContractBlock();
 
             if (arr.Length == 1)
             {
@@ -121,7 +123,8 @@ namespace Note
         [Beta]
         public static double AddAll(this long[] arr)
         {
-            Contract.Requires<ArgumentNullException>(arr != null, nameof(arr));
+            if(arr == null) throw new ArgumentNullException(nameof(arr));
+            Contract.EndContractBlock();
 
             if (arr.Length == 1)
             {
@@ -144,7 +147,8 @@ namespace Note
         [Beta]
         public static double AddAll(this float[] arr)
         {
-            Contract.Requires<ArgumentNullException>(arr != null, nameof(arr));
+            if(arr == null) throw new ArgumentNullException(nameof(arr));
+            Contract.EndContractBlock();
 
             if (arr.Length == 1)
             {
@@ -167,7 +171,9 @@ namespace Note
         [Beta]
         public static double SubtractAll(this byte[] arr)
         {
-            Contract.Requires<ArgumentNullException>(arr != null, nameof(arr));
+            if(arr == null) throw new ArgumentNullException(nameof(arr));
+            Contract.EndContractBlock();
+
             if (arr.Length == 1)
             {
                 return arr[0];
@@ -185,7 +191,9 @@ namespace Note
         [Beta]
         public static double SubtractAll(this short[] arr)
         {
-            Contract.Requires<ArgumentNullException>(arr != null, nameof(arr));
+            if(arr == null) throw new ArgumentNullException(nameof(arr));
+            Contract.EndContractBlock();
+            
             if (arr.Length == 1)
             {
                 return arr[0];
@@ -203,7 +211,9 @@ namespace Note
         [Beta]
         public static double SubtractAll(this int[] arr)
         {
-            Contract.Requires<ArgumentNullException>(arr != null, nameof(arr));
+            if(arr == null) throw new ArgumentNullException(nameof(arr));
+            Contract.EndContractBlock();
+
             if (arr.Length == 1)
             {
                 return arr[0];
@@ -221,7 +231,9 @@ namespace Note
         [Beta]
         public static double SubtractAll(this long[] arr)
         {
-            Contract.Requires<ArgumentNullException>(arr != null, nameof(arr));
+            if(arr == null) throw new ArgumentNullException(nameof(arr));
+            Contract.EndContractBlock();
+
             if (arr.Length == 1)
             {
                 return arr[0];
@@ -243,7 +255,9 @@ namespace Note
         [Beta]
         public static double SubtractAll(this float[] arr)
         {
-            Contract.Requires<ArgumentNullException>(arr != null, nameof(arr));
+            if(arr == null) throw new ArgumentNullException(nameof(arr));
+            Contract.EndContractBlock();
+
             if (arr.Length == 1)
             {
                 return arr[0];
